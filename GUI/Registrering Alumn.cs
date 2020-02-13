@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLayer;
-
+using System.Security.Cryptography;
 namespace GUI
 {
     public partial class Registrering_Alumn : Form
@@ -15,8 +15,9 @@ namespace GUI
         BusinessManager bm = new BusinessManager();
         public Registrering_Alumn()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
+
 
         private void lösenordTB_TextChanged(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace GUI
         {
             if (showPWCheckbox.Checked) lösenordTB.UseSystemPasswordChar = false;
             else lösenordTB.UseSystemPasswordChar = true;
+
         }
 
         private void showPW2checkbox_CheckedChanged(object sender, EventArgs e)
@@ -42,8 +44,10 @@ namespace GUI
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+
             string fullname = namnTB.Text + " " + enamnTB.Text;
-           Alumn alumn = new Alumn(fullname,emailTB.Text,tlfnnrTB.Text,utbildningCBox.Text,lösenordTB.Text);
+            string lösenordhacker = Encrypt(lösenordTB.Text);
+            Alumn alumn = new Alumn(fullname, emailTB.Text, tlfnnrTB.Text, utbildningCBox.Text, lösenordhacker);
             bm.AddAlumn(alumn);
 
             MessageBox.Show("jalla klar");
@@ -65,5 +69,13 @@ namespace GUI
         {
 
         }
+         static string Encrypt(string value)
+        {
+            using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding utf8 = new UTF8Encoding();
+            byte[] data = md5.ComputeHash(utf8.GetBytes(value));
+            return Convert.ToBase64String(data);
+        }
+
     }
 }
