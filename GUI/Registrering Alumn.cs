@@ -46,11 +46,12 @@ namespace GUI
         {
 
             string fullname = namnTB.Text + " " + enamnTB.Text;
-            string lösenordhacker = Encrypt(lösenordTB.Text);
+            string lösenordhacker = BusinessManager.Encrypt(lösenordTB.Text);
             Alumn alumn = new Alumn(fullname, emailTB.Text, tlfnnrTB.Text, utbildningCBox.Text, lösenordhacker);
             bm.AddAlumn(alumn);
 
-            MessageBox.Show("jalla klar");
+            MessageBox.Show(lösenordTB.Text);
+
             this.Close();
             Owner.Show();
         }
@@ -69,13 +70,8 @@ namespace GUI
         {
 
         }
-         static string Encrypt(string value)
-        {
-            using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            UTF8Encoding utf8 = new UTF8Encoding();
-            byte[] data = md5.ComputeHash(utf8.GetBytes(value));
-            return Convert.ToBase64String(data);
-        }
+  
+        
 
     }
 }

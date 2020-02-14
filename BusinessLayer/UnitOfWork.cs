@@ -10,6 +10,8 @@ namespace BusinessLayer
           public  EmployeeRepository empr = new EmployeeRepository();
            public AlumnRepository ar = new AlumnRepository();
            public EventRepository er = new EventRepository();
-        
+
+
     }
+    
 }
