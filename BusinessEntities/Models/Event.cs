@@ -10,9 +10,9 @@ namespace BusinessEntities.Models
         public int EventId { get; private set; }
         public string Title { get; private set; }
         public string Description {  get; private set; }
-        public DateTime StartDate { get; private set; }
-        public DateTime EndDate { get; private set; }
-        public DateTime LastApplyingDate { get; private set; }
+        public DateTimeOffset StartDate { get; private set; }
+        public DateTimeOffset EndDate { get; private set; }
+        public DateTimeOffset LastApplyingDate { get; private set; }
 
         public int EmployeeId { get; set; }
         public Employee Employee { get; private set; }

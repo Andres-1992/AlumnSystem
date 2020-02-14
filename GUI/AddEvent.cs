@@ -20,7 +20,7 @@ namespace GUI
 
         private void Addbutton1_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = StartDatumPicker1.Value.Date;
+            DateTime StartDate = StartDatumPicker1.Value.ToLocalTime();
             DateTime EndDate = SlutDatumPicker1.Value.Date;
             DateTime LastApplyingDate = LastTimePicker2.Value.Date;
             
@@ -33,6 +33,13 @@ namespace GUI
             MessageBox.Show("Ajde");
             this.Close();
             
+        }
+
+        private void Cancelbutton1_Click(object sender, EventArgs e)
+        {
+            InloggadPersonal inloggadpersonal = new InloggadPersonal();
+            inloggadpersonal.Show();
+            this.Hide();
         }
     }
 

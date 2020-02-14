@@ -97,6 +97,7 @@
             this.Cancelbutton1.TabIndex = 4;
             this.Cancelbutton1.Text = "Cancel";
             this.Cancelbutton1.UseVisualStyleBackColor = true;
+            this.Cancelbutton1.Click += new System.EventHandler(this.Cancelbutton1_Click);
             // 
             // StartDatumPicker1
             // 

@@ -32,5 +32,12 @@ namespace BusinessLayer
             unitOfWork.er.Save();
         }
 
+        public void UpdateEmployee(Employee employee)
+        {
+            UnitOfWork unitOfWork = new UnitOfWork();
+            unitOfWork.empr.Update(employee);
+            unitOfWork.empr.Save();
+        }
+
     }
 }
