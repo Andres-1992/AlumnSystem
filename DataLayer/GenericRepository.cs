@@ -28,7 +28,7 @@ namespace DataLayer
         {
             return table.ToList();
         }
-        public T GetById(object id)
+        public T GetById(int id)
         {
            return  table.Find(id);            
         }
@@ -36,10 +36,17 @@ namespace DataLayer
         {
             table.Add(obj);
         }
-        public void Update(T obj)
+        public void Update(T obj, int id)
         {
-            table.Attach(obj);
-            _context.Entry(obj).State = EntityState.Modified;
+            var qs = table.Find(id);
+            qs = obj;
+
+           table.Update(qs);
+            
+            _context.SaveChanges();
+           // table.Attach(obj);
+            
+            //_context.Entry(obj).State = EntityState.Modified;
         }
         public void Delete(object id)
         {

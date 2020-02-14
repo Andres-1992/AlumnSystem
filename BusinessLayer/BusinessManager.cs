@@ -14,11 +14,11 @@ namespace BusinessLayer
         {
             alumniContext.Database.EnsureCreated();
         }
-       
-        
+
+        UnitOfWork unitOfWork = new UnitOfWork();
         public void AddAlumn(Alumn alumn)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
+            
             alumniContext.SaveChanges();
             unitOfWork.ar.Insert(alumn);
             unitOfWork.ar.Save();
@@ -26,17 +26,26 @@ namespace BusinessLayer
         
         public void AddEvent(Event events)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
+            
             alumniContext.SaveChanges();
             unitOfWork.er.Insert(events);
             unitOfWork.er.Save();
         }
+        public Employee GetById(int id)
+        {
+            
+
+         var qs=   unitOfWork.empr.GetById(4);
+            return qs;
+                
+        }
 
         public void UpdateEmployee(Employee employee)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
-            unitOfWork.empr.Update(employee);
+           
+            unitOfWork.empr.Update(employee, employee.EmployeeId);
             unitOfWork.empr.Save();
+            alumniContext.SaveChanges();
         }
 
     }

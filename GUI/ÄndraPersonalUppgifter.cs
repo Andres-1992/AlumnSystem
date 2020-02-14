@@ -16,15 +16,23 @@ namespace GUI
         public ÄndraPersonalUppgifter()
         {
             InitializeComponent();
+            employee = bm.GetById(4);
+           
+               
+
         }
-        
+        Employee employee;
         private void Applybutton1_Click(object sender, EventArgs e)
         {
-            // öppna upp för att designen ska funka
-            //string fullname = FirstNametextBox1.Text + " " + SurnametextBox1.Text;
-            //Employee employee = new Employee(fullname, EmailtextBox1.Text, PhoneNumbertextBox1.Text);
-            //bm.UpdateEmployee(employee);
-            //MessageBox.Show("Dina uppgifter är uppdaterade");
+
+
+            string fullname = FirstNametextBox1.Text + " " + SurnametextBox1.Text;
+            employee.Name = fullname;
+            employee.Email = EmailtextBox1.Text;
+            employee.Phonenumber = PhoneNumbertextBox1.Text;
+
+            bm.UpdateEmployee(employee);
+            MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 
         private void Cancelbutton1_Click(object sender, EventArgs e)
