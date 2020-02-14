@@ -31,7 +31,13 @@ namespace BusinessLayer
             unitOfWork.er.Insert(events);
             unitOfWork.er.Save();
         }
-        public Employee GetById(int id)
+
+        public Alumn GetById(int id)
+        {
+            var qs = unitOfWork.ar.GetById(3);
+            return qs;
+        }
+        public Employee GetById2(int id)
         {
             
 
@@ -45,6 +51,13 @@ namespace BusinessLayer
            
             unitOfWork.empr.Update(employee, employee.EmployeeId);
             unitOfWork.empr.Save();
+            alumniContext.SaveChanges();
+        }
+
+        public void UpdateAlumn(Alumn alumn)
+        {
+            unitOfWork.ar.Update(alumn, alumn.AlumnId);
+            unitOfWork.ar.Save();
             alumniContext.SaveChanges();
         }
 

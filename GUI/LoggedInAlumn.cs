@@ -13,6 +13,7 @@ namespace GUI
         public LoggedInAlumn()
         {
             InitializeComponent();
+            
         }
 
         private void LogOutbutton2_Click(object sender, EventArgs e)
@@ -24,7 +25,9 @@ namespace GUI
 
         private void Attendbutton1_Click(object sender, EventArgs e)
         {
-
+            AttendEvent deltaievent = new AttendEvent();
+            deltaievent.Show();
+            this.Hide();
         }
 
         private void AccountInfobutton2_Click(object sender, EventArgs e)

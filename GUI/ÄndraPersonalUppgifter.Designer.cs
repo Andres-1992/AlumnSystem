@@ -46,7 +46,7 @@
             this.Cancelbutton1.Name = "Cancelbutton1";
             this.Cancelbutton1.Size = new System.Drawing.Size(75, 23);
             this.Cancelbutton1.TabIndex = 0;
-            this.Cancelbutton1.Text = "Cancel";
+            this.Cancelbutton1.Text = "Avbryt";
             this.Cancelbutton1.UseVisualStyleBackColor = true;
             this.Cancelbutton1.Click += new System.EventHandler(this.Cancelbutton1_Click);
             // 

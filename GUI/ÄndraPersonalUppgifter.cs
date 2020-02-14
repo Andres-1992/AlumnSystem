@@ -13,15 +13,22 @@ namespace GUI
     public partial class ÄndraPersonalUppgifter : Form
     {
         BusinessManager bm = new BusinessManager();
+        Employee employee;
         public ÄndraPersonalUppgifter()
         {
             InitializeComponent();
-            employee = bm.GetById(4);
-           
-               
+            employee = bm.GetById2(4);
+            this.Text = employee.Name;
+            Loaded();
 
         }
-        Employee employee;
+        
+        private void Loaded()
+        {
+            FirstNametextBox1.Text = employee.Name;
+            EmailtextBox1.Text = employee.Email;
+            PhoneNumbertextBox1.Text = employee.Phonenumber;
+        }
         private void Applybutton1_Click(object sender, EventArgs e)
         {
 
