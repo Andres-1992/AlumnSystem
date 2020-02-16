@@ -140,6 +140,7 @@
             this.Controls.Add(this.EmailtextBox);
             this.Controls.Add(this.label3);
             this.Name = "UpdateEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ändra uppgifter";
             this.ResumeLayout(false);
             this.PerformLayout();

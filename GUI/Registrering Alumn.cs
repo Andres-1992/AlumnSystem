@@ -12,20 +12,12 @@ namespace GUI
 {
     public partial class Registrering_Alumn : Form
     {
-        LogIn login;
         BusinessManager businessManager;
         public Registrering_Alumn()
         {
             InitializeComponent();
+            businessManager = new BusinessManager();
         }
-
-        public Registrering_Alumn(BusinessManager bm)
-        {
-
-            InitializeComponent();
-            businessManager = bm;
-        }
-
 
         private void lösenordTB_TextChanged(object sender, EventArgs e)
         {
@@ -51,19 +43,28 @@ namespace GUI
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-
             string fullname = firstNameTextb.Text + " " + surNameTextb.Text;
             string lösenordhacker = BusinessManager.Encrypt(pwTextb.Text);
-            Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text, educationComboBox.Text, lösenordhacker);
-            businessManager.AddAlumn(alumn);
 
-            MessageBox.Show(pwTextb.Text);
-            alumn = null;
-            this.Close();
-            //login = new LogIn();
-            //login.Show();
-            
-            Owner.Show();
+            if (ValidateTextBoxes())
+            {
+                if (pwTextb.Text == confirmPwTextb.Text)
+                {
+                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text, educationComboBox.Text, lösenordhacker, workCheckbox.Checked);
+
+                    businessManager.AddAlumn(alumn);
+                    MessageBox.Show(pwTextb.Text);
+                    this.Close();
+                    Owner.Show();
+                }
+
+                else MessageBox.Show("Lösenord matchar inte varandra");
+
+            }
+            else
+            {
+                MessageBox.Show("Alla fält är inte ifyllda");
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -76,6 +77,28 @@ namespace GUI
             confirmPwTextb.Clear();
         }
 
+        private bool ValidateTextBoxes()
+        {
+            try
+            {
+                string textBoxData = string.Empty;
+
+                foreach (Control item in this.Controls)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+
+                        if (string.IsNullOrEmpty(item.Text))
+                        {
+                            return false;
+                        }
+                        textBoxData += item.Text;
+                    }
+                }
+                return (textBoxData != string.Empty);
+            }
+            catch { return false; }
+        }
 
     }
 }

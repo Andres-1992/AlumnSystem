@@ -51,6 +51,7 @@
             this.ClientSize = new System.Drawing.Size(1223, 450);
             this.Controls.Add(this.label1);
             this.Name = "AttendEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delta i event";
             this.ResumeLayout(false);
             this.PerformLayout();

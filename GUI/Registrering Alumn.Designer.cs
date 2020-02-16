@@ -47,6 +47,7 @@
             this.registerButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.workCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // firstNameTextb
@@ -214,7 +215,7 @@
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(278, 233);
+            this.registerButton.Location = new System.Drawing.Point(280, 255);
             this.registerButton.Margin = new System.Windows.Forms.Padding(2);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(78, 20);
@@ -225,7 +226,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(116, 233);
+            this.clearButton.Location = new System.Drawing.Point(107, 255);
             this.clearButton.Margin = new System.Windows.Forms.Padding(2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(78, 20);
@@ -244,6 +245,18 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "* Obligatoriska fält";
             // 
+            // workCheckbox
+            // 
+            this.workCheckbox.AutoSize = true;
+            this.workCheckbox.Location = new System.Drawing.Point(293, 221);
+            this.workCheckbox.Margin = new System.Windows.Forms.Padding(2);
+            this.workCheckbox.Name = "workCheckbox";
+            this.workCheckbox.Size = new System.Drawing.Size(65, 19);
+            this.workCheckbox.TabIndex = 4;
+            this.workCheckbox.TabStop = false;
+            this.workCheckbox.Text = "Arbetar";
+            this.workCheckbox.UseVisualStyleBackColor = true;
+            // 
             // Registrering_Alumn
             // 
             this.AcceptButton = this.registerButton;
@@ -251,6 +264,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 300);
             this.ControlBox = false;
+            this.Controls.Add(this.workCheckbox);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.tlfnLabel);
             this.Controls.Add(this.namnLabel);
             this.Controls.Add(this.blösenordLabel);
@@ -259,9 +275,7 @@
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.efterNamnLabel);
-            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.emailTextb);
-            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.surNameTextb);
             this.Controls.Add(this.firstNameTextb);
             this.Controls.Add(this.pwTextb);
@@ -272,6 +286,7 @@
             this.Controls.Add(this.phoneNrTextb);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Registrering_Alumn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrering_Alumn";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -299,5 +314,6 @@
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox workCheckbox;
     }
 }

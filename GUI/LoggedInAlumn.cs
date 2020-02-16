@@ -29,8 +29,7 @@ namespace GUI
 
         private void LogOutbutton2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Owner.Show();
+           Owner.Show();
         }
 
         private void Attendbutton1_Click(object sender, EventArgs e)
@@ -43,8 +42,8 @@ namespace GUI
         private void AccountInfobutton2_Click(object sender, EventArgs e)
         {
             UpdateAlumn updateAlumn = new UpdateAlumn(businessManager,alumn);
-            this.Close();
-            updateAlumn.Show();
+            this.Hide();
+            updateAlumn.ShowDialog(this);
         }
     }
 }

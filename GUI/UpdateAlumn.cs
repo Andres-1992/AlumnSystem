@@ -29,13 +29,22 @@ namespace GUI
 
         private void LoadInfo()
         {
-            FirstNametextBox.Text = alumn.Name;
+            var names = alumn.Name.Split(' ');
+
+            FirstNametextBox.Text = names[0];
+            for (int i = 1; i < names.Length; i++)
+            {
+                SurNametextBox.Text += names[i]+" ";
+            }
+
+            
+            
             EmailtextBox.Text = alumn.Email;
             PhoneNumbertextBox.Text = alumn.Phonenumber;
         }
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
-
+            Owner.Show();
         }
 
         private void Applybutton_Click(object sender, EventArgs e)

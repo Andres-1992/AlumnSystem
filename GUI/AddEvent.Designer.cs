@@ -162,6 +162,7 @@
             this.Controls.Add(this.titelLabel1);
             this.Controls.Add(this.EventTitletextBox);
             this.Name = "AddEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEvent";
             this.ResumeLayout(false);
             this.PerformLayout();

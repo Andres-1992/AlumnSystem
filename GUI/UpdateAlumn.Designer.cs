@@ -44,6 +44,7 @@
             // 
             // Cancelbutton
             // 
+            this.Cancelbutton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Cancelbutton.Location = new System.Drawing.Point(12, 303);
             this.Cancelbutton.Name = "Cancelbutton";
             this.Cancelbutton.Size = new System.Drawing.Size(75, 23);
@@ -161,6 +162,7 @@
             this.Controls.Add(this.Applybutton);
             this.Controls.Add(this.Cancelbutton);
             this.Name = "UpdateAlumn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangeAlumnInfo";
             this.ResumeLayout(false);
             this.PerformLayout();

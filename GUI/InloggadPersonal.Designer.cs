@@ -40,7 +40,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(74, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 37);
+            this.label1.Size = new System.Drawing.Size(157, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Välkommen";
             // 
@@ -84,6 +84,7 @@
             this.Controls.Add(this.AccountInfobutton1);
             this.Controls.Add(this.CreateEventbutton1);
             this.Name = "InloggadPersonal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggad";
             this.ResumeLayout(false);
             this.PerformLayout();

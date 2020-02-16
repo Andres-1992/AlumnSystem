@@ -19,7 +19,11 @@ namespace GUI
             InitializeComponent();
             businessmanager = new BusinessManager();
         }
-
+        /// <summary>
+        /// Ändrar namnet på username text box beroende på vilken radiobutton som är markerad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void personalRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (personalRadioButton.Checked)
@@ -45,7 +49,8 @@ namespace GUI
                 {
                     LoggedInAlumn loggedIn = new LoggedInAlumn(businessmanager, a);                    
                     this.Hide();
-                    loggedIn.Show(this);
+                    loggedIn.ShowDialog(this);
+                    ClearTextboxes();
 
                 }
                 else
@@ -67,16 +72,17 @@ namespace GUI
         }
         private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registrering_Alumn ra = new Registrering_Alumn(businessmanager);
+            Registrering_Alumn ra = new Registrering_Alumn();
             this.Hide() ;           
-            ra.ShowDialog(this);          
+            ra.ShowDialog(this);
         }
+        #region hjälpmetoder för textboxes
         /// <summary>
         /// Går igenom alla controller i denna form. Fångar alla textboxar och validerar om 
         /// dom har text. returnerar bool
         /// </summary>
         /// <returns></returns>
-        private bool ValidateTextBoxes()
+        private  bool ValidateTextBoxes()
         {
             try
             {
@@ -98,7 +104,7 @@ namespace GUI
             }
             catch { return false; }
         }
-
+        
         private void userNameTextBox_MouseClick(object sender, MouseEventArgs e)
         {
             userNameTextBox.SelectAll();
@@ -113,6 +119,12 @@ namespace GUI
         {
             passwordTextBox.UseSystemPasswordChar = true;
         }
+        private void ClearTextboxes()
+        {
+            userNameTextBox.Text = idLabel.Text;
+            passwordTextBox.Text = passwordLabel.Text;
+        }
+        #endregion
     }
 
 

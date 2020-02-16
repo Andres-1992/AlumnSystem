@@ -40,7 +40,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(71, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 37);
+            this.label1.Size = new System.Drawing.Size(157, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Välkommen";
             // 
@@ -66,6 +66,7 @@
             // 
             // LogOutbutton2
             // 
+            this.LogOutbutton2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.LogOutbutton2.Location = new System.Drawing.Point(98, 285);
             this.LogOutbutton2.Name = "LogOutbutton2";
             this.LogOutbutton2.Size = new System.Drawing.Size(108, 23);
@@ -74,7 +75,7 @@
             this.LogOutbutton2.UseVisualStyleBackColor = true;
             this.LogOutbutton2.Click += new System.EventHandler(this.LogOutbutton2_Click);
             // 
-            // InloggadAlumn
+            // LoggedInAlumn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +84,8 @@
             this.Controls.Add(this.AccountInfobutton2);
             this.Controls.Add(this.Attendbutton1);
             this.Controls.Add(this.label1);
-            this.Name = "InloggadAlumn";
+            this.Name = "LoggedInAlumn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InloggadAlumn";
             this.ResumeLayout(false);
             this.PerformLayout();
