@@ -7,7 +7,23 @@ using System.Linq;
 
 namespace DataLayer
 {
-  public  class EmployeeRepository : GenericRepository<Employee>
-    { 
+    public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
+    {
+        AlumniContext _context;
+        public EmployeeRepository(AlumniContext context)
+        {
+            _context = context;
+        }
+        /// <summary>
+        /// Test Metod, glöm inte att ta bort onödig metod innan inlämning
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Employee> GetSpecificEmployee()
+        {
+            var result = (from x in _context.Employees
+                          where x.Signature == "JEHSA"
+                          select x).ToList();
+            return result;
+        }
     }
 }

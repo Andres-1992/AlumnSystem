@@ -36,8 +36,13 @@ namespace DataLayer
         {
             table.Add(obj);
         }
-        public void Update(T obj)
+        public void Update(T obj,int id)
         {
+            //var result = table.Find(id);
+            //result = obj;
+
+            //_context.Update(result);
+
             table.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
         }

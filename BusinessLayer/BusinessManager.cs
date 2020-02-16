@@ -11,28 +11,28 @@ namespace BusinessLayer
 {
     public class BusinessManager
     {
- AlumniContext alumniContext = new AlumniContext();
+        AlumniContext alumniContext;
+        UnitOfWork unitOfWork;
+
         public BusinessManager()
         {
+            alumniContext = new AlumniContext();
+            unitOfWork = new UnitOfWork(alumniContext);
             alumniContext.Database.EnsureCreated();
         }
-       
-        
+
         public void AddAlumn(Alumn alumn)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
-          
-            unitOfWork.ar.Insert(alumn);
-            unitOfWork.ar.Save();
+            unitOfWork.Alumns.Insert(alumn);
+            unitOfWork.Alumns.Save();
         }
-        
+
         public void AddEvent(Event events)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
-            
-            unitOfWork.er.Insert(events);
-            unitOfWork.er.Save();
+            unitOfWork.Events.Insert(events);
+            unitOfWork.Events.Save();
         }
+
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -40,11 +40,33 @@ namespace BusinessLayer
             byte[] data = md5.ComputeHash(utf8.GetBytes(value));
             return Convert.ToBase64String(data);
         }
-        public Alumn LogIn(string email,string password)
+
+        public Alumn LogInAlumn(string email, string password)
         {
-            UnitOfWork unitOfWork = new UnitOfWork(); 
-            var result = unitOfWork.ar.Login(email,password);
+            var result = unitOfWork.Alumns.LogIn(email, password);
             return result;
+        }
+
+        public Alumn GetAlumn(int id)
+        {
+            return unitOfWork.Alumns.GetById(id);
+        }
+
+        public Employee GetEmployee(int id)
+        {
+            return unitOfWork.Employees.GetById(id);
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            unitOfWork.Employees.Update(employee, employee.EmployeeId);
+            unitOfWork.Employees.Save();
+        }
+
+        public void UpdateAlumn(Alumn alumn)
+        {
+            unitOfWork.Alumns.Update(alumn, alumn.AlumnId);
+            unitOfWork.Alumns.Save();
         }
 
     }

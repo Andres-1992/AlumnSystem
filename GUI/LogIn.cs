@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BusinessEntities;
+using BusinessLayer;
+namespace GUI
+{
+    public partial class LogIn : Form
+    {
+        BusinessManager businessmanager;
+        public LogIn()
+        {
+            InitializeComponent();
+            businessmanager = new BusinessManager();
+        }
+
+        private void personalRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (personalRadioButton.Checked)
+            {
+                idLabel.Text = "Signatur";
+                userNameTextBox.Text = idLabel.Text;
+            }
+            else
+            {
+                idLabel.Text = "Email";
+                userNameTextBox.Text = idLabel.Text;
+            }
+        }
+        private void logInButton_Click(object sender, EventArgs e)
+        {
+            string username = userNameTextBox.Text;
+            string lösenordhacker = BusinessManager.Encrypt(passwordTextBox.Text);
+
+            if (ValidateTextBoxes())
+            {
+                Alumn a = businessmanager.LogInAlumn(username, lösenordhacker);
+                if (a != null)
+                {
+                    LoggedInAlumn loggedIn = new LoggedInAlumn(businessmanager, a);                    
+                    this.Hide();
+                    loggedIn.Show(this);
+
+                }
+                else
+                {
+                    MessageBox.Show("bror börja om");
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(userNameTextBox.Text))
+                {
+                    MessageBox.Show("Du måste fylla i ditt användarnamn");
+                }
+                if (string.IsNullOrEmpty(passwordTextBox.Text))
+                {
+                    MessageBox.Show("Du måste fylla i ditt lösenord");
+                }
+            }
+        }
+        private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registrering_Alumn ra = new Registrering_Alumn(businessmanager);
+            this.Hide() ;           
+            ra.ShowDialog(this);          
+        }
+        /// <summary>
+        /// Går igenom alla controller i denna form. Fångar alla textboxar och validerar om 
+        /// dom har text. returnerar bool
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateTextBoxes()
+        {
+            try
+            {
+                string textBoxData = string.Empty;
+
+                foreach (Control item in this.Controls)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+
+                        if (string.IsNullOrEmpty(item.Text))
+                        {
+                            return false;
+                        }
+                        textBoxData += item.Text;
+                    }
+                }
+                return (textBoxData != string.Empty);
+            }
+            catch { return false; }
+        }
+
+        private void userNameTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            userNameTextBox.SelectAll();
+        }
+
+        private void passwordTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            passwordTextBox.SelectAll();
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.UseSystemPasswordChar = true;
+        }
+    }
+
+
+
+}

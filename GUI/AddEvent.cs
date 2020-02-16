@@ -13,21 +13,24 @@ namespace GUI
     public partial class AddEvent : Form
     {
         BusinessManager bm = new BusinessManager();
+        Employee employee;
         public AddEvent()
         {
             InitializeComponent();
         }
+        public AddEvent(Employee e)
+        {
+            InitializeComponent();
+            employee = e;
+        }
 
         private void Addbutton1_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = StartDatumPicker1.Value.Date;
-            DateTime EndDate = SlutDatumPicker1.Value.Date;
-            DateTime LastApplyingDate = LastTimePicker2.Value.Date;
-            
-            int employeeIdtextBox2 = int.Parse(employeeIdtextBox1.Text);
-            
+            DateTime StartDate = StartDatePicker1.Value.Date;
+            DateTime EndDate = EndDatePicker.Value.Date;
+            DateTime LastApplyingDate = LastTimePicker.Value.Date;            
 
-            Event events = new Event(EventTitletextBox1.Text, DescriptionTextBox1.Text, StartDate, EndDate, LastApplyingDate, 1);
+            Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, 1);
                 bm.AddEvent(events);
 
             MessageBox.Show("Ajde");

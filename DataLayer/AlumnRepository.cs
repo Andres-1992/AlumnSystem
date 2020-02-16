@@ -6,15 +6,21 @@ using System.Linq;
 
 namespace DataLayer
 {
-    public class AlumnRepository:GenericRepository<Alumn>
+    public class AlumnRepository : GenericRepository<Alumn>, IAlumnRepository
     {
-       AlumniContext alumni = new AlumniContext();
-        public Alumn Login(string username, string password)
+
+        AlumniContext _context;
+        public AlumnRepository(AlumniContext context)
         {
-            var query = (from u in alumni.Alumns
+            _context = context;
+        }
+
+        public Alumn LogIn(string username, string password)
+        {
+            var result = (from u in _context.Alumns
                          where u.Email == username && u.Password == password
                          select u).FirstOrDefault();
-            return query;
+            return result;
         }
 
     }

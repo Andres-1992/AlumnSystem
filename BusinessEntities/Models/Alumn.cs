@@ -10,13 +10,13 @@ namespace BusinessEntities
         public int AlumnId { get; private set; }
         public string Education { get; private set; }
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
-        public string Password {  get; private set; }
+        public bool work { get; private set; }
 
-        public Alumn(string name, string email,string phonenumber , string education, string password)
+        public Alumn(string name, string email, string phonenumber, string education, string password)
         {
             Name = name;
             Email = email;
-           Phonenumber = phonenumber;
+            Phonenumber = phonenumber;
             Education = education;
             Password = password;
         }

@@ -12,11 +12,13 @@ namespace DataLayer.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false");
+            optionsBuilder               
+                .UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false;");
+            optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
            
         }
-
+      
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AlumnEvent>()
