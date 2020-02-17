@@ -1,4 +1,5 @@
-﻿namespace GUI
+﻿using System.Windows.Forms;
+namespace GUI
 {
     partial class AttendEvent
     {
@@ -38,49 +39,56 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 14);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1024, 298);
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(1265, 497);
             this.dataGridView1.TabIndex = 0;
             // 
             // AvailableEventlabel1
             // 
             this.AvailableEventlabel1.AutoSize = true;
-            this.AvailableEventlabel1.Location = new System.Drawing.Point(41, 36);
+            this.AvailableEventlabel1.Location = new System.Drawing.Point(59, 60);
+            this.AvailableEventlabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AvailableEventlabel1.Name = "AvailableEventlabel1";
-            this.AvailableEventlabel1.Size = new System.Drawing.Size(101, 15);
+            this.AvailableEventlabel1.Size = new System.Drawing.Size(150, 25);
             this.AvailableEventlabel1.TabIndex = 1;
             this.AvailableEventlabel1.Text = "Tillgängliga event";
             // 
             // Applybutton1
             // 
-            this.Applybutton1.Location = new System.Drawing.Point(274, 358);
+            this.Applybutton1.Location = new System.Drawing.Point(391, 597);
+            this.Applybutton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Applybutton1.Name = "Applybutton1";
-            this.Applybutton1.Size = new System.Drawing.Size(75, 23);
+            this.Applybutton1.Size = new System.Drawing.Size(107, 38);
             this.Applybutton1.TabIndex = 2;
             this.Applybutton1.Text = "Delta";
             this.Applybutton1.UseVisualStyleBackColor = true;
             // 
             // Cancelbutton1
             // 
-            this.Cancelbutton1.Location = new System.Drawing.Point(41, 358);
+            this.Cancelbutton1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Cancelbutton1.Location = new System.Drawing.Point(59, 597);
+            this.Cancelbutton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cancelbutton1.Name = "Cancelbutton1";
-            this.Cancelbutton1.Size = new System.Drawing.Size(75, 23);
+            this.Cancelbutton1.Size = new System.Drawing.Size(107, 38);
             this.Cancelbutton1.TabIndex = 3;
             this.Cancelbutton1.Text = "Avbryt";
             this.Cancelbutton1.UseVisualStyleBackColor = true;
+            this.Cancelbutton1.Click += new System.EventHandler(this.Cancelbutton1_Click);
             // 
             // AttendEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1317, 661);
+            this.ClientSize = new System.Drawing.Size(1265, 677);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Cancelbutton1);
             this.Controls.Add(this.Applybutton1);
             this.Controls.Add(this.AvailableEventlabel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "AttendEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delta i event";

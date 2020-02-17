@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataLayer.Contexts
 {
-    public class AlumniContext : DbContext
+    public class AppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

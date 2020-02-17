@@ -15,15 +15,11 @@ namespace GUI
     {
         Alumn alumn;
         BusinessManager businessManager = new BusinessManager();
-        Event events;
+       
         public AttendEvent()
         {
             InitializeComponent();
-            dataGridView1.DataSource = businessManager.GetEvent();
-            HideColumns();
-
-
-
+           
         }
 
         public void HideColumns()
@@ -31,16 +27,19 @@ namespace GUI
             dataGridView1.Columns["AlumnEvents"].Visible = false;
 
         }
-        public AttendEvent(BusinessManager bm, Alumn a, Event e)
+        public AttendEvent(BusinessManager bm, Alumn a)
         {
             InitializeComponent();
             businessManager = bm;
             alumn = a;
-            events = e;
-            this.Text = events.Title;
+             dataGridView1.DataSource = businessManager.GetEvent();
+            HideColumns();
+            
         }
- 
 
-
+        private void Cancelbutton1_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

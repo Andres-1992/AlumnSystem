@@ -14,8 +14,7 @@ namespace GUI
     public partial class LoggedInAlumn : Form
     {
         BusinessManager businessManager;
-        Alumn alumn;
-        Event events;
+        Alumn alumn;       
         public LoggedInAlumn()
         {            
             InitializeComponent();            
@@ -36,9 +35,10 @@ namespace GUI
 
         private void Attendbutton1_Click(object sender, EventArgs e)
         {
-            AttendEvent attendEvent = new AttendEvent(businessManager,alumn,events);
-            attendEvent.Show();
+            AttendEvent attendEvent = new AttendEvent(businessManager,alumn);
             this.Hide();
+            attendEvent.ShowDialog(this);
+            
         }
 
         private void AccountInfobutton2_Click(object sender, EventArgs e)

@@ -11,15 +11,10 @@ namespace DataLayer
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
        
-        private AlumniContext _context = null;
-        private DbSet<T> table = null;
+        private AppDbContext _context { get; set; }
+        private DbSet<T> table { get; set; }
 
-        public GenericRepository()
-        {
-            this._context = new AlumniContext();
-            table = _context.Set<T>();
-        }
-        public GenericRepository(AlumniContext _context)
+        public GenericRepository(AppDbContext _context)
         {
             this._context = _context;
             table = _context.Set<T>();
@@ -28,7 +23,7 @@ namespace DataLayer
         {
             return table.ToList();
         }
-        public T GetById(object id)
+        public T GetById(int id)
         {
            return  table.Find(id);            
         }

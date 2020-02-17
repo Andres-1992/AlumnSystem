@@ -4,13 +4,13 @@ using System.Text;
 using DataLayer;
 using DataLayer.Contexts;
 
-namespace BusinessLayer
+namespace DataLayer
 {
     public class UnitOfWork
     {
 
-        private AlumniContext _context;
-        public UnitOfWork(AlumniContext context)
+        private AppDbContext _context;
+        public UnitOfWork(AppDbContext context)
         {
             _context = context;
             Alumns = new AlumnRepository(_context);

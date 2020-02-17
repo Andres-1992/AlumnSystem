@@ -9,8 +9,8 @@ namespace DataLayer
 {
     public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
     {
-        AlumniContext _context;
-        public EmployeeRepository(AlumniContext context)
+        AppDbContext _context;
+        public EmployeeRepository(AppDbContext context) : base(context)
         {
             _context = context;
         }

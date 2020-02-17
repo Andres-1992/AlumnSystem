@@ -10,8 +10,8 @@ namespace DataLayer
 {
     public class EventRepository : GenericRepository<Event>, IEventRepository
     {
-        AlumniContext _context;
-        public EventRepository(AlumniContext context)
+        AppDbContext _context;
+        public EventRepository(AppDbContext context) : base(context)
         {
             _context = context;
         }

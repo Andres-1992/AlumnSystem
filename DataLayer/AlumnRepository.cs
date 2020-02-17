@@ -8,9 +8,8 @@ namespace DataLayer
 {
     public class AlumnRepository : GenericRepository<Alumn>, IAlumnRepository
     {
-
-        AlumniContext _context;
-        public AlumnRepository(AlumniContext context)
+        AppDbContext _context;
+        public AlumnRepository(AppDbContext context) : base(context)
         {
             _context = context;
         }

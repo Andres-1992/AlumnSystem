@@ -11,12 +11,12 @@ namespace BusinessLayer
 {
     public class BusinessManager
     {
-        AlumniContext alumniContext;
+        AppDbContext alumniContext;
         UnitOfWork unitOfWork;
 
         public BusinessManager()
         {
-            alumniContext = new AlumniContext();
+            alumniContext = new AppDbContext();
             unitOfWork = new UnitOfWork(alumniContext);
             alumniContext.Database.EnsureCreated();
         }

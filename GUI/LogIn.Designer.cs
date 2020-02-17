@@ -40,20 +40,18 @@
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(223, 89);
-            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.userNameTextBox.Location = new System.Drawing.Point(319, 148);
             this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(107, 23);
+            this.userNameTextBox.Size = new System.Drawing.Size(151, 31);
             this.userNameTextBox.TabIndex = 3;
             this.userNameTextBox.Text = "Email";
             this.userNameTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.userNameTextBox_MouseClick);
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(223, 116);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextBox.Location = new System.Drawing.Point(319, 193);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(107, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(151, 31);
             this.passwordTextBox.TabIndex = 4;
             this.passwordTextBox.Text = "Lösenord";
             this.passwordTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.passwordTextBox_MouseClick);
@@ -61,10 +59,9 @@
             // 
             // logInButton
             // 
-            this.logInButton.Location = new System.Drawing.Point(223, 143);
-            this.logInButton.Margin = new System.Windows.Forms.Padding(2);
+            this.logInButton.Location = new System.Drawing.Point(319, 238);
             this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(106, 20);
+            this.logInButton.Size = new System.Drawing.Size(151, 33);
             this.logInButton.TabIndex = 5;
             this.logInButton.Text = "Logga In";
             this.logInButton.UseVisualStyleBackColor = true;
@@ -73,10 +70,9 @@
             // registerLinkLabel
             // 
             this.registerLinkLabel.AutoSize = true;
-            this.registerLinkLabel.Location = new System.Drawing.Point(223, 180);
-            this.registerLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerLinkLabel.Location = new System.Drawing.Point(319, 300);
             this.registerLinkLabel.Name = "registerLinkLabel";
-            this.registerLinkLabel.Size = new System.Drawing.Size(99, 15);
+            this.registerLinkLabel.Size = new System.Drawing.Size(151, 25);
             this.registerLinkLabel.TabIndex = 6;
             this.registerLinkLabel.TabStop = true;
             this.registerLinkLabel.Text = "Registrera dig här";
@@ -86,10 +82,9 @@
             // 
             this.alumnRadioButton.AutoSize = true;
             this.alumnRadioButton.Checked = true;
-            this.alumnRadioButton.Location = new System.Drawing.Point(242, 32);
-            this.alumnRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.alumnRadioButton.Location = new System.Drawing.Point(346, 53);
             this.alumnRadioButton.Name = "alumnRadioButton";
-            this.alumnRadioButton.Size = new System.Drawing.Size(61, 19);
+            this.alumnRadioButton.Size = new System.Drawing.Size(89, 29);
             this.alumnRadioButton.TabIndex = 1;
             this.alumnRadioButton.TabStop = true;
             this.alumnRadioButton.Text = "Alumn";
@@ -98,10 +93,9 @@
             // personalRadioButton
             // 
             this.personalRadioButton.AutoSize = true;
-            this.personalRadioButton.Location = new System.Drawing.Point(242, 56);
-            this.personalRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.personalRadioButton.Location = new System.Drawing.Point(346, 93);
             this.personalRadioButton.Name = "personalRadioButton";
-            this.personalRadioButton.Size = new System.Drawing.Size(70, 19);
+            this.personalRadioButton.Size = new System.Drawing.Size(103, 29);
             this.personalRadioButton.TabIndex = 2;
             this.personalRadioButton.Text = "Personal";
             this.personalRadioButton.UseVisualStyleBackColor = true;
@@ -110,10 +104,9 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(146, 97);
-            this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.idLabel.Location = new System.Drawing.Point(209, 162);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(36, 15);
+            this.idLabel.Size = new System.Drawing.Size(54, 25);
             this.idLabel.TabIndex = 4;
             this.idLabel.Text = "Email";
             this.idLabel.Visible = false;
@@ -121,10 +114,9 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(146, 124);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.passwordLabel.Location = new System.Drawing.Point(209, 207);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(56, 15);
+            this.passwordLabel.Size = new System.Drawing.Size(86, 25);
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Lösenord";
             this.passwordLabel.Visible = false;
@@ -132,9 +124,9 @@
             // LogIn
             // 
             this.AcceptButton = this.logInButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 270);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.logInButton);
@@ -143,7 +135,6 @@
             this.Controls.Add(this.personalRadioButton);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.alumnRadioButton);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
