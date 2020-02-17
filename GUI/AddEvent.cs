@@ -33,7 +33,7 @@ namespace GUI
             Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, 1);
                 bm.AddEvent(events);
 
-            MessageBox.Show("Ajde");
+            MessageBox.Show("Event tillagd");
             this.Close();
             
         }

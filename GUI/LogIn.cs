@@ -30,11 +30,13 @@ namespace GUI
             {
                 idLabel.Text = "Signatur";
                 userNameTextBox.Text = idLabel.Text;
+                registerLinkLabel.Hide();
             }
             else
             {
                 idLabel.Text = "Email";
                 userNameTextBox.Text = idLabel.Text;
+                registerLinkLabel.Show();
             }
         }
         private void logInButton_Click(object sender, EventArgs e)

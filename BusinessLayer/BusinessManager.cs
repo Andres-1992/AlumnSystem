@@ -56,6 +56,11 @@ namespace BusinessLayer
         {
             return unitOfWork.Employees.GetById(id);
         }
+        
+        public IEnumerable<Event> GetEvent()
+        {
+            return unitOfWork.Events.GetAll();
+        }
 
         public void UpdateEmployee(Employee employee)
         {

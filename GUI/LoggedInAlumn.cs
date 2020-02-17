@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace GUI
     {
         BusinessManager businessManager;
         Alumn alumn;
+        Event events;
         public LoggedInAlumn()
         {            
             InitializeComponent();            
@@ -34,7 +36,7 @@ namespace GUI
 
         private void Attendbutton1_Click(object sender, EventArgs e)
         {
-            AttendEvent attendEvent = new AttendEvent();
+            AttendEvent attendEvent = new AttendEvent(businessManager,alumn,events);
             attendEvent.Show();
             this.Hide();
         }
