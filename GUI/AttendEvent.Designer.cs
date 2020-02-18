@@ -30,7 +30,7 @@ namespace GUI
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AvailableEventlabel1 = new System.Windows.Forms.Label();
+           
             this.Applybutton1 = new System.Windows.Forms.Button();
             this.Cancelbutton1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,16 +46,7 @@ namespace GUI
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1265, 497);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // AvailableEventlabel1
-            // 
-            this.AvailableEventlabel1.AutoSize = true;
-            this.AvailableEventlabel1.Location = new System.Drawing.Point(59, 60);
-            this.AvailableEventlabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.AvailableEventlabel1.Name = "AvailableEventlabel1";
-            this.AvailableEventlabel1.Size = new System.Drawing.Size(150, 25);
-            this.AvailableEventlabel1.TabIndex = 1;
-            this.AvailableEventlabel1.Text = "Tillgängliga event";
+
             // 
             // Applybutton1
             // 
@@ -87,7 +78,7 @@ namespace GUI
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Cancelbutton1);
             this.Controls.Add(this.Applybutton1);
-            this.Controls.Add(this.AvailableEventlabel1);
+            
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "AttendEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -99,7 +90,6 @@ namespace GUI
         }
 
         #endregion
-        private System.Windows.Forms.Label AvailableEventlabel1;
         private System.Windows.Forms.Button Applybutton1;
         private System.Windows.Forms.Button Cancelbutton1;
         private System.Windows.Forms.DataGridView dataGridView1;
