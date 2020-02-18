@@ -1,4 +1,5 @@
-﻿using BusinessEntities.Models;
+﻿using BusinessEntities.Enums;
+using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace BusinessEntities
             Education = education;
             Password = password;
             Work = work;
+            
         }
+
+
     }
 }

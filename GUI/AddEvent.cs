@@ -32,10 +32,9 @@ namespace GUI
 
             Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, 1);
                 bm.AddEvent(events);
-
-            MessageBox.Show("Event tillagd");
-            this.Close();
             
+            MessageBox.Show("Event tillagd");
+            this.Close();           
         }
     }
 

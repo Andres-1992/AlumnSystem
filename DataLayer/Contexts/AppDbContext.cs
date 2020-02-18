@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using Microsoft.EntityFrameworkCore;
@@ -8,17 +9,17 @@ using System.Text;
 
 namespace DataLayer.Contexts
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IAppDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder               
+            optionsBuilder
                 .UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false;");
             optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
-           
+
         }
-      
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AlumnEvent>()
@@ -36,10 +37,11 @@ namespace DataLayer.Contexts
 
             base.OnModelCreating(modelBuilder);
         }
-
+        public DbSet<AlumnEvent> AlumnEvent { get; set; }
         public DbSet<Alumn> Alumns { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Competence> Competence { get; set; }
 
     }
 }

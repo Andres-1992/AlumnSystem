@@ -10,5 +10,14 @@ namespace BusinessEntities.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public CompetenceLevel CompetenceLevel { get; set; }
+
+        public int AlumnId { get; set; }
+        public Alumn Alumn { get; set; }
+
+        public Competence(string description,CompetenceLevel competenceLevel)
+        {
+            Description = description;
+            CompetenceLevel = competenceLevel;
+        }
     }
 }

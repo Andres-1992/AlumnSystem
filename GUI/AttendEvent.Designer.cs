@@ -66,6 +66,7 @@ namespace GUI
             this.Applybutton1.TabIndex = 2;
             this.Applybutton1.Text = "Delta";
             this.Applybutton1.UseVisualStyleBackColor = true;
+            this.Applybutton1.Click += new System.EventHandler(this.Applybutton1_Click);
             // 
             // Cancelbutton1
             // 

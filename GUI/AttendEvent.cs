@@ -1,6 +1,7 @@
 ﻿using BusinessEntities;
 using BusinessEntities.Models;
 using BusinessLayer;
+using DataLayer.Contexts.Junction;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,16 @@ namespace GUI
         private void Cancelbutton1_Click(object sender, EventArgs e)
         {
             Owner.Show();
+        }
+
+        private void Applybutton1_Click(object sender, EventArgs e)
+        {
+            var result = dataGridView1.CurrentRow.DataBoundItem;
+            Event obj = (Event)result;
+            AlumnEvent AE = new AlumnEvent() { Event = obj, Alumn = alumn };
+            businessManager.AddAE(AE);
+            MessageBox.Show("Joni er reggat");
+             
         }
     }
 }

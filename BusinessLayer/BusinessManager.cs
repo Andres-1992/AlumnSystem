@@ -6,6 +6,7 @@ using BusinessEntities;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
+using DataLayer.Contexts.Junction;
 
 namespace BusinessLayer
 {
@@ -19,6 +20,16 @@ namespace BusinessLayer
             alumniContext = new AppDbContext();
             unitOfWork = new UnitOfWork(alumniContext);
             alumniContext.Database.EnsureCreated();
+        }
+        public void AddAE(AlumnEvent ae)
+        {
+            alumniContext.AlumnEvent.Add(ae);
+            alumniContext.SaveChanges();
+        }
+        public void AddCompetence(Competence c)
+        {
+            unitOfWork.Competences.Insert(c);
+            unitOfWork.Competences.Save();
         }
 
         public void AddAlumn(Alumn alumn)
