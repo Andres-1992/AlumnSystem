@@ -45,7 +45,7 @@ namespace GUI
         {
             UpdateAlumn updateAlumn = new UpdateAlumn(businessManager,alumn);
             this.Hide();
-            updateAlumn.ShowDialog(this);
+            updateAlumn.ShowDialog(this); 
         }
     }
 }

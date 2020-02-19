@@ -26,6 +26,7 @@ namespace GUI
         public void HideColumns()
         {
             dataGridView1.Columns["AlumnEvents"].Visible = false;
+            dataGridView1.Columns["Employee"].Visible = false;
 
         }
         public AttendEvent(BusinessManager bm, Alumn a)
@@ -33,7 +34,7 @@ namespace GUI
             InitializeComponent();
             businessManager = bm;
             alumn = a;
-             dataGridView1.DataSource = businessManager.GetEvent();
+            dataGridView1.DataSource = businessManager.GetEvent();
             HideColumns();
             
         }
@@ -48,8 +49,9 @@ namespace GUI
             var result = dataGridView1.CurrentRow.DataBoundItem;
             Event obj = (Event)result;
             AlumnEvent AE = new AlumnEvent() { Event = obj, Alumn = alumn };
+          
             businessManager.AddAE(AE);
-            MessageBox.Show("Joni er reggat");
+            MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
              
         }
     }

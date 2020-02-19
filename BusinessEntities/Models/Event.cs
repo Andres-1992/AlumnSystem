@@ -1,10 +1,12 @@
-﻿using DataLayer.Contexts.Junction;
+﻿using BusinessEntities.Enums;
+using DataLayer.Contexts.Junction;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BusinessEntities.Models
 {
+
     public class Event
     {
         public int EventId { get; private set; }
@@ -13,6 +15,7 @@ namespace BusinessEntities.Models
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public DateTime LastApplyingDate { get; private set; }
+
 
         public int EmployeeId { get; private set; }
         public Employee Employee { get; private set; }

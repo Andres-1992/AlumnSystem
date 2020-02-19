@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessEntities;
+using BusinessEntities.Models;
 using BusinessLayer;
 namespace GUI
 {
@@ -41,21 +42,34 @@ namespace GUI
         }
         private void logInButton_Click(object sender, EventArgs e)
         {
-            string username = userNameTextBox.Text;
             string lösenordhacker = BusinessManager.Encrypt(passwordTextBox.Text);
 
-            if (ValidateTextBoxes())
+            if (ValidateTextBoxes()&&alumnRadioButton.Checked)
             {
-                Alumn a = businessmanager.LogInAlumn(username, lösenordhacker);
+                Alumn a = businessmanager.LogInAlumn(userNameTextBox.Text, lösenordhacker);
                 if (a != null)
                 {
                     LoggedInAlumn loggedIn = new LoggedInAlumn(businessmanager, a);                    
                     this.Hide();
                     loggedIn.ShowDialog(this);
                     ClearTextboxes();
-
                 }
                 else
+                {
+                    MessageBox.Show("bror börja om");
+                }
+            }
+            else if (ValidateTextBoxes()&&personalRadioButton.Checked)
+            {
+                Employee employee = businessmanager.LogInEmployee(userNameTextBox.Text,lösenordhacker);
+                if (employee!=null)
+                {
+                    LoggedInEmployee loggedIn = new LoggedInEmployee(businessmanager,employee);
+                    this.Hide();
+                    loggedIn.ShowDialog(this);
+                    ClearTextboxes();
+                }
+                 else
                 {
                     MessageBox.Show("bror börja om");
                 }

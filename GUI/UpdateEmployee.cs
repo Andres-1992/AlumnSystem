@@ -18,6 +18,7 @@ namespace GUI
         {
             InitializeComponent();
         }
+
         public UpdateEmployee(BusinessManager bm, Employee e)
         {
             InitializeComponent();
@@ -29,14 +30,17 @@ namespace GUI
         
         private void LoadInfo()
         {
-            FirstNametextBox.Text = employee.Name;
+            var names = employee.Name.Split(' ');
+            FirstNametextBox.Text = names[0];
+            for (int i = 1; i < names.Length; i++)
+            {
+                SurnametextBox.Text += names[i] + " ";
+            }
             EmailtextBox.Text = employee.Email;
             PhoneNumbertextBox.Text = employee.Phonenumber;
         }
         private void Applybutton_Click(object sender, EventArgs e)
         {
-
-
             string fullname = FirstNametextBox.Text + " " + SurnametextBox.Text;
             employee.Name = fullname;
             employee.Email = EmailtextBox.Text;
@@ -48,11 +52,7 @@ namespace GUI
 
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
-            InloggadPersonal inloggadpersonal = new InloggadPersonal();
-            inloggadpersonal.Show();
-            this.Close();
-        }
-
-       
+            Owner.Show();
+        }       
     }
 }

@@ -1,4 +1,5 @@
-﻿using BusinessEntities.Models;
+﻿using BusinessEntities.Enums;
+using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,19 @@ namespace GUI
 {
     public partial class AddEvent : Form
     {
-        BusinessManager bm = new BusinessManager();
+        BusinessManager businessManager;
         Employee employee;
         public AddEvent()
         {
             InitializeComponent();
+            
         }
-        public AddEvent(Employee e)
+        public AddEvent(BusinessManager bm,Employee e)
         {
             InitializeComponent();
+            businessManager = bm;
             employee = e;
+            availableForComboBox.DataSource = Enum.GetValues(typeof(Education));
         }
 
         private void Addbutton1_Click(object sender, EventArgs e)
@@ -30,11 +34,16 @@ namespace GUI
             DateTime EndDate = EndDatePicker.Value.Date;
             DateTime LastApplyingDate = LastTimePicker.Value.Date;            
 
-            Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, 1);
-                bm.AddEvent(events);
+            Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
+                businessManager.AddEvent(events);
             
             MessageBox.Show("Event tillagd");
-            this.Close();           
+            Owner.Show();
+        }
+
+        private void Cancelbutton_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
         }
     }
 

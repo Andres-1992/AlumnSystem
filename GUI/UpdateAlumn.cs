@@ -35,9 +35,7 @@ namespace GUI
             for (int i = 1; i < names.Length; i++)
             {
                 SurNametextBox.Text += names[i]+" ";
-            }
-
-            
+            }            
             
             EmailtextBox.Text = alumn.Email;
             PhoneNumbertextBox.Text = alumn.Phonenumber;

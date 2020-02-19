@@ -10,13 +10,14 @@ namespace BusinessEntities.Models
         public string Signature { get; private set; }
         public ICollection<Event> Events { get; private set; }
 
-        public Employee(string name, string phonenumber, string email, string password)
+        public Employee(string name, string phonenumber, string email, string password,string signature)
         {
 
             Name = name;
             Phonenumber = phonenumber;
             Email = email;
             Password = password;
+            Signature = signature;
         }
 
     }

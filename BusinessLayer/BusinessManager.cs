@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         AppDbContext alumniContext;
         UnitOfWork unitOfWork;
-
+        
         public BusinessManager()
         {
             alumniContext = new AppDbContext();
@@ -25,11 +25,6 @@ namespace BusinessLayer
         {
             alumniContext.AlumnEvent.Add(ae);
             alumniContext.SaveChanges();
-        }
-        public void AddCompetence(Competence c)
-        {
-            unitOfWork.Competences.Insert(c);
-            unitOfWork.Competences.Save();
         }
 
         public void AddAlumn(Alumn alumn)
@@ -43,7 +38,6 @@ namespace BusinessLayer
             unitOfWork.Events.Insert(events);
             unitOfWork.Events.Save();
         }
-
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -70,7 +64,8 @@ namespace BusinessLayer
         
         public IEnumerable<Event> GetEvent()
         {
-            return unitOfWork.Events.GetAll();
+             return unitOfWork.Events.GetAll();
+            
         }
 
         public void UpdateEmployee(Employee employee)
@@ -85,5 +80,9 @@ namespace BusinessLayer
             unitOfWork.Alumns.Save();
         }
 
+        public Employee LogInEmployee(string signature, string password)
+        {
+            return  unitOfWork.Employees.LogIn(signature,password);
+        }
     }
 }

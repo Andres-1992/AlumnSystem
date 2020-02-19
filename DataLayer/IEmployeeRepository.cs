@@ -5,6 +5,7 @@ namespace DataLayer
 {
     public interface IEmployeeRepository:IGenericRepository<Employee>
     {
-        IEnumerable<Employee> GetSpecificEmployee();
+        Employee LogIn(string signature, string password);
+      
     }
 }

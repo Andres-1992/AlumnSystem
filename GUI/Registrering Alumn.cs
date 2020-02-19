@@ -56,10 +56,12 @@ namespace GUI
             
             if (ValidateTextBoxes())
             {
+                Education education;
+                Enum.TryParse<Education>(educationComboBox.SelectedValue.ToString(), out education);
+                
                 if (pwTextb.Text == confirmPwTextb.Text)
-                {
-                    
-                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text, educationComboBox.Text, lösenordhacker, workCheckbox.Checked);
+                {                                      
+                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , lösenordhacker, workCheckbox.Checked);
                     alumn.Competences = competences;
                     businessManager.AddAlumn(alumn);
                     MessageBox.Show(pwTextb.Text);
@@ -121,41 +123,29 @@ namespace GUI
                     " erbjudanden och relevant innehåll. Du kan närsomhelst avregistrera dig från dessa.", "Viktig information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            else {  
-                registerButton.Enabled = false; 
-                
-            }
+            else registerButton.Enabled = false;              
+                            
         }
 
         private void GDPRlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try
-            {
-                VisitLink();
-            }
-            catch (Exception )
-            {
 
-                MessageBox.Show("Unable to open link that was clicked.");
-            }
         }
-        private void VisitLink()
-        {
-            // Change the color of the link text by setting LinkVisited
-            // to true.
-            GDPRlink.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
-            //with a URL:
-            System.Diagnostics.Process.Start("http://www.microsoft.com");
-        }
+
         private void AddCompetence_Click(object sender, EventArgs e)
         { 
-            var result = competenceComboBox.SelectedItem;
-            CompetenceLevel competenceLevel = (CompetenceLevel)result;
-            
+            CompetenceLevel competenceLevel;
+            Enum.TryParse<CompetenceLevel>(competenceComboBox.SelectedValue.ToString(), out competenceLevel);
+
             Competence competence = new Competence(competenceRichTextBox.Text,competenceLevel);
             competences.Add(competence);
+            MessageBox.Show("Du har lagt till "+competences.Count+" kompetens(er)");
             competenceRichTextBox.Clear();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
         }
     }
 }

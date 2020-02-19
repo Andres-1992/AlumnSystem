@@ -46,7 +46,6 @@
             this.showPW2checkbox = new System.Windows.Forms.CheckBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.workCheckbox = new System.Windows.Forms.CheckBox();
             this.GDPRcheckbox = new System.Windows.Forms.CheckBox();
             this.GDPRlink = new System.Windows.Forms.LinkLabel();
@@ -55,25 +54,26 @@
             this.competenceComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddCompetence = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstNameTextb
             // 
-            this.firstNameTextb.Location = new System.Drawing.Point(327, 102);
+            this.firstNameTextb.Location = new System.Drawing.Point(313, 50);
             this.firstNameTextb.Name = "firstNameTextb";
             this.firstNameTextb.Size = new System.Drawing.Size(183, 31);
             this.firstNameTextb.TabIndex = 0;
             // 
             // emailTextb
             // 
-            this.emailTextb.Location = new System.Drawing.Point(327, 175);
+            this.emailTextb.Location = new System.Drawing.Point(313, 123);
             this.emailTextb.Name = "emailTextb";
             this.emailTextb.Size = new System.Drawing.Size(183, 31);
             this.emailTextb.TabIndex = 2;
             // 
             // pwTextb
             // 
-            this.pwTextb.Location = new System.Drawing.Point(327, 287);
+            this.pwTextb.Location = new System.Drawing.Point(313, 235);
             this.pwTextb.Name = "pwTextb";
             this.pwTextb.Size = new System.Drawing.Size(183, 31);
             this.pwTextb.TabIndex = 5;
@@ -81,14 +81,14 @@
             // 
             // phoneNrTextb
             // 
-            this.phoneNrTextb.Location = new System.Drawing.Point(327, 212);
+            this.phoneNrTextb.Location = new System.Drawing.Point(313, 160);
             this.phoneNrTextb.Name = "phoneNrTextb";
             this.phoneNrTextb.Size = new System.Drawing.Size(183, 31);
             this.phoneNrTextb.TabIndex = 3;
             // 
             // confirmPwTextb
             // 
-            this.confirmPwTextb.Location = new System.Drawing.Point(327, 323);
+            this.confirmPwTextb.Location = new System.Drawing.Point(313, 271);
             this.confirmPwTextb.Name = "confirmPwTextb";
             this.confirmPwTextb.Size = new System.Drawing.Size(183, 31);
             this.confirmPwTextb.TabIndex = 6;
@@ -96,7 +96,7 @@
             // 
             // surNameTextb
             // 
-            this.surNameTextb.Location = new System.Drawing.Point(327, 138);
+            this.surNameTextb.Location = new System.Drawing.Point(313, 86);
             this.surNameTextb.Name = "surNameTextb";
             this.surNameTextb.Size = new System.Drawing.Size(183, 31);
             this.surNameTextb.TabIndex = 1;
@@ -104,7 +104,7 @@
             // namnLabel
             // 
             this.namnLabel.AutoSize = true;
-            this.namnLabel.Location = new System.Drawing.Point(153, 102);
+            this.namnLabel.Location = new System.Drawing.Point(139, 50);
             this.namnLabel.Name = "namnLabel";
             this.namnLabel.Size = new System.Drawing.Size(73, 25);
             this.namnLabel.TabIndex = 1;
@@ -113,7 +113,7 @@
             // efterNamnLabel
             // 
             this.efterNamnLabel.AutoSize = true;
-            this.efterNamnLabel.Location = new System.Drawing.Point(153, 138);
+            this.efterNamnLabel.Location = new System.Drawing.Point(139, 86);
             this.efterNamnLabel.Name = "efterNamnLabel";
             this.efterNamnLabel.Size = new System.Drawing.Size(106, 25);
             this.efterNamnLabel.TabIndex = 1;
@@ -122,7 +122,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(153, 175);
+            this.emailLabel.Location = new System.Drawing.Point(139, 123);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(67, 25);
             this.emailLabel.TabIndex = 1;
@@ -131,7 +131,7 @@
             // tlfnLabel
             // 
             this.tlfnLabel.AutoSize = true;
-            this.tlfnLabel.Location = new System.Drawing.Point(153, 212);
+            this.tlfnLabel.Location = new System.Drawing.Point(139, 160);
             this.tlfnLabel.Name = "tlfnLabel";
             this.tlfnLabel.Size = new System.Drawing.Size(143, 25);
             this.tlfnLabel.TabIndex = 1;
@@ -140,7 +140,7 @@
             // utbildningLabel
             // 
             this.utbildningLabel.AutoSize = true;
-            this.utbildningLabel.Location = new System.Drawing.Point(153, 248);
+            this.utbildningLabel.Location = new System.Drawing.Point(139, 196);
             this.utbildningLabel.Name = "utbildningLabel";
             this.utbildningLabel.Size = new System.Drawing.Size(108, 25);
             this.utbildningLabel.TabIndex = 1;
@@ -149,7 +149,7 @@
             // lösenOrdLabel
             // 
             this.lösenOrdLabel.AutoSize = true;
-            this.lösenOrdLabel.Location = new System.Drawing.Point(153, 287);
+            this.lösenOrdLabel.Location = new System.Drawing.Point(139, 235);
             this.lösenOrdLabel.Name = "lösenOrdLabel";
             this.lösenOrdLabel.Size = new System.Drawing.Size(99, 25);
             this.lösenOrdLabel.TabIndex = 1;
@@ -158,7 +158,7 @@
             // blösenordLabel
             // 
             this.blösenordLabel.AutoSize = true;
-            this.blösenordLabel.Location = new System.Drawing.Point(153, 323);
+            this.blösenordLabel.Location = new System.Drawing.Point(139, 271);
             this.blösenordLabel.Name = "blösenordLabel";
             this.blösenordLabel.Size = new System.Drawing.Size(171, 25);
             this.blösenordLabel.TabIndex = 1;
@@ -171,7 +171,7 @@
             this.educationComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.educationComboBox.FormattingEnabled = true;
             this.educationComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.educationComboBox.Location = new System.Drawing.Point(327, 248);
+            this.educationComboBox.Location = new System.Drawing.Point(313, 196);
             this.educationComboBox.Name = "educationComboBox";
             this.educationComboBox.Size = new System.Drawing.Size(183, 33);
             this.educationComboBox.TabIndex = 4;
@@ -179,7 +179,7 @@
             // showPWCheckbox
             // 
             this.showPWCheckbox.AutoSize = true;
-            this.showPWCheckbox.Location = new System.Drawing.Point(529, 287);
+            this.showPWCheckbox.Location = new System.Drawing.Point(515, 235);
             this.showPWCheckbox.Name = "showPWCheckbox";
             this.showPWCheckbox.Size = new System.Drawing.Size(143, 29);
             this.showPWCheckbox.TabIndex = 4;
@@ -191,7 +191,7 @@
             // showPW2checkbox
             // 
             this.showPW2checkbox.AutoSize = true;
-            this.showPW2checkbox.Location = new System.Drawing.Point(529, 325);
+            this.showPW2checkbox.Location = new System.Drawing.Point(515, 273);
             this.showPW2checkbox.Name = "showPW2checkbox";
             this.showPW2checkbox.Size = new System.Drawing.Size(143, 29);
             this.showPW2checkbox.TabIndex = 4;
@@ -203,7 +203,7 @@
             // registerButton
             // 
             this.registerButton.Enabled = false;
-            this.registerButton.Location = new System.Drawing.Point(399, 889);
+            this.registerButton.Location = new System.Drawing.Point(385, 764);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(111, 33);
             this.registerButton.TabIndex = 7;
@@ -213,7 +213,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(159, 889);
+            this.clearButton.Location = new System.Drawing.Point(199, 764);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(111, 33);
             this.clearButton.TabIndex = 8;
@@ -221,19 +221,10 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(331, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 25);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "* Obligatoriska fält";
-            // 
             // workCheckbox
             // 
             this.workCheckbox.AutoSize = true;
-            this.workCheckbox.Location = new System.Drawing.Point(419, 368);
+            this.workCheckbox.Location = new System.Drawing.Point(405, 316);
             this.workCheckbox.Name = "workCheckbox";
             this.workCheckbox.Size = new System.Drawing.Size(97, 29);
             this.workCheckbox.TabIndex = 4;
@@ -244,7 +235,7 @@
             // GDPRcheckbox
             // 
             this.GDPRcheckbox.AutoSize = true;
-            this.GDPRcheckbox.Location = new System.Drawing.Point(347, 818);
+            this.GDPRcheckbox.Location = new System.Drawing.Point(333, 693);
             this.GDPRcheckbox.Name = "GDPRcheckbox";
             this.GDPRcheckbox.Size = new System.Drawing.Size(163, 29);
             this.GDPRcheckbox.TabIndex = 9;
@@ -255,7 +246,7 @@
             // GDPRlink
             // 
             this.GDPRlink.AutoSize = true;
-            this.GDPRlink.Location = new System.Drawing.Point(354, 850);
+            this.GDPRlink.Location = new System.Drawing.Point(340, 725);
             this.GDPRlink.Name = "GDPRlink";
             this.GDPRlink.Size = new System.Drawing.Size(156, 25);
             this.GDPRlink.TabIndex = 10;
@@ -266,7 +257,7 @@
             // Competencelabel
             // 
             this.Competencelabel.AutoSize = true;
-            this.Competencelabel.Location = new System.Drawing.Point(267, 400);
+            this.Competencelabel.Location = new System.Drawing.Point(253, 348);
             this.Competencelabel.Name = "Competencelabel";
             this.Competencelabel.Size = new System.Drawing.Size(243, 25);
             this.Competencelabel.TabIndex = 11;
@@ -274,9 +265,9 @@
             // 
             // competenceRichTextBox
             // 
-            this.competenceRichTextBox.Location = new System.Drawing.Point(267, 444);
+            this.competenceRichTextBox.Location = new System.Drawing.Point(139, 392);
             this.competenceRichTextBox.Name = "competenceRichTextBox";
-            this.competenceRichTextBox.Size = new System.Drawing.Size(243, 264);
+            this.competenceRichTextBox.Size = new System.Drawing.Size(357, 191);
             this.competenceRichTextBox.TabIndex = 12;
             this.competenceRichTextBox.Text = "";
             // 
@@ -287,7 +278,7 @@
             this.competenceComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.competenceComboBox.FormattingEnabled = true;
             this.competenceComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.competenceComboBox.Location = new System.Drawing.Point(327, 714);
+            this.competenceComboBox.Location = new System.Drawing.Point(313, 589);
             this.competenceComboBox.Name = "competenceComboBox";
             this.competenceComboBox.Size = new System.Drawing.Size(183, 33);
             this.competenceComboBox.TabIndex = 4;
@@ -295,7 +286,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(124, 722);
+            this.label1.Location = new System.Drawing.Point(110, 597);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 25);
             this.label1.TabIndex = 11;
@@ -303,7 +294,7 @@
             // 
             // AddCompetence
             // 
-            this.AddCompetence.Location = new System.Drawing.Point(327, 753);
+            this.AddCompetence.Location = new System.Drawing.Point(313, 628);
             this.AddCompetence.Name = "AddCompetence";
             this.AddCompetence.Size = new System.Drawing.Size(183, 34);
             this.AddCompetence.TabIndex = 13;
@@ -311,41 +302,52 @@
             this.AddCompetence.UseVisualStyleBackColor = true;
             this.AddCompetence.Click += new System.EventHandler(this.AddCompetence_Click);
             // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cancelButton.Location = new System.Drawing.Point(40, 764);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(111, 33);
+            this.cancelButton.TabIndex = 8;
+            this.cancelButton.Text = "Avbryt";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // Registrering_Alumn
             // 
             this.AcceptButton = this.registerButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(717, 854);
+            this.ClientSize = new System.Drawing.Size(717, 900);
             this.ControlBox = false;
             this.Controls.Add(this.AddCompetence);
-            this.Controls.Add(this.Competencelabel);
-            this.Controls.Add(this.competenceRichTextBox);
-            this.Controls.Add(this.competenceComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GDPRlink);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.GDPRcheckbox);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.workCheckbox);
-            this.Controls.Add(this.tlfnLabel);
-            this.Controls.Add(this.namnLabel);
-            this.Controls.Add(this.blösenordLabel);
-            this.Controls.Add(this.lösenOrdLabel);
-            this.Controls.Add(this.utbildningLabel);
-            this.Controls.Add(this.emailLabel);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.efterNamnLabel);
-            this.Controls.Add(this.emailTextb);
-            this.Controls.Add(this.surNameTextb);
-            this.Controls.Add(this.firstNameTextb);
-            this.Controls.Add(this.pwTextb);
-            this.Controls.Add(this.confirmPwTextb);
-            this.Controls.Add(this.showPWCheckbox);
-            this.Controls.Add(this.showPW2checkbox);
-            this.Controls.Add(this.educationComboBox);
+            this.Controls.Add(this.competenceComboBox);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.phoneNrTextb);
+            this.Controls.Add(this.educationComboBox);
+            this.Controls.Add(this.showPW2checkbox);
+            this.Controls.Add(this.showPWCheckbox);
+            this.Controls.Add(this.confirmPwTextb);
+            this.Controls.Add(this.pwTextb);
+            this.Controls.Add(this.surNameTextb);
+            this.Controls.Add(this.emailTextb);
+            this.Controls.Add(this.efterNamnLabel);
+            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.utbildningLabel);
+            this.Controls.Add(this.lösenOrdLabel);
+            this.Controls.Add(this.blösenordLabel);
+            this.Controls.Add(this.namnLabel);
+            this.Controls.Add(this.tlfnLabel);
+            this.Controls.Add(this.workCheckbox);
+            this.Controls.Add(this.competenceRichTextBox);
+            this.Controls.Add(this.Competencelabel);
+            this.Controls.Add(this.firstNameTextb);
             this.Name = "Registrering_Alumn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrering_Alumn";
@@ -374,7 +376,6 @@
         private System.Windows.Forms.CheckBox showPW2checkbox;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox workCheckbox;
         private System.Windows.Forms.CheckBox GDPRcheckbox;
         private System.Windows.Forms.LinkLabel GDPRlink;
@@ -383,5 +384,6 @@
         private System.Windows.Forms.ComboBox competenceComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddCompetence;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
