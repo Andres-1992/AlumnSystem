@@ -21,10 +21,14 @@ namespace BusinessLayer
             unitOfWork = new UnitOfWork(alumniContext);
             alumniContext.Database.EnsureCreated();
         }
-        public void AddAE(AlumnEvent ae)
+        public void AddAlumnEvent(AlumnEvent ae)
         {
             alumniContext.AlumnEvent.Add(ae);
             alumniContext.SaveChanges();
+        }
+        public IEnumerable<Competence> GetCompetences(Alumn alumn)
+        {
+          return unitOfWork.Alumns.GetCompetences(alumn);
         }
 
         public void AddAlumn(Alumn alumn)

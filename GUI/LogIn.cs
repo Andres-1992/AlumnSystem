@@ -42,11 +42,11 @@ namespace GUI
         }
         private void logInButton_Click(object sender, EventArgs e)
         {
-            string lösenordhacker = BusinessManager.Encrypt(passwordTextBox.Text);
+            string encryptedPassword = BusinessManager.Encrypt(passwordTextBox.Text);
 
             if (ValidateTextBoxes()&&alumnRadioButton.Checked)
             {
-                Alumn a = businessmanager.LogInAlumn(userNameTextBox.Text, lösenordhacker);
+                Alumn a = businessmanager.LogInAlumn(userNameTextBox.Text, encryptedPassword);
                 if (a != null)
                 {
                     LoggedInAlumn loggedIn = new LoggedInAlumn(businessmanager, a);                    
@@ -61,7 +61,7 @@ namespace GUI
             }
             else if (ValidateTextBoxes()&&personalRadioButton.Checked)
             {
-                Employee employee = businessmanager.LogInEmployee(userNameTextBox.Text,lösenordhacker);
+                Employee employee = businessmanager.LogInEmployee(userNameTextBox.Text,encryptedPassword);
                 if (employee!=null)
                 {
                     LoggedInEmployee loggedIn = new LoggedInEmployee(businessmanager,employee);

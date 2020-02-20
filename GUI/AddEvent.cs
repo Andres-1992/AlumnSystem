@@ -18,9 +18,9 @@ namespace GUI
         public AddEvent()
         {
             InitializeComponent();
-            
+
         }
-        public AddEvent(BusinessManager bm,Employee e)
+        public AddEvent(BusinessManager bm, Employee e)
         {
             InitializeComponent();
             businessManager = bm;
@@ -32,13 +32,14 @@ namespace GUI
         {
             DateTime StartDate = StartDatePicker1.Value.Date;
             DateTime EndDate = EndDatePicker.Value.Date;
-            DateTime LastApplyingDate = LastTimePicker.Value.Date;            
-
-            Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
+            DateTime LastApplyingDate = LastTimePicker.Value.Date;
+            if (LastApplyingDate < StartDate && StartDate<EndDate)
+            {
+                Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
                 businessManager.AddEvent(events);
-            
-            MessageBox.Show("Event tillagd");
-            Owner.Show();
+                MessageBox.Show("Event tillagd");
+                Owner.Show();
+            }
         }
 
         private void Cancelbutton_Click(object sender, EventArgs e)

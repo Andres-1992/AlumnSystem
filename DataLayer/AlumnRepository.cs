@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Models;
 using DataLayer.Contexts;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,20 @@ namespace DataLayer
             _context = context;
         }
 
+        public IEnumerable<Competence> GetCompetences(Alumn alumn)
+        {
+            return (from x in _context.Competence
+                          where x.Alumn.AlumnId.Equals(alumn.AlumnId)
+                          orderby x.CompetenceLevel descending
+                          select x).ToList();                       
+        }
+
         public Alumn LogIn(string username, string password)
         {
-            var result = (from u in _context.Alumns
+            return (from u in _context.Alumns
                          where u.Email == username && u.Password == password
                          select u).FirstOrDefault();
-            return result;
+            
         }
 
     }

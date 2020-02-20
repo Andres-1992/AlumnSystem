@@ -1,10 +1,6 @@
 ﻿using BusinessEntities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using BusinessLayer;
 using System.Security.Cryptography;
@@ -51,7 +47,7 @@ namespace GUI
         private void registerButton_Click(object sender, EventArgs e)
         {
             string fullname = firstNameTextb.Text + " " + surNameTextb.Text;
-            string lösenordhacker = BusinessManager.Encrypt(pwTextb.Text);
+            string encryptedPassword = BusinessManager.Encrypt(pwTextb.Text);
             
             
             if (ValidateTextBoxes())
@@ -61,7 +57,7 @@ namespace GUI
                 
                 if (pwTextb.Text == confirmPwTextb.Text)
                 {                                      
-                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , lösenordhacker, workCheckbox.Checked);
+                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , encryptedPassword, workCheckbox.Checked);
                     alumn.Competences = competences;
                     businessManager.AddAlumn(alumn);
                     MessageBox.Show(pwTextb.Text);
@@ -129,7 +125,7 @@ namespace GUI
 
         private void GDPRlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("http://google.com");
         }
 
         private void AddCompetence_Click(object sender, EventArgs e)
