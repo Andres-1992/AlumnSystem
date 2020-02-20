@@ -13,7 +13,7 @@ namespace BusinessLayer
         UnitOfWork unitOfWork;
         public EmployeeService()
         {
-            appDbContext = new AppDbContext();
+            appDbContext = AppDbContext.GetInstance();
             unitOfWork = new UnitOfWork(appDbContext);
         }
         public void AddEvent(Event events)

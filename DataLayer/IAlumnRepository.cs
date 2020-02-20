@@ -8,5 +8,6 @@ namespace DataLayer
     {
         Alumn LogIn(string username, string password);
         IEnumerable<Competence> GetCompetences(Alumn alumn);
+        IEnumerable<Event> GetAttendedEvent(Alumn alumn);
     }
 }

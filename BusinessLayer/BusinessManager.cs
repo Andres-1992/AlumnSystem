@@ -16,11 +16,11 @@ namespace BusinessLayer
         UnitOfWork unitOfWork;
         public BusinessManager()
         {
-            appDbContext = new AppDbContext();
+            appDbContext = AppDbContext.GetInstance();
             unitOfWork = new UnitOfWork(appDbContext);
             appDbContext.Database.EnsureCreated();
-        }      
-        
+        }
+
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();

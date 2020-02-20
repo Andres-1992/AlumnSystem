@@ -15,8 +15,9 @@ namespace BusinessLayer
         UnitOfWork unitOfWork;
         public AlumnService()
         {
-            appDbContext = new AppDbContext();
+            appDbContext = AppDbContext.GetInstance();
             unitOfWork = new UnitOfWork(appDbContext);
+            
         }
         public void AddAlumnEvent(AlumnEvent ae)
         {
@@ -26,6 +27,11 @@ namespace BusinessLayer
         public IEnumerable<Competence> GetCompetences(Alumn alumn)
         {
             return unitOfWork.Alumns.GetCompetences(alumn);
+        }
+
+        public IEnumerable<Event> GetAttendedEvent(Alumn alumn)
+        {
+            return unitOfWork.Alumns.GetAttendedEvent(alumn);
         }
         public void UpdateAlumn(Alumn alumn)
         {

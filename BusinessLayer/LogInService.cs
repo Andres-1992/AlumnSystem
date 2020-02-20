@@ -14,7 +14,7 @@ namespace BusinessLayer
         UnitOfWork unitOfWork;
         public LogInService()
         {
-            appDbContext = new AppDbContext();
+            appDbContext = AppDbContext.GetInstance();
             unitOfWork = new UnitOfWork(appDbContext);
 
         }

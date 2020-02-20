@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.EventTitletextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.titelLabel1 = new System.Windows.Forms.Label();
@@ -42,52 +43,58 @@
             this.label5 = new System.Windows.Forms.Label();
             this.availableForComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Editbutton1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(700, 10);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 3, 2, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(400, 400);
+            this.dataGridView1.TabIndex = 0;
             // 
             // EventTitletextBox
             // 
-            this.EventTitletextBox.Location = new System.Drawing.Point(210, 183);
-            this.EventTitletextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.EventTitletextBox.Location = new System.Drawing.Point(147, 110);
             this.EventTitletextBox.Name = "EventTitletextBox";
-            this.EventTitletextBox.Size = new System.Drawing.Size(360, 31);
+            this.EventTitletextBox.Size = new System.Drawing.Size(253, 23);
             this.EventTitletextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(91, 265);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(64, 159);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.Size = new System.Drawing.Size(68, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Beskrivning";
             // 
             // titelLabel1
             // 
             this.titelLabel1.AutoSize = true;
-            this.titelLabel1.Location = new System.Drawing.Point(117, 188);
-            this.titelLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titelLabel1.Location = new System.Drawing.Point(82, 113);
             this.titelLabel1.Name = "titelLabel1";
-            this.titelLabel1.Size = new System.Drawing.Size(44, 25);
+            this.titelLabel1.Size = new System.Drawing.Size(30, 15);
             this.titelLabel1.TabIndex = 2;
             this.titelLabel1.Text = "Titel";
             // 
             // DescriptionTextBox
             // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(210, 265);
-            this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(147, 159);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(360, 284);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(253, 172);
             this.DescriptionTextBox.TabIndex = 3;
             this.DescriptionTextBox.Text = "";
             // 
             // Addbutton
             // 
-            this.Addbutton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Addbutton.Location = new System.Drawing.Point(464, 635);
-            this.Addbutton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Addbutton.Location = new System.Drawing.Point(325, 381);
             this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(107, 38);
+            this.Addbutton.Size = new System.Drawing.Size(75, 23);
             this.Addbutton.TabIndex = 4;
             this.Addbutton.TabStop = false;
             this.Addbutton.Text = "Lägg Till";
@@ -97,10 +104,9 @@
             // Cancelbutton
             // 
             this.Cancelbutton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Cancelbutton.Location = new System.Drawing.Point(210, 635);
-            this.Cancelbutton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Cancelbutton.Location = new System.Drawing.Point(147, 381);
             this.Cancelbutton.Name = "Cancelbutton";
-            this.Cancelbutton.Size = new System.Drawing.Size(107, 38);
+            this.Cancelbutton.Size = new System.Drawing.Size(75, 23);
             this.Cancelbutton.TabIndex = 4;
             this.Cancelbutton.Text = "Cancel";
             this.Cancelbutton.UseVisualStyleBackColor = true;
@@ -108,80 +114,87 @@
             // 
             // StartDatePicker1
             // 
-            this.StartDatePicker1.Location = new System.Drawing.Point(629, 183);
-            this.StartDatePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StartDatePicker1.Location = new System.Drawing.Point(440, 110);
             this.StartDatePicker1.Name = "StartDatePicker1";
-            this.StartDatePicker1.Size = new System.Drawing.Size(284, 31);
+            this.StartDatePicker1.Size = new System.Drawing.Size(200, 23);
             this.StartDatePicker1.TabIndex = 6;
             // 
             // LastTimePicker
             // 
-            this.LastTimePicker.Location = new System.Drawing.Point(629, 348);
-            this.LastTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LastTimePicker.Location = new System.Drawing.Point(440, 209);
             this.LastTimePicker.Name = "LastTimePicker";
-            this.LastTimePicker.Size = new System.Drawing.Size(284, 31);
+            this.LastTimePicker.Size = new System.Drawing.Size(200, 23);
             this.LastTimePicker.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(674, 318);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(472, 191);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 25);
+            this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sista anmälningsdatum";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(709, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(496, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 25);
+            this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Start datum";
             // 
             // EndDatePicker
             // 
-            this.EndDatePicker.Location = new System.Drawing.Point(629, 265);
-            this.EndDatePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.EndDatePicker.Location = new System.Drawing.Point(440, 159);
             this.EndDatePicker.Name = "EndDatePicker";
-            this.EndDatePicker.Size = new System.Drawing.Size(284, 31);
+            this.EndDatePicker.Size = new System.Drawing.Size(200, 23);
             this.EndDatePicker.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(709, 235);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(496, 141);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 25);
+            this.label5.Size = new System.Drawing.Size(65, 15);
             this.label5.TabIndex = 2;
             this.label5.Text = "Slut datum";
             // 
             // availableForComboBox
             // 
             this.availableForComboBox.FormattingEnabled = true;
-            this.availableForComboBox.Location = new System.Drawing.Point(629, 451);
+            this.availableForComboBox.Location = new System.Drawing.Point(440, 271);
+            this.availableForComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.availableForComboBox.Name = "availableForComboBox";
-            this.availableForComboBox.Size = new System.Drawing.Size(284, 33);
+            this.availableForComboBox.Size = new System.Drawing.Size(200, 23);
             this.availableForComboBox.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(629, 423);
+            this.label4.Location = new System.Drawing.Point(440, 254);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 25);
+            this.label4.Size = new System.Drawing.Size(87, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Tillgänglig för :";
             // 
+            // Editbutton1
+            // 
+            this.Editbutton1.Location = new System.Drawing.Point(565, 381);
+            this.Editbutton1.Name = "Editbutton1";
+            this.Editbutton1.Size = new System.Drawing.Size(75, 23);
+            this.Editbutton1.TabIndex = 9;
+            this.Editbutton1.Text = "Redigera";
+            this.Editbutton1.UseVisualStyleBackColor = true;
+            this.Editbutton1.Click += new System.EventHandler(this.Editbutton1_Click);
+            // 
             // AddEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.ClientSize = new System.Drawing.Size(1154, 450);
+            this.Controls.Add(this.Editbutton1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.availableForComboBox);
             this.Controls.Add(this.label5);
@@ -196,10 +209,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.titelLabel1);
             this.Controls.Add(this.EventTitletextBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "AddEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEvent";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +234,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox availableForComboBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Editbutton1;
     }
 }
