@@ -10,7 +10,7 @@ namespace DataLayer
         T GetById(int id);
         void Insert(T obj);
         void Update(T obj,int id);
-        void Delete(object id);
+        void Delete(int id);
         void Save();
     }
 }

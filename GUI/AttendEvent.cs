@@ -15,7 +15,7 @@ namespace GUI
     public partial class AttendEvent : Form
     {
         Alumn alumn;
-        BusinessManager businessManager = new BusinessManager();
+        AlumnService alumnService;
        
         public AttendEvent()
         {
@@ -29,16 +29,14 @@ namespace GUI
             dataGridView1.Columns["Employee"].Visible = false;
 
         }
-        public AttendEvent(BusinessManager bm, Alumn a)
+        public AttendEvent(AlumnService aService, Alumn a)
         {
             InitializeComponent();
-            businessManager = bm;
+            alumnService = aService;
             alumn = a;
-           dataGridView1.DataSource = businessManager.GetEvent();
+           dataGridView1.DataSource = new BusinessManager().GetEvent();            
             
-            
-            HideColumns();
-            
+            HideColumns();            
         }
 
         private void Cancelbutton1_Click(object sender, EventArgs e)
@@ -52,7 +50,7 @@ namespace GUI
             Event obj = (Event)result;
             AlumnEvent AE = new AlumnEvent() { Event = obj, Alumn = alumn };
           
-            businessManager.AddAlumnEvent(AE);
+            alumnService.AddAlumnEvent(AE);
             MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
              
         }

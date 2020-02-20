@@ -16,18 +16,18 @@ namespace GUI
     public partial class UpdateAlumn : Form
     {
         Alumn alumn;
-        BusinessManager businessManager;
+        AlumnService alumnService;
         List<Competence> competences;
         public UpdateAlumn()
         {
             InitializeComponent();
         }
-        public UpdateAlumn(BusinessManager bm,Alumn a)
+        public UpdateAlumn(AlumnService aService ,Alumn a)
         {
             InitializeComponent();
-            businessManager = bm;
+            alumnService = aService;
             alumn = a;
-            competences = businessManager.GetCompetences(alumn).ToList();
+            competences = alumnService.GetCompetences(alumn).ToList();
             LoadInfo();
             LoadCompetences();
             this.Text = alumn.Name;
@@ -72,7 +72,7 @@ namespace GUI
             alumn.Email = EmailtextBox.Text;
             alumn.Phonenumber = PhoneNumbertextBox.Text;
             alumn.Competences = competences;
-            businessManager.UpdateAlumn(alumn);
+            alumnService.UpdateAlumn(alumn);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 
@@ -85,6 +85,7 @@ namespace GUI
             competences.Add(competence);
             MessageBox.Show("Du har lagt till en ny kompetens");
             ExperienceRichTextBox.Clear();
+
             LoadCompetences();
         }
     }

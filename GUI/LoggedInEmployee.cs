@@ -13,22 +13,22 @@ namespace GUI
     public partial class LoggedInEmployee : Form
     {
         Employee employee;
-        BusinessManager businessmanager;
+        EmployeeService employeeService;
         public LoggedInEmployee()
         {
             InitializeComponent();
         }
 
-        public LoggedInEmployee(BusinessManager bm, Employee e)
+        public LoggedInEmployee( Employee e)
         {
             InitializeComponent();
-            businessmanager = bm;
+            employeeService = new EmployeeService();
             employee = e;
         }
 
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
-            AddEvent addevent = new AddEvent(businessmanager,employee);
+            AddEvent addevent = new AddEvent(employeeService,employee);
             this.Hide();
             addevent.ShowDialog(this);
         }
@@ -40,7 +40,7 @@ namespace GUI
 
         private void AccountInfobutton1_Click(object sender, EventArgs e)
         {
-            UpdateEmployee updateEmployee = new UpdateEmployee(businessmanager, employee);            
+            UpdateEmployee updateEmployee = new UpdateEmployee(employeeService, employee);            
             this.Hide();
             updateEmployee.ShowDialog(this);
 

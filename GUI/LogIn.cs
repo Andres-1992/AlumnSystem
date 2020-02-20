@@ -14,11 +14,11 @@ namespace GUI
 {
     public partial class LogIn : Form
     {
-        BusinessManager businessmanager;
+        LogInService logInService;
         public LogIn()
         {
             InitializeComponent();
-            businessmanager = new BusinessManager();
+            logInService = new LogInService();
         }
         /// <summary>
         /// Ändrar namnet på username text box beroende på vilken radiobutton som är markerad
@@ -46,10 +46,10 @@ namespace GUI
 
             if (ValidateTextBoxes()&&alumnRadioButton.Checked)
             {
-                Alumn a = businessmanager.LogInAlumn(userNameTextBox.Text, encryptedPassword);
+                Alumn a = logInService.LogInAlumn(userNameTextBox.Text, encryptedPassword);
                 if (a != null)
                 {
-                    LoggedInAlumn loggedIn = new LoggedInAlumn(businessmanager, a);                    
+                    LoggedInAlumn loggedIn = new LoggedInAlumn(a);                    
                     this.Hide();
                     loggedIn.ShowDialog(this);
                     ClearTextboxes();
@@ -61,10 +61,10 @@ namespace GUI
             }
             else if (ValidateTextBoxes()&&personalRadioButton.Checked)
             {
-                Employee employee = businessmanager.LogInEmployee(userNameTextBox.Text,encryptedPassword);
+                Employee employee = logInService.LogInEmployee(userNameTextBox.Text,encryptedPassword);
                 if (employee!=null)
                 {
-                    LoggedInEmployee loggedIn = new LoggedInEmployee(businessmanager,employee);
+                    LoggedInEmployee loggedIn = new LoggedInEmployee(employee);
                     this.Hide();
                     loggedIn.ShowDialog(this);
                     ClearTextboxes();

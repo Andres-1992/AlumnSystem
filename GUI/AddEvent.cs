@@ -13,17 +13,17 @@ namespace GUI
 {
     public partial class AddEvent : Form
     {
-        BusinessManager businessManager;
+        EmployeeService employeeService;
         Employee employee;
         public AddEvent()
         {
             InitializeComponent();
 
         }
-        public AddEvent(BusinessManager bm, Employee e)
+        public AddEvent(EmployeeService eService, Employee e)
         {
             InitializeComponent();
-            businessManager = bm;
+            employeeService = eService;
             employee = e;
             availableForComboBox.DataSource = Enum.GetValues(typeof(Education));
         }
@@ -36,7 +36,7 @@ namespace GUI
             if (LastApplyingDate < StartDate && StartDate<EndDate)
             {
                 Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
-                businessManager.AddEvent(events);
+                employeeService.AddEvent(events);
                 MessageBox.Show("Event tillagd");
                 Owner.Show();
             }

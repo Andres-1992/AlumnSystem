@@ -12,11 +12,11 @@ namespace GUI
     public partial class Registrering_Alumn : Form
     {
         List<Competence> competences;
-        BusinessManager businessManager;
+        LogInService logInService;
         public Registrering_Alumn()
         {
             InitializeComponent();
-            businessManager = new BusinessManager();
+            logInService = new LogInService();
             competences = new List<Competence>();
             educationComboBox.DataSource = Enum.GetValues(typeof(Education));
             competenceComboBox.DataSource = Enum.GetValues(typeof(CompetenceLevel));
@@ -59,7 +59,7 @@ namespace GUI
                 {                                      
                     Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , encryptedPassword, workCheckbox.Checked);
                     alumn.Competences = competences;
-                    businessManager.AddAlumn(alumn);
+                    logInService.AddAlumn(alumn);
                     MessageBox.Show(pwTextb.Text);
                     this.Close();
                     Owner.Show();

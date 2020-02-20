@@ -12,36 +12,15 @@ namespace BusinessLayer
 {
     public class BusinessManager
     {
-        AppDbContext alumniContext;
+        AppDbContext appDbContext;
         UnitOfWork unitOfWork;
-        
         public BusinessManager()
         {
-            alumniContext = new AppDbContext();
-            unitOfWork = new UnitOfWork(alumniContext);
-            alumniContext.Database.EnsureCreated();
-        }
-        public void AddAlumnEvent(AlumnEvent ae)
-        {
-            alumniContext.AlumnEvent.Add(ae);
-            alumniContext.SaveChanges();
-        }
-        public IEnumerable<Competence> GetCompetences(Alumn alumn)
-        {
-          return unitOfWork.Alumns.GetCompetences(alumn);
-        }
-
-        public void AddAlumn(Alumn alumn)
-        {
-            unitOfWork.Alumns.Insert(alumn);
-            unitOfWork.Alumns.Save();
-        }
-
-        public void AddEvent(Event events)
-        {
-            unitOfWork.Events.Insert(events);
-            unitOfWork.Events.Save();
-        }
+            appDbContext = new AppDbContext();
+            unitOfWork = new UnitOfWork(appDbContext);
+            appDbContext.Database.EnsureCreated();
+        }      
+        
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -49,44 +28,10 @@ namespace BusinessLayer
             byte[] data = md5.ComputeHash(utf8.GetBytes(value));
             return Convert.ToBase64String(data);
         }
-
-        public Alumn LogInAlumn(string email, string password)
-        {
-            var result = unitOfWork.Alumns.LogIn(email, password);
-            return result;
-        }
-
-        public Alumn GetAlumn(int id)
-        {
-            return unitOfWork.Alumns.GetById(id);
-        }
-
-        public Employee GetEmployee(int id)
-        {
-            return unitOfWork.Employees.GetById(id);
-        }
-        
+   
         public IEnumerable<Event> GetEvent()
         {
-             return unitOfWork.Events.GetAll();
-            
-        }
-
-        public void UpdateEmployee(Employee employee)
-        {
-            unitOfWork.Employees.Update(employee, employee.EmployeeId);
-            unitOfWork.Employees.Save();
-        }
-
-        public void UpdateAlumn(Alumn alumn)
-        {
-            unitOfWork.Alumns.Update(alumn, alumn.AlumnId);
-            unitOfWork.Alumns.Save();
-        }
-
-        public Employee LogInEmployee(string signature, string password)
-        {
-            return  unitOfWork.Employees.LogIn(signature,password);
+             return unitOfWork.Events.GetAll();            
         }
     }
 }

@@ -41,7 +41,7 @@ namespace DataLayer
             table.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
         }
-        public void Delete(object id)
+        public void Delete(int id)
         {
             T existing = table.Find(id);
             table.Remove(existing);
