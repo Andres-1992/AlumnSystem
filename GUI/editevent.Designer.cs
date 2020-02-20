@@ -163,7 +163,6 @@
             this.Controls.Add(this.textBox6);
             this.Name = "Editevent";
             this.Text = "Redigera event";
-            this.Load += new System.EventHandler(this.Editevent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

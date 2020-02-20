@@ -43,9 +43,5 @@ namespace GUI
 
         }
 
-        private void Editevent_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

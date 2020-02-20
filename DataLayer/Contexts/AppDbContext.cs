@@ -12,7 +12,7 @@ namespace DataLayer.Contexts
     public class AppDbContext : DbContext, IAppDbContext
     {
 
-        private static AppDbContext appDbContext;
+       private static AppDbContext appDbContext { get; set; }
         public static AppDbContext GetInstance()
         {
             if (appDbContext == null)
