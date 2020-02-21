@@ -53,6 +53,7 @@ namespace GUI
             if (ValidateTextBoxes())
             {
                 Education education;
+                Enum.Parse(typeof(Education), educationComboBox.SelectedValue.ToString());
                 Enum.TryParse<Education>(educationComboBox.SelectedValue.ToString(), out education);
                 
                 if (pwTextb.Text == confirmPwTextb.Text)

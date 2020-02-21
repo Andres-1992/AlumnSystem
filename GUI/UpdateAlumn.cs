@@ -83,10 +83,31 @@ namespace GUI
 
             Competence competence = new Competence(ExperienceRichTextBox.Text, competenceLevel);
             competences.Add(competence);
-            MessageBox.Show("Du har lagt till en ny kompetens");
-            ExperienceRichTextBox.Clear();
+            MessageBox.Show("Du har lagt till en ny kompetens"); 
+            
+            if (listView1.SelectedItems.Count == 0)
+                return;
 
+            ListViewItem item = listView1.SelectedItems[0];
+           
+            Alumn test = alumnService.GetById(int.Parse(item.Text));
+
+            List<Alumn> alumner = new List<Alumn>();
+
+            MessageBox.Show(test.Name);
+            ExperienceRichTextBox.Clear();
             LoadCompetences();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            ////fill the text boxes
+            //textBoxID.Text = item.Text;
+            //textBoxName.Text = item.SubItems[0].Text;
+            //textBoxPhone.Text = item.SubItems[1].Text;
+            //textBoxLevel.Text = item.SubItems[2].Text;
         }
     }
 }

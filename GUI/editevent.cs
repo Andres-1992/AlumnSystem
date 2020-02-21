@@ -40,7 +40,7 @@ namespace GUI
 
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
-
+            Owner.Show();
         }
 
     }

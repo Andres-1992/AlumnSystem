@@ -169,16 +169,18 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.competenceColumnHeader,
             this.levelColumnHeader});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(510, 38);
+            this.listView1.Location = new System.Drawing.Point(596, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(351, 495);
+            this.listView1.Size = new System.Drawing.Size(351, 562);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // competenceColumnHeader
             // 

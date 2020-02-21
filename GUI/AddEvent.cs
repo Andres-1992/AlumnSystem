@@ -27,7 +27,6 @@ namespace GUI
             InitializeComponent();
             employeeService = eService;
             employee = e;
-            availableForComboBox.DataSource = Enum.GetValues(typeof(Education));
             dataGridView1.DataSource = new BusinessManager().GetEvent();
         }
 
@@ -58,8 +57,9 @@ namespace GUI
             var result = dataGridView1.CurrentRow.DataBoundItem;
             Event obj = (Event)result;
             Editevent editevent = new Editevent(obj);
-            editevent.ShowDialog(this);
             this.Hide();
+            editevent.ShowDialog(this);
+            
         }
     }
 

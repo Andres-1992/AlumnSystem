@@ -9,12 +9,13 @@ namespace BusinessLayer
 {
    public class EmployeeService
     {
-        AppDbContext appDbContext;
+        AppDbContext AppDbContext;
         UnitOfWork unitOfWork;
-        public EmployeeService()
+
+        public EmployeeService(AppDbContext appDbContext)
         {
-            appDbContext = AppDbContext.GetInstance();
-            unitOfWork = new UnitOfWork(appDbContext);
+            AppDbContext = appDbContext;
+            unitOfWork = new UnitOfWork(AppDbContext);
         }
         public void AddEvent(Event events)
         {

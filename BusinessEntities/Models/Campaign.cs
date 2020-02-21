@@ -19,7 +19,7 @@ namespace BusinessEntities.Models
             subscriberLists = new List<SubscriberList>(),
             Message = "Alla kommer hem till JJ",
             Created = DateTime.Now,
-            sent=true
+            sent=false
         };
         public void göringet()
         {

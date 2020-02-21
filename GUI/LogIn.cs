@@ -10,15 +10,21 @@ using System.Windows.Forms;
 using BusinessEntities;
 using BusinessEntities.Models;
 using BusinessLayer;
+using DataLayer.Contexts;
+
 namespace GUI
 {
     public partial class LogIn : Form
     {
         LogInService logInService;
-        public LogIn()
+
+        public Services Services { get; }
+
+        public LogIn(Services services)
         {
             InitializeComponent();
             logInService = new LogInService();
+            Services = services;
         }
         /// <summary>
         /// Ändrar namnet på username text box beroende på vilken radiobutton som är markerad
@@ -64,7 +70,7 @@ namespace GUI
                 Employee employee = logInService.LogInEmployee(userNameTextBox.Text,encryptedPassword);
                 if (employee!=null)
                 {
-                    LoggedInEmployee loggedIn = new LoggedInEmployee(employee);
+                    LoggedInEmployee loggedIn = new LoggedInEmployee(Services, employee);
                     this.Hide();
                     loggedIn.ShowDialog(this);
                     ClearTextboxes();

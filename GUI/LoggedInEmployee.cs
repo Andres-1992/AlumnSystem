@@ -1,5 +1,6 @@
 ﻿using BusinessEntities.Models;
 using BusinessLayer;
+using DataLayer.Contexts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,22 +14,23 @@ namespace GUI
     public partial class LoggedInEmployee : Form
     {
         Employee employee;
-        EmployeeService employeeService;
+        public Services Services { get; }
+
         public LoggedInEmployee()
         {
             InitializeComponent();
         }
 
-        public LoggedInEmployee( Employee e)
+        public LoggedInEmployee(Services services, Employee e)
         {
             InitializeComponent();
-            employeeService = new EmployeeService();
+            Services = services;
             employee = e;
         }
 
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
-            AddEvent addevent = new AddEvent(employeeService,employee);
+            AddEvent addevent = new AddEvent(Services.EmployeeService,employee);
             this.Hide();
             addevent.ShowDialog(this);
         }
@@ -40,7 +42,7 @@ namespace GUI
 
         private void AccountInfobutton1_Click(object sender, EventArgs e)
         {
-            UpdateEmployee updateEmployee = new UpdateEmployee(employeeService, employee);            
+            UpdateEmployee updateEmployee = new UpdateEmployee(Services.EmployeeService, employee);            
             this.Hide();
             updateEmployee.ShowDialog(this);
 

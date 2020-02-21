@@ -38,6 +38,13 @@ namespace BusinessLayer
             unitOfWork.Alumns.Update(alumn, alumn.AlumnId);
             unitOfWork.Alumns.Save();
         }
-
+        public IEnumerable<Alumn> GetAll()
+        {
+            return unitOfWork.Alumns.GetAll();
+        }
+        public Alumn GetById(int id)
+        {
+           return unitOfWork.Alumns.GetById(id);
+        }
     }
 }

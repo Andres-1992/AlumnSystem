@@ -1,3 +1,5 @@
+using BusinessLayer;
+using DataLayer.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +16,13 @@ namespace GUI
         [STAThread]
         static void Main()
         {
+            AppDbContext AppDbContext = new AppDbContext();
+            Services Services = new Services(AppDbContext);
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new LogIn(Services));
         }
     }
 }
