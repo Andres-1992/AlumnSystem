@@ -9,42 +9,42 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    public class AlumnService
+    public class AlumnService : IAlumnService
     {
-        AppDbContext appDbContext;
-        UnitOfWork unitOfWork;
-        public AlumnService()
+        AppDbContext AppDbContext;
+        UnitOfWork UnitOfWork;
+        public AlumnService(AppDbContext appDbContext,UnitOfWork unitOfWork)
         {
-            appDbContext = AppDbContext.GetInstance();
-            unitOfWork = new UnitOfWork(appDbContext);
-            
+            AppDbContext = appDbContext;
+            UnitOfWork = unitOfWork ;
+
         }
         public void AddAlumnEvent(AlumnEvent ae)
         {
-            appDbContext.AlumnEvent.Add(ae);
-            appDbContext.SaveChanges();
+            AppDbContext.AlumnEvent.Add(ae);
+            AppDbContext.SaveChanges();
         }
         public IEnumerable<Competence> GetCompetences(Alumn alumn)
         {
-            return unitOfWork.Alumns.GetCompetences(alumn);
+            return UnitOfWork.Alumns.GetCompetences(alumn);
         }
 
         public IEnumerable<Event> GetAttendedEvent(Alumn alumn)
         {
-            return unitOfWork.Alumns.GetAttendedEvent(alumn);
+            return UnitOfWork.Alumns.GetAttendedEvent(alumn);
         }
         public void UpdateAlumn(Alumn alumn)
         {
-            unitOfWork.Alumns.Update(alumn, alumn.AlumnId);
-            unitOfWork.Alumns.Save();
+            UnitOfWork.Alumns.Update(alumn);
+            UnitOfWork.Alumns.Save();
         }
         public IEnumerable<Alumn> GetAll()
         {
-            return unitOfWork.Alumns.GetAll();
+            return UnitOfWork.Alumns.GetAll();
         }
         public Alumn GetById(int id)
         {
-           return unitOfWork.Alumns.GetById(id);
+            return UnitOfWork.Alumns.GetById(id);
         }
     }
 }

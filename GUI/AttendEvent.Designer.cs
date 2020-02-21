@@ -64,7 +64,7 @@ namespace GUI
             this.Applybutton1.Location = new System.Drawing.Point(738, 536);
             this.Applybutton1.Name = "Applybutton1";
             this.Applybutton1.Size = new System.Drawing.Size(75, 23);
-            this.Applybutton1.TabIndex = 2;
+            this.Applybutton1.TabIndex = 1;
             this.Applybutton1.Text = "Delta";
             this.Applybutton1.UseVisualStyleBackColor = true;
             this.Applybutton1.Click += new System.EventHandler(this.Applybutton1_Click);
@@ -75,7 +75,7 @@ namespace GUI
             this.Cancelbutton1.Location = new System.Drawing.Point(30, 536);
             this.Cancelbutton1.Name = "Cancelbutton1";
             this.Cancelbutton1.Size = new System.Drawing.Size(75, 23);
-            this.Cancelbutton1.TabIndex = 3;
+            this.Cancelbutton1.TabIndex = 2;
             this.Cancelbutton1.Text = "Avbryt";
             this.Cancelbutton1.UseVisualStyleBackColor = true;
             this.Cancelbutton1.Click += new System.EventHandler(this.Cancelbutton1_Click);

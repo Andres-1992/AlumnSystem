@@ -13,17 +13,17 @@ namespace GUI
 {
     public partial class LoggedInAlumn : Form
     {
-        Alumn alumn;
-        AlumnService alumnService;
+        Alumn alumn { get; set; }
+        Services Services { get; set; }
         public LoggedInAlumn()
         {            
             InitializeComponent();            
         }
 
-        public LoggedInAlumn(Alumn a)
+        public LoggedInAlumn(Services services, Alumn a)
         {
             InitializeComponent();
-            alumnService = new AlumnService();
+            Services = services;
             alumn = a;
             this.Text = alumn.Name;
         }
@@ -35,7 +35,7 @@ namespace GUI
 
         private void Attendbutton1_Click(object sender, EventArgs e)
         {
-            AttendEvent attendEvent = new AttendEvent(alumnService,alumn);
+            AttendEvent attendEvent = new AttendEvent(Services,alumn);
             this.Hide();
             attendEvent.ShowDialog(this);
             
@@ -43,7 +43,7 @@ namespace GUI
 
         private void AccountInfobutton2_Click(object sender, EventArgs e)
         {
-            UpdateAlumn updateAlumn = new UpdateAlumn(alumnService,alumn);
+            UpdateAlumn updateAlumn = new UpdateAlumn(Services,alumn);
             this.Hide();
             updateAlumn.ShowDialog(this); 
         }

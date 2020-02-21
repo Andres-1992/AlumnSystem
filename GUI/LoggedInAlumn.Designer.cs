@@ -59,7 +59,7 @@
             this.AccountInfobutton2.Location = new System.Drawing.Point(98, 172);
             this.AccountInfobutton2.Name = "AccountInfobutton2";
             this.AccountInfobutton2.Size = new System.Drawing.Size(108, 23);
-            this.AccountInfobutton2.TabIndex = 1;
+            this.AccountInfobutton2.TabIndex = 2;
             this.AccountInfobutton2.Text = "Ändra uppgifter";
             this.AccountInfobutton2.UseVisualStyleBackColor = true;
             this.AccountInfobutton2.Click += new System.EventHandler(this.AccountInfobutton2_Click);
@@ -70,7 +70,7 @@
             this.LogOutbutton2.Location = new System.Drawing.Point(98, 285);
             this.LogOutbutton2.Name = "LogOutbutton2";
             this.LogOutbutton2.Size = new System.Drawing.Size(108, 23);
-            this.LogOutbutton2.TabIndex = 1;
+            this.LogOutbutton2.TabIndex = 3;
             this.LogOutbutton2.Text = "Logga ut";
             this.LogOutbutton2.UseVisualStyleBackColor = true;
             this.LogOutbutton2.Click += new System.EventHandler(this.LogOutbutton2_Click);

@@ -7,26 +7,31 @@ using System.Text;
 
 namespace BusinessLayer
 {
-   public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
         AppDbContext AppDbContext;
-        UnitOfWork unitOfWork;
+        UnitOfWork UnitOfWork;
 
-        public EmployeeService(AppDbContext appDbContext)
+        public EmployeeService(AppDbContext appDbContext,UnitOfWork unitOfWork) 
         {
             AppDbContext = appDbContext;
-            unitOfWork = new UnitOfWork(AppDbContext);
+            UnitOfWork = unitOfWork;
         }
         public void AddEvent(Event events)
         {
-            unitOfWork.Events.Insert(events);
-            unitOfWork.Events.Save();
-        } 
-        
+            UnitOfWork.Events.Insert(events);
+            UnitOfWork.Events.Save();
+        }
+
         public void UpdateEmployee(Employee employee)
         {
-            unitOfWork.Employees.Update(employee, employee.EmployeeId);
-            unitOfWork.Employees.Save();
+            UnitOfWork.Employees.Update(employee);
+            UnitOfWork.Employees.Save();
+        }
+
+        public void UpdateEvent(Event events)
+        {
+            UnitOfWork.Events.Update(events);
         }
     }
 }

@@ -10,15 +10,15 @@ using DataLayer.Contexts.Junction;
 
 namespace BusinessLayer
 {
-    public class BusinessManager
+    public class BusinessManager : IBusinessManager
     {
-        AppDbContext appDbContext;
-        UnitOfWork unitOfWork;
-        public BusinessManager()
+        AppDbContext AppDbContext;
+        UnitOfWork UnitOfWork;
+        public BusinessManager(AppDbContext appDbContext,UnitOfWork unitOfWork)
         {
-            appDbContext = AppDbContext.GetInstance();
-            unitOfWork = new UnitOfWork(appDbContext);
-            appDbContext.Database.EnsureCreated();
+            AppDbContext = appDbContext;
+            UnitOfWork = unitOfWork;
+            //appDbContext.Database.EnsureCreated();
         }
 
         public static string Encrypt(string value)
@@ -28,10 +28,10 @@ namespace BusinessLayer
             byte[] data = md5.ComputeHash(utf8.GetBytes(value));
             return Convert.ToBase64String(data);
         }
-   
+
         public IEnumerable<Event> GetEvent()
         {
-             return unitOfWork.Events.GetAll();            
+            return UnitOfWork.Events.GetAll();
         }
     }
 }

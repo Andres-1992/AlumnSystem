@@ -12,17 +12,17 @@ namespace GUI
 {
     public partial class UpdateEmployee : Form
     {
-        EmployeeService employeeService;
-        Employee employee;
+        Services Services { get; set; }
+        Employee employee { get; set; }
         public UpdateEmployee()
         {
             InitializeComponent();
         }
 
-        public UpdateEmployee(EmployeeService eService, Employee e)
+        public UpdateEmployee(Services services, Employee e)
         {
             InitializeComponent();
-            employeeService = eService;
+            Services = services;
             employee = e;
             this.Text = employee.Name;
             LoadInfo();
@@ -46,7 +46,7 @@ namespace GUI
             employee.Email = EmailtextBox.Text;
             employee.Phonenumber = PhoneNumbertextBox.Text;
 
-           employeeService.UpdateEmployee(employee);
+           Services.EmployeeServices.UpdateEmployee(employee);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 

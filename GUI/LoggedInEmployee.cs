@@ -13,8 +13,8 @@ namespace GUI
 {
     public partial class LoggedInEmployee : Form
     {
-        Employee employee;
-        public Services Services { get; }
+        Employee employee { get; set; }
+        Services Services { get; set; }
 
         public LoggedInEmployee()
         {
@@ -30,7 +30,7 @@ namespace GUI
 
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
-            AddEvent addevent = new AddEvent(Services.EmployeeService,employee);
+            AddEvent addevent = new AddEvent(Services,employee);
             this.Hide();
             addevent.ShowDialog(this);
         }
@@ -42,7 +42,7 @@ namespace GUI
 
         private void AccountInfobutton1_Click(object sender, EventArgs e)
         {
-            UpdateEmployee updateEmployee = new UpdateEmployee(Services.EmployeeService, employee);            
+            UpdateEmployee updateEmployee = new UpdateEmployee(Services, employee);            
             this.Hide();
             updateEmployee.ShowDialog(this);
 

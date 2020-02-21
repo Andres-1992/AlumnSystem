@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Editevent
+    partial class EditEvent
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.button1.Location = new System.Drawing.Point(551, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Redigera";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Editbutton1_Click);
@@ -66,7 +66,7 @@
             this.endTimePicker1.Location = new System.Drawing.Point(426, 157);
             this.endTimePicker1.Name = "endTimePicker1";
             this.endTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.endTimePicker1.TabIndex = 6;
+            this.endTimePicker1.TabIndex = 4;
             // 
             // label8
             // 
@@ -82,7 +82,7 @@
             this.lastTimePicker1.Location = new System.Drawing.Point(426, 207);
             this.lastTimePicker1.Name = "lastTimePicker1";
             this.lastTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.lastTimePicker1.TabIndex = 6;
+            this.lastTimePicker1.TabIndex = 5;
             // 
             // label9
             // 
@@ -98,7 +98,7 @@
             this.startTimePicker1.Location = new System.Drawing.Point(426, 108);
             this.startTimePicker1.Name = "startTimePicker1";
             this.startTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.startTimePicker1.TabIndex = 6;
+            this.startTimePicker1.TabIndex = 3;
             // 
             // button3
             // 
@@ -106,7 +106,7 @@
             this.button3.Location = new System.Drawing.Point(133, 379);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
+            this.button3.TabIndex = 7;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Cancelbutton_Click);
@@ -116,7 +116,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(133, 157);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(253, 172);
-            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // label10
@@ -133,7 +133,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(68, 111);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 15);
+            this.label11.Size = new System.Drawing.Size(29, 15);
             this.label11.TabIndex = 2;
             this.label11.Text = "Titel";
             // 
@@ -144,7 +144,7 @@
             this.textBox6.Size = new System.Drawing.Size(253, 23);
             this.textBox6.TabIndex = 1;
             // 
-            // Editevent
+            // EditEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox6);
-            this.Name = "Editevent";
+            this.Name = "EditEvent";
             this.Text = "Redigera event";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,13 +11,14 @@ namespace GUI
 {
     public partial class Registrering_Alumn : Form
     {
-        List<Competence> competences;
-        LogInService logInService;
-        public Registrering_Alumn()
+        List<Competence> competences { get; set; }
+        Services Services { get; set; }
+        public Registrering_Alumn(Services services)
         {
             InitializeComponent();
-            logInService = new LogInService();
+            Services = services;
             competences = new List<Competence>();
+
             educationComboBox.DataSource = Enum.GetValues(typeof(Education));
             competenceComboBox.DataSource = Enum.GetValues(typeof(CompetenceLevel));
         }
@@ -60,7 +61,7 @@ namespace GUI
                 {                                      
                     Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , encryptedPassword, workCheckbox.Checked);
                     alumn.Competences = competences;
-                    logInService.AddAlumn(alumn);
+                    Services.LogInServices.AddAlumn(alumn);
                     MessageBox.Show(pwTextb.Text);
                     this.Close();
                     Owner.Show();
@@ -126,7 +127,7 @@ namespace GUI
 
         private void GDPRlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://google.com");
+           
         }
 
         private void AddCompetence_Click(object sender, EventArgs e)

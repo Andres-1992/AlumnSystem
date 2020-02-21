@@ -1,4 +1,5 @@
 using BusinessLayer;
+using DataLayer;
 using DataLayer.Contexts;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,9 @@ namespace GUI
         static void Main()
         {
             AppDbContext AppDbContext = new AppDbContext();
-            Services Services = new Services(AppDbContext);
-
+            UnitOfWork UnitOfWork = new UnitOfWork(AppDbContext);
+            Services Services = new Services(AppDbContext,UnitOfWork);
+                        
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

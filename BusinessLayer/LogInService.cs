@@ -8,40 +8,40 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    public class LogInService
+    public class LogInService : ILogInService
     {
-        AppDbContext appDbContext;
-        UnitOfWork unitOfWork;
-        public LogInService()
+        AppDbContext AppDbContext;
+        UnitOfWork UnitOfWork;
+        public LogInService(AppDbContext appDbContext,UnitOfWork unitOfWork)
         {
-            appDbContext = AppDbContext.GetInstance();
-            unitOfWork = new UnitOfWork(appDbContext);
+            AppDbContext = appDbContext;
+            UnitOfWork = unitOfWork;
 
         }
         public Employee LogInEmployee(string signature, string password)
         {
-            return unitOfWork.Employees.LogIn(signature, password);
+            return UnitOfWork.Employees.LogIn(signature, password);
         }
 
         public Alumn LogInAlumn(string email, string password)
         {
-            var result = unitOfWork.Alumns.LogIn(email, password);
+            var result = UnitOfWork.Alumns.LogIn(email, password);
             return result;
         }
         public void AddAlumn(Alumn alumn)
         {
-            unitOfWork.Alumns.Insert(alumn);
-            unitOfWork.Alumns.Save();
-        }     
-        
+            UnitOfWork.Alumns.Insert(alumn);
+            UnitOfWork.Alumns.Save();
+        }
+
         public Alumn GetAlumn(int id)
         {
-            return unitOfWork.Alumns.GetById(id);
+            return UnitOfWork.Alumns.GetById(id);
         }
 
         public Employee GetEmployee(int id)
         {
-            return unitOfWork.Employees.GetById(id);
+            return UnitOfWork.Employees.GetById(id);
         }
     }
 }

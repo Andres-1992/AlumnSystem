@@ -14,8 +14,8 @@ namespace GUI
 {
     public partial class AttendEvent : Form
     {
-        Alumn alumn;
-        AlumnService alumnService;
+        Alumn alumn { get; set; }
+        Services Services { get; set; }
        
         public AttendEvent()
         {
@@ -23,22 +23,13 @@ namespace GUI
            
         }
 
-        public void HideColumns()
-        {
-            dataGridView1.Columns["AlumnEvents"].Visible = false;
-            dataGridView1.Columns["Employee"].Visible = false;
-            dataGridView2.Columns["EmployeeId"].Visible = false;
-            dataGridView2.Columns["AlumnEvents"].Visible = false;
-            dataGridView2.Columns["Employee"].Visible = false;
-           
-        }
-        public AttendEvent(AlumnService aService, Alumn a)
+        public AttendEvent(Services services, Alumn a)
         {
             InitializeComponent();
-            alumnService = aService;
             alumn = a;
-            dataGridView1.DataSource = new BusinessManager().GetEvent();
-            dataGridView2.DataSource = alumnService.GetAttendedEvent(alumn); 
+            Services = services;
+            dataGridView1.DataSource = services.BusinessManager.GetEvent();
+            dataGridView2.DataSource = services.AlumnServices.GetAttendedEvent(alumn); 
             
             HideColumns();            
         }
@@ -53,10 +44,20 @@ namespace GUI
             var result = dataGridView1.CurrentRow.DataBoundItem;
             Event obj = (Event)result;
             AlumnEvent AE = new AlumnEvent() { Alumn = alumn, Event = obj  };
-            alumnService.AddAlumnEvent(AE);
+            Services.AlumnServices.AddAlumnEvent(AE);
             MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
-            dataGridView2.DataSource = alumnService.GetAttendedEvent(alumn);
+            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(alumn);
 
+        }     
+        
+        public void HideColumns()
+        {
+            dataGridView1.Columns["AlumnEvents"].Visible = false;
+            dataGridView1.Columns["Employee"].Visible = false;
+            dataGridView2.Columns["EmployeeId"].Visible = false;
+            dataGridView2.Columns["AlumnEvents"].Visible = false;
+            dataGridView2.Columns["Employee"].Visible = false;
+           
         }
     }
 }

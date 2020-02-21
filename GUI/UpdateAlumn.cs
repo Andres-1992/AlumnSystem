@@ -15,21 +15,21 @@ namespace GUI
 {
     public partial class UpdateAlumn : Form
     {
-        Alumn alumn;
-        AlumnService alumnService;
-        List<Competence> competences;
+        Alumn alumn { get; set; }
+        Services Services { get; set; }
+        List<Competence> competences { get; set; }
         public UpdateAlumn()
         {
             InitializeComponent();
         }
-        public UpdateAlumn(AlumnService aService ,Alumn a)
+        public UpdateAlumn(Services services, Alumn a)
         {
             InitializeComponent();
-            alumnService = aService;
+            Services = services;
             alumn = a;
-            competences = alumnService.GetCompetences(alumn).ToList();
             LoadInfo();
             LoadCompetences();
+            LevelcomboBox.DataSource = Enum.GetValues(typeof(CompetenceLevel));
             this.Text = alumn.Name;
         }
         #region load metoder
@@ -42,22 +42,24 @@ namespace GUI
             {
                 SurNametextBox.Text += names[i] + " ";
             }
-
+            EmailtextBox.Text = alumn.Email;
+            PhoneNumbertextBox.Text = alumn.Phonenumber;
+            competences = Services.AlumnServices.GetCompetences(alumn).ToList();
             LoadCompetences();
-            LevelcomboBox.DataSource = Enum.GetValues(typeof(CompetenceLevel));
+          
         }
 
         private void LoadCompetences()
         {
-            EmailtextBox.Text = alumn.Email;
-            PhoneNumbertextBox.Text = alumn.Phonenumber;
+            
             listView1.Items.Clear();
             foreach (var item in competences)
             {
                 var rad = new string[] { item.Description, item.CompetenceLevel.ToString() };
                 var listView = new ListViewItem(rad);
                 listView1.Items.Add(listView);
-            }
+            } 
+            
         }
         #endregion
         private void Cancelbutton_Click(object sender, EventArgs e)
@@ -72,7 +74,7 @@ namespace GUI
             alumn.Email = EmailtextBox.Text;
             alumn.Phonenumber = PhoneNumbertextBox.Text;
             alumn.Competences = competences;
-            alumnService.UpdateAlumn(alumn);
+            Services.AlumnServices.UpdateAlumn(alumn);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 
@@ -83,25 +85,29 @@ namespace GUI
 
             Competence competence = new Competence(ExperienceRichTextBox.Text, competenceLevel);
             competences.Add(competence);
-            MessageBox.Show("Du har lagt till en ny kompetens"); 
-            
-            if (listView1.SelectedItems.Count == 0)
-                return;
-
-            ListViewItem item = listView1.SelectedItems[0];
-           
-            Alumn test = alumnService.GetById(int.Parse(item.Text));
-
-            List<Alumn> alumner = new List<Alumn>();
-
-            MessageBox.Show(test.Name);
+            MessageBox.Show("Du har lagt till en ny kompetens");
             ExperienceRichTextBox.Clear();
             LoadCompetences();
+
+
+
+
+            //if (listView1.SelectedItems.Count == 0)
+            //    return;
+
+            //ListViewItem item = listView1.SelectedItems[0];
+
+            //Alumn test = Services.AlumnServices.GetById(int.Parse(item.Text));
+
+            //List<Alumn> alumner = new List<Alumn>();
+
+            //MessageBox.Show(test.Name);
+            
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
 
             ////fill the text boxes
             //textBoxID.Text = item.Text;

@@ -31,7 +31,7 @@ namespace DataLayer
         {
             table.Add(obj);
         }
-        public void Update(T obj,int id)
+        public void Update(T obj)
         {
             //var result = table.Find(id);
             //result = obj;

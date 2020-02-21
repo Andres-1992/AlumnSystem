@@ -14,23 +14,21 @@ namespace GUI
 {
     public partial class AddEvent : Form
     {
-        EmployeeService employeeService;
-        Employee employee;
-        
+        Services Services { get; set; }
+        Employee employee { get; set; }
+
         public AddEvent()
         {
             InitializeComponent();
 
         }
-        public AddEvent(EmployeeService eService, Employee e)
+        public AddEvent(Services services, Employee e)
         {
             InitializeComponent();
-            employeeService = eService;
+            Services = services;
             employee = e;
-            dataGridView1.DataSource = new BusinessManager().GetEvent();
-        }
-
-        
+            dataGridView1.DataSource = services.BusinessManager.GetEvent();
+        }      
 
 
         private void Addbutton1_Click(object sender, EventArgs e)
@@ -41,9 +39,9 @@ namespace GUI
             if (LastApplyingDate < StartDate && StartDate<EndDate)
             {
                 Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
-                employeeService.AddEvent(events);
+                Services.EmployeeServices.AddEvent(events);
                 MessageBox.Show("Event tillagd");
-                dataGridView1.DataSource = new BusinessManager().GetEvent();
+                dataGridView1.DataSource = Services.BusinessManager.GetEvent();
             }
         }
 
@@ -56,7 +54,7 @@ namespace GUI
         {
             var result = dataGridView1.CurrentRow.DataBoundItem;
             Event obj = (Event)result;
-            Editevent editevent = new Editevent(obj);
+            EditEvent editevent = new EditEvent(Services, obj);
             this.Hide();
             editevent.ShowDialog(this);
             

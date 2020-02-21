@@ -12,17 +12,6 @@ namespace DataLayer.Contexts
     public class AppDbContext : DbContext, IAppDbContext
     {
 
-       private static AppDbContext appDbContext { get; set; }
-        public static AppDbContext GetInstance()
-        {
-            if (appDbContext == null)
-            {
-                appDbContext = new AppDbContext();
-                return appDbContext;
-            }
-            return appDbContext;
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
