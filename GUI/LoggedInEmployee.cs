@@ -47,5 +47,12 @@ namespace GUI
             updateEmployee.ShowDialog(this);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateCampaign createCampaign = new CreateCampaign(Services,employee);
+            this.Hide();
+            createCampaign.ShowDialog(this);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace GUI
             InitializeComponent();
             alumn = a;
             Services = services;
-            LoadDataGridView();                        
+            LoadDataGridView();
         }
 
         private void Cancelbutton1_Click(object sender, EventArgs e)

@@ -16,57 +16,73 @@ namespace GUI
     public partial class CreateCampaign : Form
     {
         Services Services { get; set; }
-        SubscriberList SubscriberList;
-        Campaign Campaign;
-        public CreateCampaign(Services services)
-        {
 
+        List<Alumn> Alumns { get; set; }
+        SubscriberList SubscriberList { get; set; }
+        Campaign Campaign { get; set; }
+        Employee Employee { get; set; }
+        public CreateCampaign(Services services,Employee employee)
+        {
             InitializeComponent();
             Services = services;
             comboBox1.DataSource = Enum.GetValues(typeof(Education));
+            Employee = employee;
+            Alumns = new List<Alumn>();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            alumnCheckListBox.DataSource = Services.AlumnServices.GetAlumnsByEducation((Education)Enum.Parse(typeof(Education), comboBox1.SelectedValue.ToString()));
+        {          
+            dataGridView1.DataSource = Services.EmployeeServices.GetAlumnsByEducation((Education)Enum.Parse(typeof(Education), comboBox1.SelectedValue.ToString()));
+            HideColumns();
         }
 
         private void showAllBt_Click(object sender, EventArgs e)
         {
-            alumnCheckListBox.DataSource = Services.AlumnServices.GetAll().Select(x => new { x.Name, x.Email, x.Education }).ToList();
+            dataGridView1.DataSource = Services.AlumnServices.GetAll();
+            HideColumns();
         }
-        List<Alumn> Alumns = new List<Alumn>();
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (var item in alumnCheckListBox.CheckedItems.OfType<Alumn>())
-            {
-                if (!Alumns.Contains(item))
-                {
-                    Alumns.Add(item);
-                }
-            }
 
-            listView1.Items.Clear();
-            foreach (var item in Alumns)
-            {
-                var rad = new string[] { item.Name, item.Email };
-                var listView = new ListViewItem(rad);
-                listView1.Items.Add(listView);
-            }
+            var result = dataGridView1.CurrentRow.DataBoundItem;
+           Alumn alumn = (Alumn)result;
 
+            if (!Alumns.Contains(alumn))
+            {
+                Alumns.Add(alumn);
+            }
+            dataGridView2.DataSource = null;
+            LoadDataGridView2();
+            
         }
-
+        private void LoadDataGridView2()
+        {
+           
+            dataGridView2.DataSource = Alumns;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
-            SubscriberList = new SubscriberList() { alumns = Alumns, Created = DateTime.Now };            
+            SubscriberList = new SubscriberList() { alumns = Alumns, Created = DateTime.Now };
+            MessageBox.Show("Du har skapat en ny Subscriber lista");
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            var result = SubscriberList;
-            Campaign = new Campaign() { subscriberLists=new List<SubscriberList>(), Created=DateTime.Now,sent=true, Message=richTextBox1.Text };
+        {           
+            Campaign = new Campaign() { subscriberLists = new List<SubscriberList>(), Created = DateTime.Now, Sent = true, Message = richTextBox1.Text,Creator=Employee };
             Campaign.subscriberLists.Add(SubscriberList);
-            MessageBox.Show("Du har skapat en ny utskickslista");
+            MessageBox.Show("Du har skickat en utskickslista");
+        }
+        private void HideColumns()
+        {
+            dataGridView1.Columns["AlumnEvents"].Visible = false;         
+            dataGridView1.Columns["Competences"].Visible = false;
+            dataGridView1.Columns["Password"].Visible = false;
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
         }
     }
 }

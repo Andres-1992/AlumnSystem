@@ -1,4 +1,6 @@
-﻿using BusinessEntities.Models;
+﻿using BusinessEntities;
+using BusinessEntities.Enums;
+using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
 using System;
@@ -33,6 +35,10 @@ namespace BusinessLayer
         {
             UnitOfWork.Events.Update(events);
             UnitOfWork.Events.Save();
+        }
+        public IEnumerable<Alumn> GetAlumnsByEducation(Education education)
+        {
+            return UnitOfWork.Alumns.GetAlumnsByEducation(education);
         }
     }
 }

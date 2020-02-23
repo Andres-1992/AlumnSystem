@@ -48,9 +48,6 @@ namespace BusinessLayer
             return UnitOfWork.Alumns.GetById(id);
         }
 
-        public IEnumerable<Alumn> GetAlumnsByEducation(Education education)
-        {
-            return UnitOfWork.Alumns.GetAlumnsByEducation(education);
-        }
+        
     }
 }
