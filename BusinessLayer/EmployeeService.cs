@@ -32,6 +32,7 @@ namespace BusinessLayer
         public void UpdateEvent(Event events)
         {
             UnitOfWork.Events.Update(events);
+            UnitOfWork.Events.Save();
         }
     }
 }

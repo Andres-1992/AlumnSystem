@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts;
 using System;
@@ -13,6 +14,13 @@ namespace DataLayer
         public AlumnRepository(AppDbContext context) : base(context)
         {
             _context = context;
+        }
+
+        public IEnumerable<Alumn> GetAlumnsByEducation(Education education)
+        {
+            return (from x in _context.Alumns
+                          where x.Education == education
+                          select x).ToList();
         }
 
         public IEnumerable<Event> GetAttendedEvent(Alumn alumn)

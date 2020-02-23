@@ -24,7 +24,8 @@ namespace GUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn(Services));
+           // Application.Run(new LogIn(Services));
+            Application.Run(new CreateCampaign(Services));
         }
     }
 }

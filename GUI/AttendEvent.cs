@@ -28,10 +28,7 @@ namespace GUI
             InitializeComponent();
             alumn = a;
             Services = services;
-            dataGridView1.DataSource = services.BusinessManager.GetEvent();
-            dataGridView2.DataSource = services.AlumnServices.GetAttendedEvent(alumn); 
-            
-            HideColumns();            
+            LoadDataGridView();                        
         }
 
         private void Cancelbutton1_Click(object sender, EventArgs e)
@@ -43,14 +40,21 @@ namespace GUI
         {
             var result = dataGridView1.CurrentRow.DataBoundItem;
             Event obj = (Event)result;
-            AlumnEvent AE = new AlumnEvent() { Alumn = alumn, Event = obj  };
-            Services.AlumnServices.AddAlumnEvent(AE);
+            AlumnEvent alumnEvent = new AlumnEvent() { Alumn = alumn, Event = obj  };
+            Services.AlumnServices.AddAlumnEvent(alumnEvent);
             MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
-            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(alumn);
+            LoadDataGridView();
+            // dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(alumn);
 
         }     
         
-        public void HideColumns()
+        private void LoadDataGridView()
+        {
+            dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(alumn);
+            HideColumns(); 
+        }
+        private void HideColumns()
         {
             dataGridView1.Columns["AlumnEvents"].Visible = false;
             dataGridView1.Columns["Employee"].Visible = false;

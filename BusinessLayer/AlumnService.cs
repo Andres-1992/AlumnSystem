@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
@@ -19,9 +20,9 @@ namespace BusinessLayer
             UnitOfWork = unitOfWork ;
 
         }
-        public void AddAlumnEvent(AlumnEvent ae)
+        public void AddAlumnEvent(AlumnEvent alumnEvent)
         {
-            AppDbContext.AlumnEvent.Add(ae);
+            AppDbContext.AlumnEvent.Add(alumnEvent);
             AppDbContext.SaveChanges();
         }
         public IEnumerable<Competence> GetCompetences(Alumn alumn)
@@ -45,6 +46,11 @@ namespace BusinessLayer
         public Alumn GetById(int id)
         {
             return UnitOfWork.Alumns.GetById(id);
+        }
+
+        public IEnumerable<Alumn> GetAlumnsByEducation(Education education)
+        {
+            return UnitOfWork.Alumns.GetAlumnsByEducation(education);
         }
     }
 }
