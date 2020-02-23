@@ -42,24 +42,29 @@
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.Editbutton1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeightSizeMode =
+                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Desktop;
             this.dataGridView1.Location = new System.Drawing.Point(700, 10);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 3, 2, 2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(400, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(500, 400);
             this.dataGridView1.TabIndex = 0;
+         
             // 
             // EventTitletextBox
             // 
             this.EventTitletextBox.Location = new System.Drawing.Point(147, 110);
             this.EventTitletextBox.Name = "EventTitletextBox";
-            this.EventTitletextBox.Size = new System.Drawing.Size(253, 23);
+            this.EventTitletextBox.Size = new System.Drawing.Size(252, 23);
             this.EventTitletextBox.TabIndex = 1;
             // 
             // label2
@@ -84,7 +89,7 @@
             // 
             this.DescriptionTextBox.Location = new System.Drawing.Point(147, 159);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(253, 172);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(252, 172);
             this.DescriptionTextBox.TabIndex = 2;
             this.DescriptionTextBox.Text = "";
             // 
@@ -127,7 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(472, 191);
+            this.label1.Location = new System.Drawing.Point(472, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 2;
@@ -172,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 450);
+            this.ClientSize = new System.Drawing.Size(1243, 470);
             this.Controls.Add(this.Editbutton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.EndDatePicker);
@@ -190,10 +195,9 @@
             this.Name = "AddEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEvent";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

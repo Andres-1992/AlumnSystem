@@ -28,7 +28,7 @@ namespace GUI
             Services = services;
             employee = e;
             dataGridView1.DataSource = services.BusinessManager.GetEvent();
-        }      
+        }
 
 
         private void Addbutton1_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace GUI
             DateTime StartDate = StartDatePicker1.Value.Date;
             DateTime EndDate = EndDatePicker.Value.Date;
             DateTime LastApplyingDate = LastTimePicker.Value.Date;
-            if (LastApplyingDate < StartDate && StartDate<EndDate)
+            if (LastApplyingDate < StartDate && StartDate < EndDate)
             {
                 Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
                 Services.EmployeeServices.AddEvent(events);
@@ -57,8 +57,10 @@ namespace GUI
             EditEvent editevent = new EditEvent(Services, obj);
             this.Hide();
             editevent.ShowDialog(this);
-            
+
+
         }
+
     }
 
 }
