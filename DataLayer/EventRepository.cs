@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
+using BusinessEntities;
 
 namespace DataLayer
 {
@@ -16,16 +16,12 @@ namespace DataLayer
             _context = context;
         }
 
-        /// <summary>
-        /// Test Metod, glöm inte att ta bort onödig metod innan inlämning
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Event> GetEvents()
+        public IEnumerable<Event> GetAttendedEvent(Alumn alumn)
         {
-            var result = (from x in _context.Events
-                          where x.Title == "JJ"
-                          select x).ToList();
-            return result;
+            return (from x in _context.AlumnEvent
+                    where x.Alumn.AlumnId.Equals(alumn.AlumnId)
+                    select x.Event).ToList();
+
         }
     }
 }

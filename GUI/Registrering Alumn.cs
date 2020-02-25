@@ -84,12 +84,11 @@ namespace GUI
             phoneNrTextb.Clear();
             pwTextb.Clear();
             confirmPwTextb.Clear();
+            competenceRichTextBox.Clear();
         }
 
         private bool ValidateTextBoxes()
-        {
-            try
-            {
+        {            
                 string textBoxData = string.Empty;
 
                 foreach (Control item in this.Controls)
@@ -100,13 +99,10 @@ namespace GUI
                         if (string.IsNullOrEmpty(item.Text))
                         {
                             return false;
-                        }
-                        textBoxData += item.Text;
+                        }                        
                     }
                 }
-                return (textBoxData != string.Empty);
-            }
-            catch { return false; }
+                return (textBoxData != string.Empty);           
         }
 
 
@@ -144,6 +140,12 @@ namespace GUI
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Owner.Show();
+        }
+
+        private void competenceRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(competenceRichTextBox.Text)) AddCompetence.Enabled = false;   
+            else AddCompetence.Enabled = true;            
         }
     }
 }

@@ -16,13 +16,11 @@ namespace DataLayer
             _context = context;
         }
 
-
         public Employee LogIn(string signature, string password)
         {
             return (from x in _context.Employees
                     where x.Signature == signature && x.Password == password
                     select x).FirstOrDefault();
-
         }
         //#region budget metoder glöm inte ta bort innan johannes ser
         //public void Seed()

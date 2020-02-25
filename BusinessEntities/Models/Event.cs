@@ -16,11 +16,10 @@ namespace BusinessEntities.Models
         public DateTime EndDate { get;  set; }
         public DateTime LastApplyingDate { get;  set; }
 
-
         public int EmployeeId { get; private set; }
         public Employee Employee { get; private set; }
-
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
+
         public Event()
         {
             //  Dummy så EF fattar

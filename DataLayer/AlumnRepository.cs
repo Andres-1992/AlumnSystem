@@ -23,13 +23,6 @@ namespace DataLayer
                           select x).ToList();
         }
 
-        public IEnumerable<Event> GetAttendedEvent(Alumn alumn)
-        {
-            return (from x in _context.AlumnEvent
-                    where x.Alumn.AlumnId.Equals(alumn.AlumnId)
-                    select x.Event).ToList();
-
-        }
 
         public IEnumerable<Competence> GetCompetences(Alumn alumn)
         {

@@ -17,11 +17,6 @@ namespace GUI
         Services Services { get; set; }
         Employee employee { get; set; }
 
-        public AddEvent()
-        {
-            InitializeComponent();
-
-        }
         public AddEvent(Services services, Employee e)
         {
             InitializeComponent();
@@ -30,21 +25,51 @@ namespace GUI
             dataGridView1.DataSource = services.BusinessManager.GetEvent();
         }
 
-
         private void Addbutton1_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = StartDatePicker1.Value.Date;
-            DateTime EndDate = EndDatePicker.Value.Date;
-            DateTime LastApplyingDate = LastTimePicker.Value.Date;
-            if (LastApplyingDate < StartDate && StartDate < EndDate)
+            if (ValidateTextBoxes())
             {
-                Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
-                Services.EmployeeServices.AddEvent(events);
-                MessageBox.Show("Event tillagd");
-                dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+                DateTime StartDate = StartDatePicker1.Value.Date;
+                DateTime EndDate = EndDatePicker.Value.Date;
+                DateTime LastApplyingDate = LastTimePicker.Value.Date;
+                if (LastApplyingDate < StartDate && StartDate < EndDate)
+                {
+                    Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, employee.EmployeeId);
+                    Services.EmployeeServices.AddEvent(events);
+                    MessageBox.Show("Event tillagd");
+                    dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+                }
+                else
+                {
+                    MessageBox.Show("Kolla datumen");
+                }
             }
-        }
+            else
+            {
+                MessageBox.Show("Alla fält är inte ifyllda");
+            }
 
+        }
+        private bool ValidateTextBoxes()
+        {
+
+            string textBoxData = string.Empty;
+
+            foreach (Control item in this.Controls)
+            {
+                if (item.GetType() == typeof(TextBox))
+                {
+
+                    if (string.IsNullOrEmpty(item.Text))
+                    {
+                        return false;
+                    }
+                    textBoxData += item.Text;
+                }
+            }
+            return (textBoxData != string.Empty);
+
+        }
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Owner.Show();
@@ -57,8 +82,6 @@ namespace GUI
             EditEvent editevent = new EditEvent(Services, obj);
             this.Hide();
             editevent.ShowDialog(this);
-
-
         }
 
     }

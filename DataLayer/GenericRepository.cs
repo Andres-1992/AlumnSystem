@@ -9,8 +9,7 @@ using System.Text;
 namespace DataLayer
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
-    {
-       
+    {       
         private AppDbContext _context { get; set; }
         private DbSet<T> table { get; set; }
 
@@ -33,11 +32,6 @@ namespace DataLayer
         }
         public void Update(T obj)
         {
-            //var result = table.Find(id);
-            //result = obj;
-
-            //_context.Update(result);
-
             table.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
         }

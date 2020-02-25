@@ -36,9 +36,15 @@ namespace BusinessLayer
             UnitOfWork.Events.Update(events);
             UnitOfWork.Events.Save();
         }
+
         public IEnumerable<Alumn> GetAlumnsByEducation(Education education)
         {
             return UnitOfWork.Alumns.GetAlumnsByEducation(education);
+        }
+
+        public IEnumerable<Alumn> GetAll()
+        {
+            return UnitOfWork.Alumns.GetAll();
         }
     }
 }

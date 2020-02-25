@@ -9,9 +9,7 @@ namespace BusinessLayer
     public interface IAlumnService
     {
         void AddAlumnEvent(AlumnEvent ae);
-        IEnumerable<Alumn> GetAll();
         IEnumerable<Event> GetAttendedEvent(Alumn alumn);
-        Alumn GetById(int id);
         IEnumerable<Competence> GetCompetences(Alumn alumn);
         void UpdateAlumn(Alumn alumn);
     }

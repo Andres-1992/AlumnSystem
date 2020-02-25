@@ -33,15 +33,5 @@ namespace BusinessLayer
             UnitOfWork.Alumns.Insert(alumn);
             UnitOfWork.Alumns.Save();
         }
-
-        public Alumn GetAlumn(int id)
-        {
-            return UnitOfWork.Alumns.GetById(id);
-        }
-
-        public Employee GetEmployee(int id)
-        {
-            return UnitOfWork.Employees.GetById(id);
-        }
     }
 }

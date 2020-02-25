@@ -38,7 +38,7 @@ namespace GUI
 
         private void showAllBt_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Services.AlumnServices.GetAll();
+            dataGridView1.DataSource = Services.EmployeeServices.GetAll();
             HideColumns();
         }
         private void button2_Click(object sender, EventArgs e)
@@ -76,8 +76,7 @@ namespace GUI
         {
             dataGridView1.Columns["AlumnEvents"].Visible = false;         
             dataGridView1.Columns["Competences"].Visible = false;
-            dataGridView1.Columns["Password"].Visible = false;
-           
+            dataGridView1.Columns["Password"].Visible = false;           
         }
 
         private void button5_Click(object sender, EventArgs e)

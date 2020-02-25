@@ -18,9 +18,9 @@ namespace BusinessLayer
         {
             AppDbContext = appDbContext;
             UnitOfWork = unitOfWork;
-            //appDbContext.Database.EnsureCreated();
+            appDbContext.Database.EnsureCreated();
         }
-
+       
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();

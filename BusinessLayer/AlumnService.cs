@@ -32,21 +32,13 @@ namespace BusinessLayer
 
         public IEnumerable<Event> GetAttendedEvent(Alumn alumn)
         {
-            return UnitOfWork.Alumns.GetAttendedEvent(alumn);
+            return UnitOfWork.Events.GetAttendedEvent(alumn);
         }
         public void UpdateAlumn(Alumn alumn)
         {
             UnitOfWork.Alumns.Update(alumn);
             UnitOfWork.Alumns.Save();
-        }
-        public IEnumerable<Alumn> GetAll()
-        {
-            return UnitOfWork.Alumns.GetAll();
-        }
-        public Alumn GetById(int id)
-        {
-            return UnitOfWork.Alumns.GetById(id);
-        }
+        }      
 
         
     }

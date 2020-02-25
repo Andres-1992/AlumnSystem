@@ -20,12 +20,10 @@ namespace GUI
             AppDbContext AppDbContext = new AppDbContext();
             UnitOfWork UnitOfWork = new UnitOfWork(AppDbContext);
             Services Services = new Services(AppDbContext,UnitOfWork);
-                        
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn(Services));
-            
         }
     }
 }

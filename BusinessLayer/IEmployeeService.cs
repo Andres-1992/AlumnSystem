@@ -11,5 +11,6 @@ namespace BusinessLayer
         void UpdateEmployee(Employee employee);
         void UpdateEvent(Event events);
         IEnumerable<Alumn> GetAlumnsByEducation(Education education);
+        IEnumerable<Alumn> GetAll();
     }
 }

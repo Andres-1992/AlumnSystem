@@ -14,11 +14,6 @@ namespace GUI
     {
         Services Services { get; set; }
         Event events { get; set; }
-        public EditEvent()
-        {
-            InitializeComponent();
-
-        }
 
         public  EditEvent(Services services,Event ev)
         {

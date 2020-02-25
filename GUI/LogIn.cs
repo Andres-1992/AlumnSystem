@@ -67,15 +67,13 @@ namespace GUI
         }
         private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registrering_Alumn ra = new Registrering_Alumn(Services);
+            Registrering_Alumn registrering_Alumn = new Registrering_Alumn(Services);
             this.Hide();
-            ra.ShowDialog(this);
+            registrering_Alumn.ShowDialog(this);
         }
         #region hjälpmetoder för textboxes
         private bool ValidateTextBoxes()
-        {
-            try
-            {
+        {           
                 string textBoxData = string.Empty;
 
                 foreach (Control item in this.Controls)
@@ -86,13 +84,10 @@ namespace GUI
                         if (string.IsNullOrEmpty(item.Text))
                         {
                             return false;
-                        }
-                        textBoxData += item.Text;
+                        }                       
                     }
                 }
-                return (textBoxData != string.Empty);
-            }
-            catch { return false; }
+                return (textBoxData != string.Empty);          
         }
 
         private void personalRadioButton_CheckedChanged(object sender, EventArgs e)
