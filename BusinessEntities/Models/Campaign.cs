@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessEntities.Models
 {
@@ -12,6 +11,6 @@ namespace BusinessEntities.Models
         public bool Sent { get; set; }
         public Employee Creator { get; set; }
     }
-    
-    
+
+
 }

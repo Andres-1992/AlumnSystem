@@ -160,9 +160,9 @@
             this.blösenordLabel.AutoSize = true;
             this.blösenordLabel.Location = new System.Drawing.Point(139, 272);
             this.blösenordLabel.Name = "blösenordLabel";
-            this.blösenordLabel.Size = new System.Drawing.Size(171, 25);
+            this.blösenordLabel.Size = new System.Drawing.Size(164, 25);
             this.blösenordLabel.TabIndex = 1;
-            this.blösenordLabel.Text = "berkräfta lösenord *";
+            this.blösenordLabel.Text = "Bekräfta lösenord *";
             // 
             // educationComboBox
             // 

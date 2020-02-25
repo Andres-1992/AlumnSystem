@@ -1,12 +1,6 @@
 ﻿using BusinessEntities.Models;
 using BusinessLayer;
-using DataLayer.Contexts;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -30,19 +24,19 @@ namespace GUI
 
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
-            AddEvent addevent = new AddEvent(Services,employee);
+            AddEvent addevent = new AddEvent(Services, employee);
             this.Hide();
             addevent.ShowDialog(this);
         }
 
         private void LogOutbutton1_Click(object sender, EventArgs e)
         {
-            Owner.Show();   
+            Owner.Show();
         }
 
         private void AccountInfobutton1_Click(object sender, EventArgs e)
         {
-            UpdateEmployee updateEmployee = new UpdateEmployee(Services, employee);            
+            UpdateEmployee updateEmployee = new UpdateEmployee(Services, employee);
             this.Hide();
             updateEmployee.ShowDialog(this);
 
@@ -50,7 +44,7 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CreateCampaign createCampaign = new CreateCampaign(Services,employee);
+            CreateCampaign createCampaign = new CreateCampaign(Services, employee);
             this.Hide();
             createCampaign.ShowDialog(this);
         }

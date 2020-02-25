@@ -73,7 +73,9 @@ namespace GUI
         }
         #region hjälpmetoder för textboxes
         private bool ValidateTextBoxes()
-        {           
+        {
+            try
+            {
                 string textBoxData = string.Empty;
 
                 foreach (Control item in this.Controls)
@@ -84,10 +86,13 @@ namespace GUI
                         if (string.IsNullOrEmpty(item.Text))
                         {
                             return false;
-                        }                       
+                        }
+                        textBoxData += item.Text;
                     }
                 }
-                return (textBoxData != string.Empty);          
+                return (textBoxData != string.Empty);
+            }
+            catch { return false; }
         }
 
         private void personalRadioButton_CheckedChanged(object sender, EventArgs e)

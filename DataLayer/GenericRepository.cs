@@ -1,15 +1,12 @@
-﻿using BusinessEntities;
-using DataLayer.Contexts;
+﻿using DataLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DataLayer
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
-    {       
+    {
         private AppDbContext _context { get; set; }
         private DbSet<T> table { get; set; }
 
@@ -24,7 +21,7 @@ namespace DataLayer
         }
         public T GetById(int id)
         {
-           return  table.Find(id);            
+            return table.Find(id);
         }
         public void Insert(T obj)
         {

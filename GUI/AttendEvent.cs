@@ -3,12 +3,8 @@ using BusinessEntities.Models;
 using BusinessLayer;
 using DataLayer.Contexts.Junction;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -17,7 +13,7 @@ namespace GUI
     {
         Alumn alumn { get; set; }
         Services Services { get; set; }
-        
+
         public AttendEvent()
         {
             InitializeComponent();
@@ -51,9 +47,9 @@ namespace GUI
             }
             else
             {
-            MessageBox.Show("Du har redan registrerat dig på: " + obj.Title);
+                MessageBox.Show("Du har redan registrerat dig på: " + obj.Title);
             }
-           
+
         }
 
         private void LoadDataGridView()
@@ -69,7 +65,17 @@ namespace GUI
             dataGridView2.Columns["EmployeeId"].Visible = false;
             dataGridView2.Columns["AlumnEvents"].Visible = false;
             dataGridView2.Columns["Employee"].Visible = false;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var result = dataGridView2.CurrentRow.DataBoundItem;
+            Event obj = (Event)result;
+            var result2 = Services.AlumnServices.GetAlumnEvent(alumn).Where(x => x.Event.Equals(obj) && x.Alumn.Equals(alumn)).FirstOrDefault();
+
+            Services.AlumnServices.RemoveMyEvent(result2);
+            dataGridView2.DataSource = null;
+            LoadDataGridView();
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DataLayer;
-using DataLayer.Contexts;
+﻿using DataLayer.Contexts;
 
 namespace DataLayer
 {

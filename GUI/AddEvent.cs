@@ -1,12 +1,6 @@
-﻿using BusinessEntities.Enums;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 using BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -52,22 +46,25 @@ namespace GUI
         }
         private bool ValidateTextBoxes()
         {
-
-            string textBoxData = string.Empty;
-
-            foreach (Control item in this.Controls)
+            try
             {
-                if (item.GetType() == typeof(TextBox))
-                {
+                string textBoxData = string.Empty;
 
-                    if (string.IsNullOrEmpty(item.Text))
+                foreach (Control item in this.Controls)
+                {
+                    if (item.GetType() == typeof(TextBox))
                     {
-                        return false;
+
+                        if (string.IsNullOrEmpty(item.Text))
+                        {
+                            return false;
+                        }
+                        textBoxData += item.Text;
                     }
-                    textBoxData += item.Text;
                 }
+                return (textBoxData != string.Empty);
             }
-            return (textBoxData != string.Empty);
+            catch { return false; }
 
         }
         private void Cancelbutton_Click(object sender, EventArgs e)

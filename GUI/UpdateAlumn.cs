@@ -4,11 +4,7 @@ using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -46,20 +42,20 @@ namespace GUI
             PhoneNumbertextBox.Text = alumn.Phonenumber;
             competences = Services.AlumnServices.GetCompetences(alumn).ToList();
             LoadCompetences();
-          
+
         }
 
         private void LoadCompetences()
         {
-            
+
             listView1.Items.Clear();
             foreach (var item in competences)
             {
                 var rad = new string[] { item.Description, item.CompetenceLevel.ToString() };
                 var listView = new ListViewItem(rad);
                 listView1.Items.Add(listView);
-            } 
-            
+            }
+
         }
         #endregion
         private void Cancelbutton_Click(object sender, EventArgs e)
@@ -102,8 +98,8 @@ namespace GUI
             //List<Alumn> alumner = new List<Alumn>();
 
             //MessageBox.Show(test.Name);
-            
-            
+
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

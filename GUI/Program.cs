@@ -2,9 +2,6 @@ using BusinessLayer;
 using DataLayer;
 using DataLayer.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -19,11 +16,12 @@ namespace GUI
         {
             AppDbContext AppDbContext = new AppDbContext();
             UnitOfWork UnitOfWork = new UnitOfWork(AppDbContext);
-            Services Services = new Services(AppDbContext,UnitOfWork);
+            Services Services = new Services(AppDbContext, UnitOfWork);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn(Services));
+            //  Application.Run(new DeleteAccount());
         }
     }
 }

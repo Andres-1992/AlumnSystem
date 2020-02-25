@@ -1,11 +1,7 @@
 ﻿using BusinessEntities;
-using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataLayer.Contexts
 {

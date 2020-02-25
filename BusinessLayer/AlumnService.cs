@@ -1,12 +1,9 @@
 ﻿using BusinessEntities;
-using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
 using DataLayer.Contexts.Junction;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
@@ -14,10 +11,10 @@ namespace BusinessLayer
     {
         AppDbContext AppDbContext;
         UnitOfWork UnitOfWork;
-        public AlumnService(AppDbContext appDbContext,UnitOfWork unitOfWork)
+        public AlumnService(AppDbContext appDbContext, UnitOfWork unitOfWork)
         {
             AppDbContext = appDbContext;
-            UnitOfWork = unitOfWork ;
+            UnitOfWork = unitOfWork;
 
         }
         public void AddAlumnEvent(AlumnEvent alumnEvent)
@@ -38,8 +35,21 @@ namespace BusinessLayer
         {
             UnitOfWork.Alumns.Update(alumn);
             UnitOfWork.Alumns.Save();
-        }      
+        }
+        public IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn)
+        {
+            return UnitOfWork.Events.GetAlumnEvent(alumn);
+        }
+        public void DeleteAlumn(int id)
+        {
+            UnitOfWork.Alumns.Delete(id);
+            UnitOfWork.Alumns.Save();
+        }
 
-        
+        public void RemoveMyEvent(AlumnEvent alumnEvent)
+        {
+            AppDbContext.AlumnEvent.Remove(alumnEvent);
+            AppDbContext.SaveChanges();
+        }
     }
 }

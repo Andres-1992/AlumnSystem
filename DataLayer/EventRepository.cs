@@ -1,10 +1,9 @@
-﻿using BusinessEntities.Models;
+﻿using BusinessEntities;
+using BusinessEntities.Models;
 using DataLayer.Contexts;
-using System;
+using DataLayer.Contexts.Junction;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using BusinessEntities;
 
 namespace DataLayer
 {
@@ -23,5 +22,13 @@ namespace DataLayer
                     select x.Event).ToList();
 
         }
+        public IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn)
+        {
+            var result = (from x in _context.AlumnEvent
+                          where x.Alumn == alumn
+                          select x).ToList();
+            return result;
+        }
+
     }
 }

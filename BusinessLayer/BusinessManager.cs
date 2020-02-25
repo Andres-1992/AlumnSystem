@@ -1,12 +1,10 @@
-﻿using System;
+﻿using BusinessEntities.Models;
+using DataLayer;
+using DataLayer.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
-using BusinessEntities;
-using BusinessEntities.Models;
-using DataLayer;
-using DataLayer.Contexts;
-using DataLayer.Contexts.Junction;
 
 namespace BusinessLayer
 {
@@ -14,13 +12,13 @@ namespace BusinessLayer
     {
         AppDbContext AppDbContext;
         UnitOfWork UnitOfWork;
-        public BusinessManager(AppDbContext appDbContext,UnitOfWork unitOfWork)
+        public BusinessManager(AppDbContext appDbContext, UnitOfWork unitOfWork)
         {
             AppDbContext = appDbContext;
             UnitOfWork = unitOfWork;
             appDbContext.Database.EnsureCreated();
         }
-       
+
         public static string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();

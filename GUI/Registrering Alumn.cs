@@ -1,11 +1,10 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Enums;
+using BusinessEntities.Models;
+using BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BusinessLayer;
-using System.Security.Cryptography;
-using BusinessEntities.Enums;
-using BusinessEntities.Models;
 
 namespace GUI
 {
@@ -49,17 +48,17 @@ namespace GUI
         {
             string fullname = firstNameTextb.Text + " " + surNameTextb.Text;
             string encryptedPassword = BusinessManager.Encrypt(pwTextb.Text);
-            
-            
+
+
             if (ValidateTextBoxes())
             {
                 Education education;
                 Enum.Parse(typeof(Education), educationComboBox.SelectedValue.ToString());
                 Enum.TryParse<Education>(educationComboBox.SelectedValue.ToString(), out education);
-                
+
                 if (pwTextb.Text == confirmPwTextb.Text)
-                {                                      
-                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text,education , encryptedPassword, workCheckbox.Checked);
+                {
+                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text, education, encryptedPassword, workCheckbox.Checked);
                     alumn.Competences = competences;
                     Services.LogInServices.AddAlumn(alumn);
                     MessageBox.Show(pwTextb.Text);
@@ -88,7 +87,9 @@ namespace GUI
         }
 
         private bool ValidateTextBoxes()
-        {            
+        {
+            try
+            {
                 string textBoxData = string.Empty;
 
                 foreach (Control item in this.Controls)
@@ -99,10 +100,13 @@ namespace GUI
                         if (string.IsNullOrEmpty(item.Text))
                         {
                             return false;
-                        }                        
+                        }
+                        textBoxData += item.Text;
                     }
                 }
-                return (textBoxData != string.Empty);           
+                return (textBoxData != string.Empty);
+            }
+            catch { return false; }
         }
 
 
@@ -111,29 +115,29 @@ namespace GUI
 
             if (GDPRcheckbox.Checked)
             {
-             registerButton.Enabled = true;
+                registerButton.Enabled = true;
                 MessageBox.Show("Genom att kryssa i rutan samtycker du till att Högskolan i Borås," +
                     " behandlar personuppgifter om dig, i enlighet med vår integritetspolicy. Vi använder uppgifter om dig för att kunna nå dig med information," +
                     " erbjudanden och relevant innehåll. Du kan närsomhelst avregistrera dig från dessa.", "Viktig information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            else registerButton.Enabled = false;              
-                            
+            else registerButton.Enabled = false;
+
         }
 
         private void GDPRlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           
+
         }
 
         private void AddCompetence_Click(object sender, EventArgs e)
-        { 
+        {
             CompetenceLevel competenceLevel;
             Enum.TryParse<CompetenceLevel>(competenceComboBox.SelectedValue.ToString(), out competenceLevel);
 
-            Competence competence = new Competence(competenceRichTextBox.Text,competenceLevel);
+            Competence competence = new Competence(competenceRichTextBox.Text, competenceLevel);
             competences.Add(competence);
-            MessageBox.Show("Du har lagt till "+competences.Count+" kompetens(er)");
+            MessageBox.Show("Du har lagt till " + competences.Count + " kompetens(er)");
             competenceRichTextBox.Clear();
         }
 
@@ -144,8 +148,8 @@ namespace GUI
 
         private void competenceRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(competenceRichTextBox.Text)) AddCompetence.Enabled = false;   
-            else AddCompetence.Enabled = true;            
+            if (string.IsNullOrEmpty(competenceRichTextBox.Text)) AddCompetence.Enabled = false;
+            else AddCompetence.Enabled = true;
         }
     }
 }

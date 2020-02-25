@@ -1,11 +1,6 @@
-﻿using System;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 using BusinessLayer;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System;
 using System.Windows.Forms;
 
 namespace GUI
@@ -27,7 +22,7 @@ namespace GUI
             this.Text = employee.Name;
             LoadInfo();
         }
-        
+
         private void LoadInfo()
         {
             var names = employee.Name.Split(' ');
@@ -46,13 +41,13 @@ namespace GUI
             employee.Email = EmailtextBox.Text;
             employee.Phonenumber = PhoneNumbertextBox.Text;
 
-           Services.EmployeeServices.UpdateEmployee(employee);
+            Services.EmployeeServices.UpdateEmployee(employee);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Owner.Show();
-        }       
+        }
     }
 }

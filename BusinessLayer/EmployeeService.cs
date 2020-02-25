@@ -3,9 +3,7 @@ using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
@@ -14,7 +12,7 @@ namespace BusinessLayer
         AppDbContext AppDbContext;
         UnitOfWork UnitOfWork;
 
-        public EmployeeService(AppDbContext appDbContext,UnitOfWork unitOfWork) 
+        public EmployeeService(AppDbContext appDbContext, UnitOfWork unitOfWork)
         {
             AppDbContext = appDbContext;
             UnitOfWork = unitOfWork;

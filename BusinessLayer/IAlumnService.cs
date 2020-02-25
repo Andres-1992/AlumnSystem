@@ -1,5 +1,4 @@
 ﻿using BusinessEntities;
-using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using System.Collections.Generic;
@@ -12,5 +11,8 @@ namespace BusinessLayer
         IEnumerable<Event> GetAttendedEvent(Alumn alumn);
         IEnumerable<Competence> GetCompetences(Alumn alumn);
         void UpdateAlumn(Alumn alumn);
+        void DeleteAlumn(int id);
+        IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn);
+        void RemoveMyEvent(AlumnEvent alumnEvent);
     }
 }

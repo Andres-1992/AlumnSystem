@@ -1,7 +1,4 @@
 ﻿using BusinessEntities.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessEntities.Models
 {
@@ -14,7 +11,7 @@ namespace BusinessEntities.Models
         public int AlumnId { get; set; }
         public Alumn Alumn { get; set; }
 
-        public Competence(string description,CompetenceLevel competenceLevel)
+        public Competence(string description, CompetenceLevel competenceLevel)
         {
             Description = description;
             CompetenceLevel = competenceLevel;

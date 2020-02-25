@@ -1,11 +1,6 @@
 ﻿using BusinessEntities.Models;
 using BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -15,7 +10,7 @@ namespace GUI
         Services Services { get; set; }
         Event events { get; set; }
 
-        public  EditEvent(Services services,Event ev)
+        public EditEvent(Services services, Event ev)
         {
             InitializeComponent();
             events = ev;
@@ -23,7 +18,8 @@ namespace GUI
             LoadEventInfo();
         }
         public void LoadEventInfo()
-        {   textBox6.Text = events.Title;
+        {
+            textBox6.Text = events.Title;
             richTextBox1.Text = events.Description;
             startTimePicker1.Value = events.StartDate;
             endTimePicker1.Value = events.EndDate;

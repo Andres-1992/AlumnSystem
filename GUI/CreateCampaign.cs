@@ -4,11 +4,6 @@ using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -21,7 +16,7 @@ namespace GUI
         SubscriberList SubscriberList { get; set; }
         Campaign Campaign { get; set; }
         Employee Employee { get; set; }
-        public CreateCampaign(Services services,Employee employee)
+        public CreateCampaign(Services services, Employee employee)
         {
             InitializeComponent();
             Services = services;
@@ -31,7 +26,7 @@ namespace GUI
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {          
+        {
             dataGridView1.DataSource = Services.EmployeeServices.GetAlumnsByEducation((Education)Enum.Parse(typeof(Education), comboBox1.SelectedValue.ToString()));
             HideColumns();
         }
@@ -45,19 +40,19 @@ namespace GUI
         {
 
             var result = dataGridView1.CurrentRow.DataBoundItem;
-           Alumn alumn = (Alumn)result;
+            Alumn alumn = (Alumn)result;
 
             if (!Alumns.Contains(alumn))
             {
                 Alumns.Add(alumn);
             }
-            dataGridView2.DataSource = null;
+
             LoadDataGridView2();
-            
+
         }
         private void LoadDataGridView2()
         {
-           
+            dataGridView2.DataSource = null;
             dataGridView2.DataSource = Alumns;
         }
         private void button3_Click(object sender, EventArgs e)
@@ -67,21 +62,31 @@ namespace GUI
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {           
-            Campaign = new Campaign() { subscriberLists = new List<SubscriberList>(), Created = DateTime.Now, Sent = true, Message = richTextBox1.Text,Creator=Employee };
+        {
+            Campaign = new Campaign() { subscriberLists = new List<SubscriberList>(), Created = DateTime.Now, Sent = true, Message = richTextBox1.Text, Creator = Employee };
             Campaign.subscriberLists.Add(SubscriberList);
             MessageBox.Show("Du har skickat en utskickslista");
+            Owner.Show();
         }
         private void HideColumns()
         {
-            dataGridView1.Columns["AlumnEvents"].Visible = false;         
+            dataGridView1.Columns["AlumnEvents"].Visible = false;
             dataGridView1.Columns["Competences"].Visible = false;
-            dataGridView1.Columns["Password"].Visible = false;           
+            dataGridView1.Columns["Password"].Visible = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Owner.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var result = dataGridView2.CurrentRow.DataBoundItem;
+            Alumn alumn = (Alumn)result;
+            Alumns.Remove(alumn);
+
+            LoadDataGridView2();
         }
     }
 }

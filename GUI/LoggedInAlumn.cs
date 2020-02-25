@@ -1,12 +1,6 @@
 ﻿using BusinessEntities;
-using BusinessEntities.Models;
 using BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -16,8 +10,8 @@ namespace GUI
         Alumn alumn { get; set; }
         Services Services { get; set; }
         public LoggedInAlumn()
-        {            
-            InitializeComponent();            
+        {
+            InitializeComponent();
         }
 
         public LoggedInAlumn(Services services, Alumn a)
@@ -30,22 +24,33 @@ namespace GUI
 
         private void LogOutbutton2_Click(object sender, EventArgs e)
         {
-           Owner.Show();
+            Owner.Show();
         }
 
         private void Attendbutton1_Click(object sender, EventArgs e)
         {
-            AttendEvent attendEvent = new AttendEvent(Services,alumn);
+            AttendEvent attendEvent = new AttendEvent(Services, alumn);
             this.Hide();
             attendEvent.ShowDialog(this);
-            
+
         }
 
         private void AccountInfobutton2_Click(object sender, EventArgs e)
         {
-            UpdateAlumn updateAlumn = new UpdateAlumn(Services,alumn);
+            UpdateAlumn updateAlumn = new UpdateAlumn(Services, alumn);
             this.Hide();
-            updateAlumn.ShowDialog(this); 
+            updateAlumn.ShowDialog(this);
+        }
+
+        private void DeleteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DeleteAccount deleteAccount = new DeleteAccount(Services, alumn);
+            this.Hide();
+            deleteAccount.ShowDialog();
+            if (deleteAccount.DialogResult == DialogResult.OK)
+            {
+                Owner.Show();
+            }
         }
     }
 }

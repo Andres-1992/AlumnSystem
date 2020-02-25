@@ -1,7 +1,6 @@
 ﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
-using System;
 using System.Collections.Generic;
 
 namespace BusinessEntities
@@ -15,7 +14,7 @@ namespace BusinessEntities
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
         public ICollection<Competence> Competences { get; set; }
 
-        public Alumn(string name, string email, string phonenumber, Education education, string password,bool work)
+        public Alumn(string name, string email, string phonenumber, Education education, string password, bool work)
         {
             Name = name;
             Email = email;
@@ -23,7 +22,7 @@ namespace BusinessEntities
             Education = education;
             Password = password;
             Work = work;
-            
+
         }
 
 
