@@ -44,9 +44,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(551, 379);
+            this.button1.Location = new System.Drawing.Point(787, 632);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(107, 38);
             this.button1.TabIndex = 6;
             this.button1.Text = "Redigera";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,100 +56,111 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(482, 139);
+            this.label7.Location = new System.Drawing.Point(689, 232);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 15);
+            this.label7.Size = new System.Drawing.Size(99, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "Slut datum";
             // 
             // endTimePicker1
             // 
-            this.endTimePicker1.Location = new System.Drawing.Point(426, 157);
+            this.endTimePicker1.Location = new System.Drawing.Point(609, 262);
+            this.endTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.endTimePicker1.Name = "endTimePicker1";
-            this.endTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.endTimePicker1.Size = new System.Drawing.Size(284, 31);
             this.endTimePicker1.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 189);
+            this.label8.Location = new System.Drawing.Point(654, 315);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 15);
+            this.label8.Size = new System.Drawing.Size(197, 25);
             this.label8.TabIndex = 2;
             this.label8.Text = "Sista anmälningsdatum";
             // 
             // lastTimePicker1
             // 
-            this.lastTimePicker1.Location = new System.Drawing.Point(426, 207);
+            this.lastTimePicker1.Location = new System.Drawing.Point(609, 345);
+            this.lastTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lastTimePicker1.Name = "lastTimePicker1";
-            this.lastTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.lastTimePicker1.Size = new System.Drawing.Size(284, 31);
             this.lastTimePicker1.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(482, 90);
+            this.label9.Location = new System.Drawing.Point(689, 150);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 15);
+            this.label9.Size = new System.Drawing.Size(105, 25);
             this.label9.TabIndex = 2;
             this.label9.Text = "Start datum";
             // 
             // startTimePicker1
             // 
-            this.startTimePicker1.Location = new System.Drawing.Point(426, 108);
+            this.startTimePicker1.Location = new System.Drawing.Point(609, 180);
+            this.startTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startTimePicker1.Name = "startTimePicker1";
-            this.startTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.startTimePicker1.Size = new System.Drawing.Size(284, 31);
             this.startTimePicker1.TabIndex = 3;
             // 
             // button3
             // 
             this.button3.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button3.Location = new System.Drawing.Point(133, 379);
+            this.button3.Location = new System.Drawing.Point(190, 632);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(107, 38);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Cancel";
+            this.button3.Text = "Avbryt";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Cancelbutton_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(133, 157);
+            this.richTextBox1.Location = new System.Drawing.Point(190, 262);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(253, 172);
+            this.richTextBox1.Size = new System.Drawing.Size(360, 284);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 157);
+            this.label10.Location = new System.Drawing.Point(71, 262);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 15);
+            this.label10.Size = new System.Drawing.Size(102, 25);
             this.label10.TabIndex = 2;
             this.label10.Text = "Beskrivning";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(68, 111);
+            this.label11.Location = new System.Drawing.Point(97, 185);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 15);
+            this.label11.Size = new System.Drawing.Size(44, 25);
             this.label11.TabIndex = 2;
             this.label11.Text = "Titel";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(133, 108);
+            this.textBox6.Location = new System.Drawing.Point(190, 180);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(253, 23);
+            this.textBox6.Size = new System.Drawing.Size(360, 31);
             this.textBox6.TabIndex = 1;
             // 
             // EditEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.endTimePicker1);
@@ -161,6 +173,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox6);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "EditEvent";
             this.Text = "Redigera event";
             this.ResumeLayout(false);

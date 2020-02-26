@@ -42,11 +42,12 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateCampaignBT_Click(object sender, EventArgs e)
         {
             CreateCampaign createCampaign = new CreateCampaign(Services, employee);
             this.Hide();
-            createCampaign.ShowDialog(this);
+           createCampaign.ShowDialog(this);
+           
         }
     }
 }

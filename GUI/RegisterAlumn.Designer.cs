@@ -48,7 +48,6 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.workCheckbox = new System.Windows.Forms.CheckBox();
             this.GDPRcheckbox = new System.Windows.Forms.CheckBox();
-            this.GDPRlink = new System.Windows.Forms.LinkLabel();
             this.Competencelabel = new System.Windows.Forms.Label();
             this.competenceRichTextBox = new System.Windows.Forms.RichTextBox();
             this.competenceComboBox = new System.Windows.Forms.ComboBox();
@@ -243,17 +242,6 @@
             this.GDPRcheckbox.UseVisualStyleBackColor = true;
             this.GDPRcheckbox.CheckedChanged += new System.EventHandler(this.GDPRcheckbox_CheckedChanged);
             // 
-            // GDPRlink
-            // 
-            this.GDPRlink.AutoSize = true;
-            this.GDPRlink.Location = new System.Drawing.Point(340, 725);
-            this.GDPRlink.Name = "GDPRlink";
-            this.GDPRlink.Size = new System.Drawing.Size(156, 25);
-            this.GDPRlink.TabIndex = 12;
-            this.GDPRlink.TabStop = true;
-            this.GDPRlink.Text = "Läs mer om GDPR";
-            this.GDPRlink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GDPRlink_LinkClicked);
-            // 
             // Competencelabel
             // 
             this.Competencelabel.AutoSize = true;
@@ -325,7 +313,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.AddCompetence);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.GDPRlink);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.GDPRcheckbox);
             this.Controls.Add(this.clearButton);
@@ -380,7 +367,6 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.CheckBox workCheckbox;
         private System.Windows.Forms.CheckBox GDPRcheckbox;
-        private System.Windows.Forms.LinkLabel GDPRlink;
         private System.Windows.Forms.Label Competencelabel;
         private System.Windows.Forms.RichTextBox competenceRichTextBox;
         private System.Windows.Forms.ComboBox competenceComboBox;

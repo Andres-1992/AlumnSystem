@@ -34,31 +34,39 @@ namespace GUI
             this.Applybutton1 = new System.Windows.Forms.Button();
             this.Cancelbutton1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Desktop;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1193, 507);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.MultiSelect = false;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.GridColor = System.Drawing.SystemColors.Desktop;
             this.dataGridView2.Location = new System.Drawing.Point(214, 517);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.Size = new System.Drawing.Size(714, 330);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.MultiSelect = false;
             // 
             // Applybutton1
             // 
@@ -86,32 +94,32 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(0, 517);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(13, 517);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 38);
+            this.label1.Size = new System.Drawing.Size(190, 32);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Deltagna events:";
+            this.label1.Text = "Anmälda events:";
             // 
-            // button1
+            // removeButton
             // 
-            this.button1.Location = new System.Drawing.Point(572, 895);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.removeButton.Location = new System.Drawing.Point(503, 899);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(112, 34);
+            this.removeButton.TabIndex = 5;
+            this.removeButton.Text = "Ta bort";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // AttendEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 980);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Applybutton1);
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.Applybutton1);
             this.Controls.Add(this.Cancelbutton1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView2);
@@ -132,6 +140,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label1;
-        private Button button1;
+        private Button removeButton;
     }
 }

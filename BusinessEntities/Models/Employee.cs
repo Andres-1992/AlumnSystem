@@ -8,7 +8,7 @@ namespace BusinessEntities.Models
         public string Signature { get; private set; }
 
         public ICollection<Event> Events { get; private set; }
-
+        public ICollection<Campaign> Campaigns { get; set; }
         public Employee(string name, string phonenumber, string email, string password, string signature)
         {
 

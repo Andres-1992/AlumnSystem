@@ -1,5 +1,6 @@
 ﻿using BusinessEntities;
 using BusinessEntities.Enums;
+using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
@@ -43,6 +44,36 @@ namespace BusinessLayer
         public IEnumerable<Alumn> GetAll()
         {
             return UnitOfWork.Alumns.GetAll();
+        }
+
+        public void AddSubscriberList(SubscriberList subscriberList)
+        {
+            AppDbContext.SubscriberLists.Add(subscriberList);
+            AppDbContext.SaveChanges();
+        }
+
+        public void AddSubscriberListAlumn(SubscriberListAlumn subscriberListAlumn)
+        {
+            AppDbContext.SubscriberListAlumns.Add(subscriberListAlumn);
+            AppDbContext.SaveChanges();
+        }
+
+        public void AddCampaign(Campaign campaign)
+        {
+            AppDbContext.Campaigns.Add(campaign);
+            AppDbContext.SaveChanges();
+        }
+
+        public void AddCampaignSubscribers(CampaignSubscribers campaignSubscribers)
+        {
+            AppDbContext.CampaignSubscribers.Add(campaignSubscribers);
+            AppDbContext.SaveChanges();
+        }
+
+        public void RemoveEvent(int id)
+        {
+            UnitOfWork.Events.Delete(id);
+            UnitOfWork.Events.Save();
         }
     }
 }

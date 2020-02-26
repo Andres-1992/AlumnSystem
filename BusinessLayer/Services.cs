@@ -3,7 +3,7 @@ using DataLayer.Contexts;
 
 namespace BusinessLayer
 {
-    public class Services
+    public class Services : IServices
     {
         public Services(AppDbContext appDbContext, UnitOfWork unitOfWork)
         {
@@ -11,6 +11,7 @@ namespace BusinessLayer
             AlumnServices = new AlumnService(appDbContext, unitOfWork);
             LogInServices = new LogInService(appDbContext, unitOfWork);
             BusinessManager = new BusinessManager(appDbContext, unitOfWork);
+
         }
 
         public IEmployeeService EmployeeServices { get; private set; }

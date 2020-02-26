@@ -28,13 +28,18 @@ namespace GUI
         }
         private void Editbutton1_Click(object sender, EventArgs e)
         {
-            events.Title = textBox6.Text;
-            events.Description = richTextBox1.Text;
-            events.StartDate = startTimePicker1.Value.Date;
-            events.EndDate = endTimePicker1.Value.Date;
-            events.LastApplyingDate = lastTimePicker1.Value.Date;
-            Services.EmployeeServices.UpdateEvent(events);
-            MessageBox.Show("Eventet har uppdaterats");
+            if (lastTimePicker1.Value.Date < startTimePicker1.Value.Date && startTimePicker1.Value.Date < endTimePicker1.Value.Date)
+            {
+                events.Title = textBox6.Text;
+                events.Description = richTextBox1.Text;
+                events.StartDate = startTimePicker1.Value.Date;
+                events.EndDate = endTimePicker1.Value.Date;
+                events.LastApplyingDate = lastTimePicker1.Value.Date;
+                Services.EmployeeServices.UpdateEvent(events);
+                MessageBox.Show("Eventet har uppdaterats");
+            }
+            else MessageBox.Show("Kolla datumen");
+
         }
 
         private void Cancelbutton_Click(object sender, EventArgs e)

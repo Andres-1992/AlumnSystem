@@ -14,18 +14,13 @@ namespace GUI
         Alumn alumn { get; set; }
         Services Services { get; set; }
 
-        public AttendEvent()
-        {
-            InitializeComponent();
-
-        }
-
         public AttendEvent(Services services, Alumn a)
         {
             InitializeComponent();
             alumn = a;
             Services = services;
             LoadDataGridView();
+           
         }
 
         private void Cancelbutton1_Click(object sender, EventArgs e)
@@ -35,21 +30,28 @@ namespace GUI
 
         private void Applybutton1_Click(object sender, EventArgs e)
         {
-            var result = dataGridView1.CurrentRow.DataBoundItem;
-            Event obj = (Event)result;
-            if (!Services.AlumnServices.GetAttendedEvent(alumn).Contains(obj))
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                AlumnEvent alumnEvent = new AlumnEvent() { Alumn = alumn, Event = obj };
-                Services.AlumnServices.AddAlumnEvent(alumnEvent);
-                MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
-                LoadDataGridView();
 
+
+                Event obj = (Event)dataGridView1.CurrentRow.DataBoundItem; ;
+                if (!Services.AlumnServices.GetAttendedEvent(alumn).Contains(obj))
+                {
+                    AlumnEvent alumnEvent = new AlumnEvent() { Alumn = alumn, Event = obj };
+                    Services.AlumnServices.AddAlumnEvent(alumnEvent);
+                    MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
+                    LoadDataGridView();
+
+                }
+                else
+                {
+                    MessageBox.Show("Du har redan registrerat dig på: " + obj.Title);
+                }
             }
             else
             {
-                MessageBox.Show("Du har redan registrerat dig på: " + obj.Title);
+                MessageBox.Show("Inget event valt");
             }
-
         }
 
         private void LoadDataGridView()
@@ -62,20 +64,28 @@ namespace GUI
         {
             dataGridView1.Columns["AlumnEvents"].Visible = false;
             dataGridView1.Columns["Employee"].Visible = false;
+            dataGridView1.Columns["EmployeeId"].Visible = false;
             dataGridView2.Columns["EmployeeId"].Visible = false;
             dataGridView2.Columns["AlumnEvents"].Visible = false;
             dataGridView2.Columns["Employee"].Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void removeButton_Click(object sender, EventArgs e)
         {
-            var result = dataGridView2.CurrentRow.DataBoundItem;
-            Event obj = (Event)result;
-            var result2 = Services.AlumnServices.GetAlumnEvent(alumn).Where(x => x.Event.Equals(obj) && x.Alumn.Equals(alumn)).FirstOrDefault();
 
-            Services.AlumnServices.RemoveMyEvent(result2);
-            dataGridView2.DataSource = null;
-            LoadDataGridView();
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                Event obj = (Event)dataGridView2.CurrentRow.DataBoundItem;
+                var result = Services.AlumnServices.GetAlumnEvent(alumn).Where(x => x.Event.Equals(obj) && x.Alumn.Equals(alumn)).FirstOrDefault();
+
+                Services.AlumnServices.RemoveMyEvent(result);
+                dataGridView2.DataSource = null;
+                LoadDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Inget event valt");
+            }
         }
     }
 }

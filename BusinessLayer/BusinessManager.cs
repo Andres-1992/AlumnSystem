@@ -16,7 +16,7 @@ namespace BusinessLayer
         {
             AppDbContext = appDbContext;
             UnitOfWork = unitOfWork;
-            appDbContext.Database.EnsureCreated();
+            appDbContext.Database.EnsureCreated();           
         }
 
         public static string Encrypt(string value)

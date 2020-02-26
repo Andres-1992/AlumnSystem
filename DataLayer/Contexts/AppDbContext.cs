@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,36 @@ namespace DataLayer.Contexts
                 .WithMany(a => a.AlumnEvents)
                 .HasForeignKey(ae => ae.EventId);
 
+            //Ny modell
+
+            modelBuilder.Entity<CampaignSubscribers>()
+           .HasKey(a => new { a.CampaignId, a.SubscriberListId});
+
+            modelBuilder.Entity<CampaignSubscribers>()
+                .HasOne(ae => ae.SubscriberList)
+                .WithMany(a => a.CampaignSubscribers)
+                .HasForeignKey(ae => ae.SubscriberListId);
+
+            modelBuilder.Entity<CampaignSubscribers>()
+                .HasOne(ae => ae.Campaign)
+                .WithMany(a => a.CampaignSubscribers)
+                .HasForeignKey(ae => ae.CampaignId);
+
+            //Ny modell
+
+            modelBuilder.Entity<SubscriberListAlumn>()
+           .HasKey(a => new { a.AlumnId, a.SubscriberListId });
+
+            modelBuilder.Entity<SubscriberListAlumn>()
+                .HasOne(ae => ae.SubscriberList)
+                .WithMany(a => a.SubscriberListAlumn)
+                .HasForeignKey(ae => ae.SubscriberListId);
+
+            modelBuilder.Entity<SubscriberListAlumn>()
+                .HasOne(ae => ae.Alumn)
+                .WithMany(a => a.SubscriberListAlumn)
+                .HasForeignKey(ae => ae.AlumnId);
+
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<AlumnEvent> AlumnEvent { get; set; }
@@ -39,6 +70,10 @@ namespace DataLayer.Contexts
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Competence> Competence { get; set; }
+        public DbSet<Campaign> Campaigns  { get; set; }
+        public DbSet<SubscriberList> SubscriberLists { get; set; }
+        public DbSet<CampaignSubscribers> CampaignSubscribers { get; set; }
+        public DbSet<SubscriberListAlumn> SubscriberListAlumns { get; set; }
 
     }
 }

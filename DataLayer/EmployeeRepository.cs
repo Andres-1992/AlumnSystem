@@ -1,6 +1,9 @@
 ﻿using BusinessEntities.Models;
 using DataLayer.Contexts;
+using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DataLayer
 {
@@ -32,13 +35,6 @@ namespace DataLayer
         //    Employee emp4 = new Employee("Bim Fagerström Kareld", "0722222222", "bim.fagerstrom_kareld@hb.se", Encrypt("password"), "BIFA");
         //    Insert(emp4);
         //    Save();
-        //}
-        //public static string Encrypt(string value)
-        //{
-        //    using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-        //    UTF8Encoding utf8 = new UTF8Encoding();
-        //    byte[] data = md5.ComputeHash(utf8.GetBytes(value));
-        //    return Convert.ToBase64String(data);
         //}
         //#endregion
     }

@@ -52,22 +52,21 @@ namespace GUI
 
             if (ValidateTextBoxes())
             {
-                Education education;
-                Enum.Parse(typeof(Education), educationComboBox.SelectedValue.ToString());
-                Enum.TryParse<Education>(educationComboBox.SelectedValue.ToString(), out education);
-
                 if (pwTextb.Text == confirmPwTextb.Text)
                 {
-                    Alumn alumn = new Alumn(fullname, emailTextb.Text, phoneNrTextb.Text, education, encryptedPassword, workCheckbox.Checked);
+                    Alumn alumn = new Alumn(fullname,
+                        emailTextb.Text,
+                        phoneNrTextb.Text,
+                        (Education)Enum.Parse(typeof(Education), educationComboBox.SelectedValue.ToString()),
+                        encryptedPassword,
+                        workCheckbox.Checked);
                     alumn.Competences = competences;
                     Services.LogInServices.AddAlumn(alumn);
-                    MessageBox.Show(pwTextb.Text);
+                    MessageBox.Show("Du är registrerad");
                     this.Close();
                     Owner.Show();
                 }
-
                 else MessageBox.Show("Lösenord matchar inte varandra");
-
             }
             else
             {
@@ -120,22 +119,13 @@ namespace GUI
                     " behandlar personuppgifter om dig, i enlighet med vår integritetspolicy. Vi använder uppgifter om dig för att kunna nå dig med information," +
                     " erbjudanden och relevant innehåll. Du kan närsomhelst avregistrera dig från dessa.", "Viktig information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             else registerButton.Enabled = false;
-
-        }
-
-        private void GDPRlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         private void AddCompetence_Click(object sender, EventArgs e)
-        {
-            CompetenceLevel competenceLevel;
-            Enum.TryParse<CompetenceLevel>(competenceComboBox.SelectedValue.ToString(), out competenceLevel);
-
-            Competence competence = new Competence(competenceRichTextBox.Text, competenceLevel);
+        {        
+            Competence competence = new Competence(competenceRichTextBox.Text,
+                (CompetenceLevel)Enum.Parse(typeof(CompetenceLevel), competenceComboBox.SelectedValue.ToString()));
             competences.Add(competence);
             MessageBox.Show("Du har lagt till " + competences.Count + " kompetens(er)");
             competenceRichTextBox.Clear();

@@ -14,28 +14,29 @@ namespace GUI
             InitializeComponent();
             Services = services;
             Alumn = alumn;
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-
-            if (BusinessManager.Encrypt(textBox1.Text) == Alumn.Password)
+            if (BusinessManager.Encrypt(passwordTextBox.Text) == Alumn.Password)
             {
                 Services.AlumnServices.DeleteAlumn(Alumn.AlumnId);
-
+            }
+            else
+            {
+                MessageBox.Show("Fel lösenord");
 
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBox1.UseSystemPasswordChar = true;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             Owner.Show();
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.UseSystemPasswordChar = true;
         }
     }
 }

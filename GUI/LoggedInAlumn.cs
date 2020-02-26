@@ -46,8 +46,8 @@ namespace GUI
         {
             DeleteAccount deleteAccount = new DeleteAccount(Services, alumn);
             this.Hide();
-            deleteAccount.ShowDialog();
-            if (deleteAccount.DialogResult == DialogResult.OK)
+            deleteAccount.ShowDialog(this);
+            if (deleteAccount.DialogResult == DialogResult.Yes)
             {
                 Owner.Show();
             }

@@ -28,60 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // DeleteButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(325, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Ta bort konto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DeleteButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.DeleteButton.Location = new System.Drawing.Point(325, 12);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(135, 34);
+            this.DeleteButton.TabIndex = 0;
+            this.DeleteButton.Text = "Ta bort konto";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // textBox1
+            // passwordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(169, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.passwordTextBox.Location = new System.Drawing.Point(169, 15);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(150, 31);
+            this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
-            // label1
+            // PasswordLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bekräfta lösenord";
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Location = new System.Drawing.Point(12, 12);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(151, 25);
+            this.PasswordLabel.TabIndex = 2;
+            this.PasswordLabel.Text = "Bekräfta lösenord";
             // 
-            // button2
+            // cancelButton
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(12, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 34);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Avbryt";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cancelButton.Location = new System.Drawing.Point(12, 54);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(112, 34);
+            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Text = "Avbryt";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // DeleteAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 100);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.DeleteButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -95,9 +95,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
