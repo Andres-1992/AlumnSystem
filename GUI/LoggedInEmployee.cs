@@ -7,24 +7,19 @@ namespace GUI
 {
     public partial class LoggedInEmployee : Form
     {
-        Employee employee { get; set; }
+        Employee Employee { get; set; }
         Services Services { get; set; }
-
-        public LoggedInEmployee()
-        {
-            InitializeComponent();
-        }
 
         public LoggedInEmployee(Services services, Employee e)
         {
             InitializeComponent();
             Services = services;
-            employee = e;
+            Employee = e;
         }
 
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
-            AddEvent addevent = new AddEvent(Services, employee);
+            AddEvent addevent = new AddEvent(Services, Employee);
             this.Hide();
             addevent.ShowDialog(this);
         }
@@ -36,7 +31,7 @@ namespace GUI
 
         private void AccountInfobutton1_Click(object sender, EventArgs e)
         {
-            UpdateEmployee updateEmployee = new UpdateEmployee(Services, employee);
+            UpdateEmployee updateEmployee = new UpdateEmployee(Services, Employee);
             this.Hide();
             updateEmployee.ShowDialog(this);
 
@@ -44,7 +39,7 @@ namespace GUI
 
         private void CreateCampaignBT_Click(object sender, EventArgs e)
         {
-            CreateCampaign createCampaign = new CreateCampaign(Services, employee);
+            CreateCampaign createCampaign = new CreateCampaign(Services, Employee);
             this.Hide();
            createCampaign.ShowDialog(this);
            

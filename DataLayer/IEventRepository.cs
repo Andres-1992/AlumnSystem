@@ -8,6 +8,6 @@ namespace DataLayer
     public interface IEventRepository : IGenericRepository<Event>
     {
         IEnumerable<Event> GetAttendedEvent(Alumn alumn);
-        public IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn);
+         IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn);
     }
 }

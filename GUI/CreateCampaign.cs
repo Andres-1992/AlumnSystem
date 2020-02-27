@@ -12,11 +12,11 @@ namespace GUI
     public partial class CreateCampaign : Form
     {
         Services Services { get; set; }
-
         List<Alumn> Alumns { get; set; }
         SubscriberList SubscriberList { get; set; }
         Campaign Campaign { get; set; }
         Employee Employee { get; set; }
+
         public CreateCampaign(Services services, Employee employee)
         {
             InitializeComponent();
@@ -53,9 +53,8 @@ namespace GUI
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
-        {
-            var result = dataGridView2.CurrentRow.DataBoundItem;
-            Alumn alumn = (Alumn)result;
+        {           
+            Alumn alumn = (Alumn)dataGridView2.CurrentRow.DataBoundItem;
             Alumns.Remove(alumn);
 
             LoadDataGridView2();

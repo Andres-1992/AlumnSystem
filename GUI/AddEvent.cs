@@ -35,7 +35,7 @@ namespace GUI
                 DateTime LastApplyingDate = LastTimePicker.Value.Date;
                 if (LastApplyingDate < StartDate && StartDate < EndDate)
                 {
-                    Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, Employee.EmployeeId);
+                    Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, Employee);
                     Services.EmployeeServices.AddEvent(events);
                     MessageBox.Show("Event tillagd");
                     dataGridView1.DataSource = Services.BusinessManager.GetEvent();

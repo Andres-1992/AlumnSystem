@@ -11,33 +11,26 @@ namespace GUI
 {
     public partial class AttendEvent : Form
     {
-        Alumn alumn { get; set; }
+        Alumn Alumn { get; set; }
         Services Services { get; set; }
 
-        public AttendEvent(Services services, Alumn a)
+        public AttendEvent(Services services, Alumn alumn)
         {
             InitializeComponent();
-            alumn = a;
+            Alumn = alumn;
             Services = services;
             LoadDataGridView();
            
-        }
-
-        private void Cancelbutton1_Click(object sender, EventArgs e)
-        {
-            Owner.Show();
         }
 
         private void Applybutton1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-
-
                 Event obj = (Event)dataGridView1.CurrentRow.DataBoundItem; ;
-                if (!Services.AlumnServices.GetAttendedEvent(alumn).Contains(obj))
+                if (!Services.AlumnServices.GetAttendedEvent(Alumn).Contains(obj))
                 {
-                    AlumnEvent alumnEvent = new AlumnEvent() { Alumn = alumn, Event = obj };
+                    AlumnEvent alumnEvent = new AlumnEvent() { Alumn = Alumn, Event = obj };
                     Services.AlumnServices.AddAlumnEvent(alumnEvent);
                     MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
                     LoadDataGridView();
@@ -45,7 +38,7 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("Du har redan registrerat dig på: " + obj.Title);
+                    MessageBox.Show("Du har redan registrerat dig på eventet: " + obj.Title);
                 }
             }
             else
@@ -54,12 +47,6 @@ namespace GUI
             }
         }
 
-        private void LoadDataGridView()
-        {
-            dataGridView1.DataSource = Services.BusinessManager.GetEvent();
-            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(alumn);
-            HideColumns();
-        }
         private void HideColumns()
         {
             dataGridView1.Columns["AlumnEvents"].Visible = false;
@@ -75,9 +62,8 @@ namespace GUI
 
             if (dataGridView2.SelectedRows.Count > 0)
             {
-                Event obj = (Event)dataGridView2.CurrentRow.DataBoundItem;
-                var result = Services.AlumnServices.GetAlumnEvent(alumn).Where(x => x.Event.Equals(obj) && x.Alumn.Equals(alumn)).FirstOrDefault();
-
+                Event evnt = (Event)dataGridView2.CurrentRow.DataBoundItem;
+                var result = Services.AlumnServices.GetAlumnEvent(Alumn).Where(x => x.Event.Equals(evnt) && x.Alumn.Equals(Alumn)).FirstOrDefault();
                 Services.AlumnServices.RemoveMyEvent(result);
                 dataGridView2.DataSource = null;
                 LoadDataGridView();
@@ -86,6 +72,19 @@ namespace GUI
             {
                 MessageBox.Show("Inget event valt");
             }
+        }
+
+        private void Cancelbutton1_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
+        }
+
+
+        private void LoadDataGridView()
+        {
+            dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(Alumn);
+            HideColumns();
         }
     }
 }

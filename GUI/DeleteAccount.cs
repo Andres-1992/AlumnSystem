@@ -14,18 +14,19 @@ namespace GUI
             InitializeComponent();
             Services = services;
             Alumn = alumn;
+            passwordTextBox.UseSystemPasswordChar = true;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (BusinessManager.Encrypt(passwordTextBox.Text) == Alumn.Password)
+            if (Services.BusinessManager.Encrypt(passwordTextBox.Text) == Alumn.Password)
             {
                 Services.AlumnServices.DeleteAlumn(Alumn.AlumnId);
+                DeleteButton.DialogResult = DialogResult.Yes;
             }
             else
             {
                 MessageBox.Show("Fel lösenord");
-
             }
         }
 
@@ -34,9 +35,5 @@ namespace GUI
             Owner.Show();
         }
 
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-            passwordTextBox.UseSystemPasswordChar = true;
-        }
     }
 }

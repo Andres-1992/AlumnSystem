@@ -47,7 +47,7 @@ namespace GUI
         private void registerButton_Click(object sender, EventArgs e)
         {
             string fullname = firstNameTextb.Text + " " + surNameTextb.Text;
-            string encryptedPassword = BusinessManager.Encrypt(pwTextb.Text);
+            string encryptedPassword = Services.BusinessManager.Encrypt(pwTextb.Text);
 
 
             if (ValidateTextBoxes())
@@ -85,30 +85,6 @@ namespace GUI
             competenceRichTextBox.Clear();
         }
 
-        private bool ValidateTextBoxes()
-        {
-            try
-            {
-                string textBoxData = string.Empty;
-
-                foreach (Control item in this.Controls)
-                {
-                    if (item.GetType() == typeof(TextBox))
-                    {
-
-                        if (string.IsNullOrEmpty(item.Text))
-                        {
-                            return false;
-                        }
-                        textBoxData += item.Text;
-                    }
-                }
-                return (textBoxData != string.Empty);
-            }
-            catch { return false; }
-        }
-
-
         private void GDPRcheckbox_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -140,6 +116,29 @@ namespace GUI
         {
             if (string.IsNullOrEmpty(competenceRichTextBox.Text)) AddCompetence.Enabled = false;
             else AddCompetence.Enabled = true;
+        }
+
+        private bool ValidateTextBoxes()
+        {
+            try
+            {
+                string textBoxData = string.Empty;
+
+                foreach (Control item in this.Controls)
+                {
+                    if (item.GetType() == typeof(TextBox))
+                    {
+
+                        if (string.IsNullOrEmpty(item.Text))
+                        {
+                            return false;
+                        }
+                        textBoxData += item.Text;
+                    }
+                }
+                return (textBoxData != string.Empty);
+            }
+            catch { return false; }
         }
     }
 }

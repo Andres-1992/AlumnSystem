@@ -38,7 +38,7 @@
             this.Addbutton1 = new System.Windows.Forms.Button();
             this.Createbutton = new System.Windows.Forms.Button();
             this.CreatecampaignBT = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.Deletebutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -161,15 +161,15 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.CancelButton.Location = new System.Drawing.Point(963, 858);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(121, 38);
-            this.CancelButton.TabIndex = 10;
-            this.CancelButton.Text = "Avbryt";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cancelButton.Location = new System.Drawing.Point(963, 858);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cancelButton.Name = "CancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(121, 38);
+            this.cancelButton.TabIndex = 10;
+            this.cancelButton.Text = "Avbryt";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // Deletebutton
             // 
@@ -191,7 +191,7 @@
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.CreatecampaignBT);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.showAllBt);
             this.Controls.Add(this.Showbutton1);
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Button CreatecampaignBT;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button Deletebutton;
     }
 }

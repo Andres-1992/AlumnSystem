@@ -11,7 +11,6 @@ namespace BusinessLayer
             AlumnServices = new AlumnService(appDbContext, unitOfWork);
             LogInServices = new LogInService(appDbContext, unitOfWork);
             BusinessManager = new BusinessManager(appDbContext, unitOfWork);
-
         }
 
         public IEmployeeService EmployeeServices { get; private set; }

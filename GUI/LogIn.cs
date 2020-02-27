@@ -8,8 +8,6 @@ namespace GUI
 {
     public partial class LogIn : Form
     {
-
-
         public Services Services { get; set; }
 
         public LogIn(Services services)
@@ -18,10 +16,9 @@ namespace GUI
             Services = services;
         }
 
-
         private void logInButton_Click(object sender, EventArgs e)
         {
-            string encryptedPassword = BusinessManager.Encrypt(passwordTextBox.Text);
+            string encryptedPassword = Services.BusinessManager.Encrypt(passwordTextBox.Text);
 
             if (ValidateTextBoxes() && alumnRadioButton.Checked)
             {
@@ -40,10 +37,10 @@ namespace GUI
             }
             else if (ValidateTextBoxes() && personalRadioButton.Checked)
             {
-                Employee employee = Services.LogInServices.LogInEmployee(userNameTextBox.Text, encryptedPassword);
-                if (employee != null)
+                Employee Employee = Services.LogInServices.LogInEmployee(userNameTextBox.Text, encryptedPassword);
+                if (Employee != null)
                 {
-                    LoggedInEmployee loggedIn = new LoggedInEmployee(Services, employee);
+                    LoggedInEmployee loggedIn = new LoggedInEmployee(Services, Employee);
                     this.Hide();
                     loggedIn.ShowDialog(this);
                     ClearTextboxes();
@@ -65,12 +62,14 @@ namespace GUI
                 }
             }
         }
+
         private void registerLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Registrering_Alumn registrering_Alumn = new Registrering_Alumn(Services);
             this.Hide();
             registrering_Alumn.ShowDialog(this);
         }
+
         #region hjälpmetoder för textboxes
         private bool ValidateTextBoxes()
         {

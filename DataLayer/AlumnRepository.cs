@@ -33,9 +33,9 @@ namespace DataLayer
 
         public Alumn LogIn(string username, string password)
         {
-            return (from u in _context.Alumns
-                    where u.Email == username && u.Password == password
-                    select u).FirstOrDefault();
+            return (from x in _context.Alumns
+                    where x.Email == username && x.Password == password
+                    select x).FirstOrDefault();
 
         }
 

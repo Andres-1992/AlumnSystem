@@ -12,7 +12,6 @@ namespace DataLayer
             Alumns = new AlumnRepository(_context);
             Employees = new EmployeeRepository(_context);
             Events = new EventRepository(_context);
-
         }
         public IAlumnRepository Alumns { get; private set; }
         public IEmployeeRepository Employees { get; private set; }

@@ -13,8 +13,8 @@ namespace BusinessLayer
         {
             AppDbContext = appDbContext;
             UnitOfWork = unitOfWork;
-
         }
+
         public Employee LogInEmployee(string signature, string password)
         {
             return UnitOfWork.Employees.LogIn(signature, password);
@@ -25,6 +25,7 @@ namespace BusinessLayer
             var result = UnitOfWork.Alumns.LogIn(email, password);
             return result;
         }
+
         public void AddAlumn(Alumn alumn)
         {
             UnitOfWork.Alumns.Insert(alumn);

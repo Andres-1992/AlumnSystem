@@ -56,7 +56,7 @@
             this.Cancelbutton.Name = "Cancelbutton";
             this.Cancelbutton.Size = new System.Drawing.Size(107, 38);
             this.Cancelbutton.TabIndex = 9;
-            this.Cancelbutton.Text = "Cancel";
+            this.Cancelbutton.Text = "Avbryt";
             this.Cancelbutton.UseVisualStyleBackColor = true;
             this.Cancelbutton.Click += new System.EventHandler(this.Cancelbutton_Click);
             // 
@@ -181,7 +181,6 @@
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // competenceColumnHeader
             // 

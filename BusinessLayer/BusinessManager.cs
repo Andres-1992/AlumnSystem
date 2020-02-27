@@ -19,7 +19,7 @@ namespace BusinessLayer
             appDbContext.Database.EnsureCreated();           
         }
 
-        public static string Encrypt(string value)
+        public string Encrypt(string value)
         {
             using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             UTF8Encoding utf8 = new UTF8Encoding();

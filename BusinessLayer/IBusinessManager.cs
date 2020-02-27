@@ -5,6 +5,7 @@ namespace BusinessLayer
 {
     public interface IBusinessManager
     {
+        public string Encrypt(string value);
         IEnumerable<Event> GetEvent();
     }
 }

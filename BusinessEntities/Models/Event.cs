@@ -23,14 +23,14 @@ namespace BusinessEntities.Models
             //  Dummy så EF fattar
         }
 
-        public Event(string title, string description, DateTime startdate, DateTime enddate, DateTime lastapplyingdate, int employeeid)
+        public Event(string title, string description, DateTime startdate, DateTime enddate, DateTime lastapplyingdate, Employee employee)
         {
             Title = title;
             Description = description;
             StartDate = startdate;
             EndDate = enddate;
             LastApplyingDate = lastapplyingdate;
-            EmployeeId = employeeid;
+            Employee = employee;
         }
     }
 }
