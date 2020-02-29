@@ -1,21 +1,49 @@
 ﻿using BusinessEntities.Models;
+using BusinessEntities.ObserverPattern;
 using BusinessLayer;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 
 namespace GUI
 {
-    public partial class AddEvent : Form
+    public partial class AddEvent : Form, ISubject
     {
         Services Services { get; set; }
         Employee Employee { get; set; }
+        List<IObserver> Observers { get; set; }
+        public int Counter { get; set; }
 
+        public void Register(IObserver observer)
+        {
+            Observers.Add(observer);
+        }
+
+        public void UnRegister(IObserver observer)
+        {
+            Observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (var item in Observers)
+            {
+                item.Update(this);
+            }
+        }
+
+        private void UpdateCounter()
+        {
+            Counter = dataGridView1.RowCount;
+            Notify();
+        }
         public AddEvent(Services services, Employee employee)
         {
             InitializeComponent();
             Services = services;
             Employee = employee;
+            Observers = new List<IObserver>();
             dataGridView1.DataSource = services.BusinessManager.GetEvent();
             HideColumns();
         }
@@ -39,6 +67,7 @@ namespace GUI
                     Services.EmployeeServices.AddEvent(events);
                     MessageBox.Show("Event tillagd");
                     dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+                    UpdateCounter();
                 }
                 else
                 {
@@ -71,6 +100,7 @@ namespace GUI
             Services.EmployeeServices.RemoveEvent(obj.EventId);
             MessageBox.Show($"Du har tagit bort {obj.Title} som skulle varit {obj.StartDate}");
             dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+            UpdateCounter();
 
         }
         private bool ValidateTextBoxes()

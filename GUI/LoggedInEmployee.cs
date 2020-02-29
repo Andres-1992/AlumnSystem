@@ -1,14 +1,24 @@
 ﻿using BusinessEntities.Models;
+using BusinessEntities.ObserverPattern;
 using BusinessLayer;
 using System;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class LoggedInEmployee : Form
+    public partial class LoggedInEmployee : Form , IObserver
     {
         Employee Employee { get; set; }
         Services Services { get; set; }
+
+        public void Update(ISubject subject)
+        {
+            if (subject is AddEvent evnt)
+            {
+                label2.Visible = true;
+                label2.Text = "Det finns nu " + evnt.Counter + " event";
+            }
+        }
 
         public LoggedInEmployee(Services services, Employee e)
         {
@@ -20,7 +30,8 @@ namespace GUI
         private void CreateEventbutton1_Click(object sender, EventArgs e)
         {
             AddEvent addevent = new AddEvent(Services, Employee);
-            this.Hide();
+            addevent.Register(this);
+           // this.Hide();
             addevent.ShowDialog(this);
         }
 

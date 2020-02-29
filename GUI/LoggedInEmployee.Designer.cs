@@ -33,6 +33,7 @@
             this.AccountInfobutton1 = new System.Windows.Forms.Button();
             this.LogOutbutton1 = new System.Windows.Forms.Button();
             this.CreateCampaignBT = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +92,22 @@
             this.CreateCampaignBT.UseVisualStyleBackColor = true;
             this.CreateCampaignBT.Click += new System.EventHandler(this.CreateCampaignBT_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
             // LoggedInEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 713);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CreateCampaignBT);
             this.Controls.Add(this.AccountInfobutton1);
             this.Controls.Add(this.LogOutbutton1);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.Button AccountInfobutton1;
         private System.Windows.Forms.Button LogOutbutton1;
         private System.Windows.Forms.Button CreateCampaignBT;
+        private System.Windows.Forms.Label label2;
     }
 }

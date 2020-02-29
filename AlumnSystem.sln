@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{6B2C8120-F395-4EC6-A611-25D98AF7F6D6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI_WPF", "GUI_WPF\GUI_WPF.csproj", "{76DCA626-4EA5-46EA-A938-769593E04AF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6B2C8120-F395-4EC6-A611-25D98AF7F6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B2C8120-F395-4EC6-A611-25D98AF7F6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B2C8120-F395-4EC6-A611-25D98AF7F6D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76DCA626-4EA5-46EA-A938-769593E04AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76DCA626-4EA5-46EA-A938-769593E04AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76DCA626-4EA5-46EA-A938-769593E04AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76DCA626-4EA5-46EA-A938-769593E04AF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

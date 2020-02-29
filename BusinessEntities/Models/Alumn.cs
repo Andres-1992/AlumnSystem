@@ -24,9 +24,6 @@ namespace BusinessEntities
             Education = education;
             Password = password;
             Work = work;
-
         }
-
-
     }
 }
