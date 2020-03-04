@@ -1,23 +1,24 @@
-﻿using System;
-using System.ComponentModel;
-using System.Text;
+﻿
+using GUI_WPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using GUI_WPF.Models;
-using System.Threading.Channels;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Reflection;
-using BusinessLayer;
+using System.Text;
 
 namespace GUI_WPF.ViewModels
 {
-    public class AddEventViewModel : INotifyPropertyChanged
+  public class AddEventViewModel :INotifyPropertyChanged
     {
         public AddEventViewModel()
         {
             Update();
         }
 
+        private Event _selectedEvent;
+        private Event events = new Event();
+        private ObservableCollection<Event> _eventslist;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void Changed([CallerMemberName] String propertyName = "")
@@ -38,37 +39,44 @@ namespace GUI_WPF.ViewModels
             };
             events.SaveEvent();
             Update();
-
-                    }
-
-        public void DeleteEvent(object selectedItem)
-        {
-            ((Event)selectedItem).Delete();
-            Update();
         }
 
-        private Event events = new Event();
+        public Event SelectedEvent
+        {
+            get { return _selectedEvent; }
+            set { _selectedEvent = value; Changed(); }
+        }
+
+        public void DeleteEvent()
+        {
+            ((Event)this.SelectedEvent).Delete();
+            Update();
+        }
 
         public Event Event
         {
             get { return events; }
-            set { events = value;
+            set
+            {
+                events = value;
                 Changed();
             }
         }
-        private ObservableCollection<Event> eventslist;
+
         public ObservableCollection<Event> Eventslist
         {
-            get { return eventslist; }
-            set { eventslist = value;
+            get { return _eventslist; }
+            set
+            {
+                _eventslist = value;
                 Changed();
             }
         }
+
         public void Update()
         {
             Eventslist = events.GetEvents();
-        }
-        
-
+        }        
     }
+
 }

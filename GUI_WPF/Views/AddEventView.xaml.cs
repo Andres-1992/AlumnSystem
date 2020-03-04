@@ -11,30 +11,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GUI_WPF.Views 
+namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for AddEventView.xaml
     /// </summary>
-    public partial class Window1 : Window
-    {
-        AddEventViewModel vm = new AddEventViewModel();
-        public Window1()
+    public partial class AddEventView : Window
+    { 
+        public AddEventView()
         {
             InitializeComponent();
-            DataContext = vm;
-            start.DisplayDateStart = DateTime.Now;
         }
 
-        private void AddEvent(object sender, RoutedEventArgs e)
-        {
-            vm.AddEvent();
-            
-        }
-
-        private void DeleteEvent(object sender, RoutedEventArgs e)
-        {
-            vm.DeleteEvent(Events.SelectedItem);
-        }
     }
 }
+

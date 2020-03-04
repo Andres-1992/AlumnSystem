@@ -1,6 +1,7 @@
 ﻿using DataLayer.Contexts.Junction;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BusinessEntities.Models
 {
@@ -32,5 +33,6 @@ namespace BusinessEntities.Models
             LastApplyingDate = lastapplyingdate;
             Employee = employee;
         }
+
     }
 }
