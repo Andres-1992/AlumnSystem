@@ -16,7 +16,7 @@ namespace GUI_WPF
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<AddEventViewModel>();
+            DisplayRootViewFor<RegisterAlumnViewModel>();
         }
     }
 }

@@ -4,7 +4,7 @@ using BusinessEntities.Models;
 using DataLayer.Contexts.Junction;
 using System.Collections.Generic;
 
-namespace BusinessEntities
+namespace BusinessEntities.Models
 {
     public class Alumn : Person
     {
