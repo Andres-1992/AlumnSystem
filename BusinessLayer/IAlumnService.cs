@@ -14,5 +14,6 @@ namespace BusinessLayer
         void DeleteAlumn(int id);
         IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn);
         void RemoveMyEvent(AlumnEvent alumnEvent);
+        Alumn GetAlumn(int id);
     }
 }

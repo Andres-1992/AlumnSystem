@@ -13,13 +13,15 @@ using System.Windows.Shapes;
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for AttendEvent.xaml
+    /// Interaction logic for LoggedInAlumnView.xaml
     /// </summary>
-    public partial class AttendEvent : Window
+    public partial class LoggedInAlumnView : Window
     {
-        public AttendEvent()
+        public LoggedInAlumnView()
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -56,5 +56,12 @@ namespace BusinessLayer
             AppDbContext.AlumnEvent.Remove(alumnEvent);
             AppDbContext.SaveChanges();
         }
+
+        public Alumn GetAlumn(int id)
+        {
+            Alumn x= UnitOfWork.Alumns.GetById(id);
+            if (x != null) return x;
+            else return null;
+        }
     }
 }

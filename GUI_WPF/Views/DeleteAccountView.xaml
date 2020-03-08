@@ -1,12 +1,11 @@
-﻿<Window x:Class="GUI_WPF.Views.DeleteAccount"
+﻿<Window x:Class="GUI_WPF.Views.DeleteAccountView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_WPF.Views"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"        
-        Title="DeleteAccount" Height="120" Width="420">
+        Title="DeleteAccountView" Height="100" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
 
@@ -23,11 +22,9 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Label Content="Bekräfta lösenord"  FontSize="12" Margin="10" FontWeight="SemiBold"/>
-            <TextBox x:Name="PwTextboxt"  HorizontalAlignment="Right" MinWidth="100" Margin="10" />
-            <Button x:Name="DeleteButton" Margin="10" MaxHeight="20" MaxWidth="90" Content="Ta bort konto" FontWeight="SemiBold" Background="Red"/>
+            <TextBox x:Name="Password"  HorizontalAlignment="Right" MinWidth="100" Margin="10" />
+            <Button x:Name="Delete" Margin="10" MaxHeight="20" MaxWidth="90" Content="Ta bort konto" FontWeight="SemiBold" Background="Red"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="2" >
-            <Button x:Name="CancelButton" MaxWidth="70"  Content="Avbryt" />
-        </StackPanel>
+       
     </Grid>
 </Window>

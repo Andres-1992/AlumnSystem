@@ -29,7 +29,8 @@ namespace BusinessLayer
 
         public IEnumerable<Event> GetEvent()
         {
-            return UnitOfWork.Events.GetAll();
+            var result = UnitOfWork.Events.GetAll();
+            return result;
         }
     }
 }

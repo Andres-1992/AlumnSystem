@@ -1,5 +1,4 @@
-﻿using GUI_WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI_WPF.Views
@@ -16,13 +16,11 @@ namespace GUI_WPF.Views
     /// <summary>
     /// Interaction logic for AddEventView.xaml
     /// </summary>
-    public partial class AddEventView : Window
-    { 
+    public partial class AddEventView : UserControl
+    {
         public AddEventView()
         {
             InitializeComponent();
         }
-
     }
 }
-

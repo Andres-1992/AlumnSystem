@@ -38,6 +38,7 @@ namespace GUI
             Counter = dataGridView1.RowCount;
             Notify();
         }
+
         public AddEvent(Services services, Employee employee)
         {
             InitializeComponent();

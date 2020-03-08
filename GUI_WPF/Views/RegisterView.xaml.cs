@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for DeleteAccount.xaml
+    /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class DeleteAccount : Window
+    public partial class RegisterView : Window
     {
-        public DeleteAccount()
+        public RegisterView()
         {
             InitializeComponent();
         }

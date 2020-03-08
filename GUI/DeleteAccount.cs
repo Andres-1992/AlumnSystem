@@ -1,4 +1,5 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Windows.Forms;

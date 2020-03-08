@@ -75,5 +75,15 @@ namespace BusinessLayer
             UnitOfWork.Events.Delete(id);
             UnitOfWork.Events.Save();
         }
+
+        public Event GetEventById(int id)
+        {
+            return UnitOfWork.Events.GetById(id); 
+        }
+
+        public Employee GetEmployee(int id)
+        {
+            return UnitOfWork.Employees.GetById(id);
+        }
     }
 }

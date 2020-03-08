@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for EditEvent.xaml
+    /// Interaction logic for UpdateEmployeeView.xaml
     /// </summary>
-    public partial class EditEvent : Window
+    public partial class UpdateEmployeeView : UserControl
     {
-        public EditEvent()
+        public UpdateEmployeeView()
         {
             InitializeComponent();
         }

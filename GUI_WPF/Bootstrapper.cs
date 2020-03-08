@@ -4,6 +4,9 @@ using System.Text;
 using Caliburn.Micro;
 using System.Windows;
 using GUI_WPF.ViewModels;
+using DataLayer.Contexts;
+using DataLayer;
+using BusinessLayer;
 
 namespace GUI_WPF
 {
@@ -16,7 +19,8 @@ namespace GUI_WPF
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<AddEventViewModel>();
+            DisplayRootViewFor<LogInViewModel>();
         }
+
     }
 }

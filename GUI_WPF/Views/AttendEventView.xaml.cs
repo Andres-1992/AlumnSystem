@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for LogIn.xaml
+    /// Interaction logic for AttendEventView.xaml
     /// </summary>
-    public partial class LogIn : Window
+    public partial class AttendEventView : UserControl
     {
-        public LogIn()
+        public AttendEventView()
         {
             InitializeComponent();
         }

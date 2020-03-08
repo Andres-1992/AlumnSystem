@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for LoggedInAlumn.xaml
+    /// Interaction logic for DeleteAccountView.xaml
     /// </summary>
-    public partial class LoggedInAlumn : Window
+    public partial class DeleteAccountView : Window
     {
-        public LoggedInAlumn()
+        public DeleteAccountView()
         {
             InitializeComponent();
         }

@@ -18,5 +18,7 @@ namespace BusinessLayer
         void AddCampaign(Campaign campaign);
         void AddCampaignSubscribers(CampaignSubscribers campaignSubscribers);
         void RemoveEvent(int id);
+        Event GetEventById(int id);
+        Employee GetEmployee(int id);
     }
 }

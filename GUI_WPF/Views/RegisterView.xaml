@@ -1,0 +1,55 @@
+﻿<Window x:Class="GUI_WPF.Views.RegisterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_WPF.Views"
+        mc:Ignorable="d"
+        Title="RegisterView" Height="710" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" Grid.RowSpan="15" Grid.ColumnSpan="2">
+            <Label  Content="Förnamn*" />
+            <TextBox   Text="{Binding Alumn.Name}"/>
+            <Label  Content="EfterNamn*" />
+            <TextBox   />
+            <Label  Content="Email*" />
+            <TextBox  Text="{Binding Alumn.Email}" />
+            <Label  Content="Telefonnummer*" />
+            <TextBox Text="{Binding Alumn.Phonenumber}"/>
+            <Label  Content="Utbildning*" />
+            <ComboBox HorizontalAlignment="Left" MinWidth="150" x:Name="EducationComboBox" SelectedItem="{Binding Path=SelectedEducation,Mode=OneWayToSource}"/>
+            <Label  Content="Lösenord*" />
+            <TextBox Text="{Binding Alumn.Password}" ></TextBox>
+
+            <Label  Content="Bekräfta lösenord*"/>
+            <TextBox x:Name="ConfirmPassword"/>            
+            <CheckBox HorizontalAlignment="Right"  x:Name="WorkCheckbox" Content="Arbetar" Margin="10" IsChecked="{Binding Alumn.Work}"/>
+            <Label  Content="Vilka kompetenser har du?"/>
+            <TextBox x:Name="Description" Text="{Binding Competence.Description}" />
+            <ComboBox   x:Name="CompetenceLevelComboBox" Margin="0,5,0,5" MinWidth="150" HorizontalAlignment="Right" SelectedItem="{Binding Path=SelectedCompetenceLevel,Mode=OneWayToSource}"/>
+            <Button   x:Name="AddCompetenceButton" Content="Lägg till Kompetens" HorizontalAlignment="Right" Margin="0,0,0,30"/>
+            <CheckBox  HorizontalAlignment="Right"  x:Name="GDPRcheckBox" Content="GDPR samtycke" Margin="10"/>
+
+            <StackPanel Orientation="Vertical"  >
+
+                <Button x:Name="CancelButton" Content="Avbryt" Margin="5" />
+                <Button x:Name="ClearButton" Content="Rensa" Margin="5" />
+                <Button x:Name="AddAlumn" Content="Registrera" Margin="5" IsEnabled="False"/>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Window>

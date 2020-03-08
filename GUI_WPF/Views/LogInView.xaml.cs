@@ -13,13 +13,18 @@ using System.Windows.Shapes;
 namespace GUI_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterAlumn.xaml
+    /// Interaction logic for LogInView.xaml
     /// </summary>
-    public partial class RegisterAlumn : Window
+    public partial class LogInView : Window
     {
-        public RegisterAlumn()
+        public LogInView()
         {
             InitializeComponent();
+        }
+
+        private void LogInButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

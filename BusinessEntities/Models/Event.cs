@@ -16,7 +16,7 @@ namespace BusinessEntities.Models
         public DateTime LastApplyingDate { get; set; }
 
         public int EmployeeId { get; set; }
-        public Employee Employee { get; private set; }
+        public Employee Employee { get;  set; }
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
 
         public Event()
@@ -33,6 +33,5 @@ namespace BusinessEntities.Models
             LastApplyingDate = lastapplyingdate;
             Employee = employee;
         }
-
     }
 }

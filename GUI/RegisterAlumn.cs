@@ -14,7 +14,7 @@ namespace GUI
         Services Services { get; set; }
         public Registrering_Alumn(Services services)
         {
-            InitializeComponent();
+            InitializeComponent(); 
             Services = services;
             competences = new List<Competence>();
 
