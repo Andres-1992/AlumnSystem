@@ -21,5 +21,18 @@ namespace GUI_WPF.Views
         {
             InitializeComponent();
         }
+
+        private void GDPRcheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("yani du godkänner alltind som gdpr innebär");
+            AddAlumn.IsEnabled = true;
+
+        }
+
+        private void GDPRcheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddAlumn.IsEnabled = false;
+
+        }
     }
 }
