@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_WPF.Views"
         mc:Ignorable="d"
-        Title="LoggedInEmployeeView" Height="480" Width="auto">
+        Title="LoggedInEmployeeView" Height="700" Width="auto">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -24,20 +24,16 @@
         <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
             <TextBlock  Grid.Row="1" Name="Welcome" Text="Välkommen"  FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center">
             </TextBlock>
-            <Button x:Name="CreateEvent">Skapa/ändra event
-            </Button>
-            <Button x:Name="ChangeInfo" Content="Ändra uppgifter"  >
-            </Button>
-            <Button x:Name="CreateCampaign" Content="Skapa/ändra utskickslista"  >
-            </Button>
+            <Button x:Name="CreateEvent" Margin="5" Content="Skapa/ändra event" />
+            <Button x:Name="ChangeInfo" Margin="5" Content="Ändra uppgifter" />
+
+            <Button x:Name="CreateCampaign" Margin="5" Content="Skapa utskickslista" />
+
+            <Button x:Name="EditCampaign"  Margin="5" Content="Redigera utskick"/>
+            <Button x:Name="LogOut"  Margin="5" Content="Logga ut"/>
+
         </StackPanel>
-        <ContentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" 
+            <ContentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" 
                         x:Name="ActiveItem" />
-        <Button x:Name="LogOut" Grid.Column="2" Grid.Row="8" Margin="1" HorizontalAlignment="Center">
-
-           Logga ut
-
-        </Button>
-
     </Grid>
 </Window>

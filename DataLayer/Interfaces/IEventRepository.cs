@@ -1,6 +1,7 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Junction;
 using BusinessEntities.Models;
-using DataLayer.Contexts.Junction;
+
 using System.Collections.Generic;
 
 namespace DataLayer
@@ -9,5 +10,6 @@ namespace DataLayer
     {
         IEnumerable<Event> GetAttendedEvent(Alumn alumn);
          IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn);
+        IEnumerable<Alumn> GetAttendedAlumn(Event @event);
     }
 }

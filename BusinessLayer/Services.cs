@@ -9,15 +9,20 @@ namespace BusinessLayer
 
         public Services(AppDbContext appDbContext, UnitOfWork unitOfWork)
         {
-            EmployeeServices = new EmployeeService(appDbContext, unitOfWork);
-            AlumnServices = new AlumnService(appDbContext, unitOfWork);
+            GetServices = new GetService(appDbContext, unitOfWork);
+            GetCollectionServices = new GetCollectionService(appDbContext, unitOfWork);
+            UpdateServices = new UpdateService(appDbContext, unitOfWork);
+            DeleteServices = new DeleteService(appDbContext, unitOfWork);
+            AddServices = new AddService(appDbContext, unitOfWork);
             LogInServices = new LogInService(appDbContext, unitOfWork);
-            BusinessManager = new BusinessManager(appDbContext, unitOfWork);
         }
 
-        public IEmployeeService EmployeeServices { get; private set; }
-        public IAlumnService AlumnServices { get; private set; }
-        public IBusinessManager BusinessManager { get; private set; }
+
         public ILogInService LogInServices { get; private set; }
+        public IGetService GetServices { get; private set; }
+        public IGetCollectionService GetCollectionServices { get; private set; }
+        public IUpdateService UpdateServices { get; private set; }
+        public IDeleteService DeleteServices { get; private set; }
+        public IAddService AddServices { get; private set; }
     }
 }

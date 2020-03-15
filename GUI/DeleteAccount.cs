@@ -20,9 +20,9 @@ namespace GUI
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (Services.BusinessManager.Encrypt(passwordTextBox.Text) == Alumn.Password)
+            if (Services.LogInServices.Encrypt(passwordTextBox.Text) == Alumn.Password)
             {
-                Services.AlumnServices.DeleteAlumn(Alumn.AlumnId);
+                Services.DeleteServices.DeleteAlumn(Alumn.AlumnId);
                 DeleteButton.DialogResult = DialogResult.Yes;
             }
             else

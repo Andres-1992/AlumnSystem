@@ -27,7 +27,20 @@ namespace GUI_WPF.ViewModels
         }
         public void CreateCampaign()
         {
-            ActivateItem(new CreateCampaignViewModel());
+            ActivateItem(new CreateCampaignViewModel(Services,EmployeeModel));
+        }
+        public void EditCampaign()
+        {
+            ActivateItem(new EditCampaignViewModel(Services, EmployeeModel));
+
+        }
+        public void LogOut()
+        {
+            LogInViewModel logInViewModel = new LogInViewModel();
+
+            IWindowManager manager = new WindowManager();
+            manager.ShowWindow(logInViewModel);
+            TryClose();
         }
     }
 }

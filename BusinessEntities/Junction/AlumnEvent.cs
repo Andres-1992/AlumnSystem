@@ -1,7 +1,7 @@
 ﻿using BusinessEntities;
 using BusinessEntities.Models;
 
-namespace DataLayer.Contexts.Junction
+namespace BusinessEntities.Junction
 {
     public class AlumnEvent
     {

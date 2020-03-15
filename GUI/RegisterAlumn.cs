@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using BusinessLayer;
 using System;
@@ -47,7 +46,7 @@ namespace GUI
         private void registerButton_Click(object sender, EventArgs e)
         {
             string fullname = firstNameTextb.Text + " " + surNameTextb.Text;
-            string encryptedPassword = Services.BusinessManager.Encrypt(pwTextb.Text);
+            string encryptedPassword = Services.LogInServices.Encrypt(pwTextb.Text);
 
 
             if (ValidateTextBoxes())
@@ -61,7 +60,7 @@ namespace GUI
                         encryptedPassword,
                         workCheckbox.Checked);
                     alumn.Competences = competences;
-                    Services.LogInServices.AddAlumn(alumn);
+                    Services.AddServices.AddAlumn(alumn);
                     MessageBox.Show("Du är registrerad");
                     this.Close();
                     Owner.Show();

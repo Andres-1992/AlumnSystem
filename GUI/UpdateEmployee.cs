@@ -41,7 +41,7 @@ namespace GUI
             Employee.Email = EmailtextBox.Text;
             Employee.Phonenumber = PhoneNumbertextBox.Text;
 
-            Services.EmployeeServices.UpdateEmployee(Employee);
+            Services.UpdateServices.UpdateEmployee(Employee);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 

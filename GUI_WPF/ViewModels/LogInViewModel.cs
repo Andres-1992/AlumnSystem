@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace GUI_WPF.ViewModels
 {
-    class LogInViewModel : Screen// INotifyPropertyChanged
+    class LogInViewModel : Screen
     {
         AppDbContext appDbContext { get; set; }
         UnitOfWork unitOfWork { get; set; }
@@ -33,6 +33,14 @@ namespace GUI_WPF.ViewModels
         private EmployeeModel _employee = new EmployeeModel();
         private AlumnModel _alumn = new AlumnModel();
 
+       
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Changed([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #region Properties
         public EmployeeModel Employee
         {
             get { return _employee; }
@@ -45,14 +53,6 @@ namespace GUI_WPF.ViewModels
             get { return _alumn; }
             set { _alumn = value; NotifyOfPropertyChange(() => Alumn); }
         }
-        #region Properties
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //public void Changed([CallerMemberName] String propertyName = "")
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
 
         public string UserVerification
         {
@@ -72,22 +72,12 @@ namespace GUI_WPF.ViewModels
             set { _password = value; NotifyOfPropertyChange(() => Password); }
         }
         #endregion
-        public bool CanLogInButton(string idInput, string password)
-        {
-            if (String.IsNullOrWhiteSpace(idInput) || String.IsNullOrWhiteSpace(password))
-            {
 
-                return false;
-            }
-            else return true;
-        }
 
         public void RegisterLink()
         {
-            manager.ShowWindow(new RegisterViewModel(), null, null);
-
+            manager.ShowWindow(new RegisterViewModel(Services), null, null);
         }
-
 
         public void LogInButton(string idInput, string password)
         {
@@ -103,8 +93,7 @@ namespace GUI_WPF.ViewModels
 
             }
             else if (UserVerification == "Email")
-            {
-                ;
+            {                
                 AlumnModel loggedInAlumn = Alumn.GetLoggedInAlumn(idInput, password, Services);
                 if (loggedInAlumn != null)
                 {                 
@@ -116,7 +105,7 @@ namespace GUI_WPF.ViewModels
 
             else MessageBox.Show("sorry bror du gjorde bort dig du måste välja login funktion");
         }
-
+        #region Userverification/Radiobutton metoder
         public void EmployeeCheckBox(string idInput, string password)
         {
             ChangeUserVerification("Signatur");
@@ -136,6 +125,15 @@ namespace GUI_WPF.ViewModels
             UserVerification = s;
         }
 
+        public bool CanLogInButton(string idInput, string password)
+        {
+            if (String.IsNullOrWhiteSpace(idInput) || String.IsNullOrWhiteSpace(password))
+            {
 
+                return false;
+            }
+            else return true;
+        }
+        #endregion
     }
 }

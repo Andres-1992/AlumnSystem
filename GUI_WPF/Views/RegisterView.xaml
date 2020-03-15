@@ -20,16 +20,14 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" Grid.RowSpan="15" Grid.ColumnSpan="2">
-            <Label  Content="Förnamn*" />
+            <Label  Content="Namn*" />
             <TextBox   Text="{Binding Alumn.Name}"/>
-            <Label  Content="EfterNamn*" />
-            <TextBox   />
             <Label  Content="Email*" />
             <TextBox  Text="{Binding Alumn.Email}" />
             <Label  Content="Telefonnummer*" />
             <TextBox Text="{Binding Alumn.Phonenumber}"/>
             <Label  Content="Utbildning*" />
-            <ComboBox HorizontalAlignment="Left" MinWidth="150" x:Name="EducationComboBox" SelectedItem="{Binding Path=SelectedEducation,Mode=OneWayToSource}"/>
+            <ComboBox HorizontalAlignment="Left" MinWidth="150"  ItemsSource="{Binding Educations}" SelectedItem="{Binding Path=SelectedEducation,Mode=OneWayToSource}"/>
             <Label  Content="Lösenord*" />
             <TextBox Text="{Binding Alumn.Password}" ></TextBox>
 
@@ -38,7 +36,7 @@
             <CheckBox HorizontalAlignment="Right"  x:Name="WorkCheckbox" Content="Arbetar" Margin="10" IsChecked="{Binding Alumn.Work}"/>
             <Label  Content="Vilka kompetenser har du?"/>
             <TextBox x:Name="Description" Text="{Binding Competence.Description}" />
-            <ComboBox   x:Name="CompetenceLevelComboBox" Margin="0,5,0,5" MinWidth="150" HorizontalAlignment="Right" SelectedItem="{Binding Path=SelectedCompetenceLevel,Mode=OneWayToSource}"/>
+            <ComboBox   ItemsSource="{Binding CompetenceLevels}" Margin="0,5,0,5" MinWidth="150" HorizontalAlignment="Right" SelectedItem="{Binding Path=SelectedCompetenceLevel,Mode=OneWayToSource}"/>
             <Button   x:Name="AddCompetenceButton" Content="Lägg till Kompetens" HorizontalAlignment="Right" Margin="0,0,0,30"/>
             <CheckBox  HorizontalAlignment="Right"  x:Name="GDPRcheckBox" Content="GDPR samtycke" Margin="10"/>
 
@@ -46,7 +44,7 @@
 
                 <Button x:Name="CancelButton" Content="Avbryt" Margin="5" />
                 <Button x:Name="ClearButton" Content="Rensa" Margin="5" />
-                <Button x:Name="AddAlumn" Content="Registrera" Margin="5" IsEnabled="False"/>
+                <Button x:Name="AddAlumn" Content="Registrera" Margin="5" IsEnabled="True"/>
             </StackPanel>
         </StackPanel>
 

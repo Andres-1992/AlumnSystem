@@ -21,9 +21,11 @@ namespace GUI_WPF.Models
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Event, EventModel>();
+                cfg.CreateMap<Alumn, AlumnModel>();
             });
             mapper = config.CreateMapper();
         }
+
         private IMapper mapper;
         private int _eventId;
         private string _title;
@@ -31,7 +33,7 @@ namespace GUI_WPF.Models
         private DateTime _startdate;
         private DateTime _enddate;
         private DateTime _lastapplyingdate;
-        private EmployeeModel _creator;
+        private Employee _creator;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -72,7 +74,7 @@ namespace GUI_WPF.Models
             set { _lastapplyingdate = value; Changed(); }
         }
 
-        public EmployeeModel Creator
+        public Employee Creator
         {
             get { return _creator; }
             set { _creator = value; Changed(); }
@@ -86,44 +88,56 @@ namespace GUI_WPF.Models
 
         public void Delete(Services services)
         {
-            services.EmployeeServices.RemoveEvent(EventId);
+         services.DeleteServices.DeleteEvent(EventId);
         }
-
-
+       
         public void SaveEvent(Services services)
         {
-            Employee employee = services.EmployeeServices.GetEmployee(Creator.EmployeeId);
             Event newEvent = new Event(
                 this.Title,
                 this.Description,
                 this.StartDate,
                 this.EndDate,
                 this.LastApplyingDate,
-                employee);
-            services.EmployeeServices.AddEvent(newEvent);
+                Creator);
+
+            services.AddServices.AddEvent(newEvent);
+        }
+
+        internal ObservableCollection<AlumnModel> GetAttendedAlumns(Services services)
+        {
+            ObservableCollection<AlumnModel> x = new ObservableCollection<AlumnModel>();
+            Event @event = services.GetServices.GetEvent(EventId);
+            foreach (var item in services.GetCollectionServices.GetAttendedAlumn(@event))
+            {
+                AlumnModel z = mapper.Map<Alumn, AlumnModel>(item);
+                x.Add(z);
+            }
+            return x;
         }
 
         public void UpdateEvent(Services services)
         {
-            Event @event = services.EmployeeServices.GetEventById(this.EventId);
+            Event @event = services.GetServices.GetEvent(this.EventId);
             @event.Title = this.Title;
             @event.Description = this.Description;
             @event.StartDate = this.StartDate;
             @event.EndDate = this.EndDate;
             @event.LastApplyingDate = this.LastApplyingDate;
 
-            services.EmployeeServices.UpdateEvent(@event);
+            services.UpdateServices.UpdateEvent(@event);
         }
 
         public ObservableCollection<EventModel> GetEvents(Services services)
         {
             ObservableCollection<EventModel> x = new ObservableCollection<EventModel>();
-            foreach (var item in services.BusinessManager.GetEvent())
+            foreach (var item in services.GetCollectionServices.GetEvents())
             {
                 EventModel eventModel = mapper.Map<Event, EventModel>(item);
                 x.Add(eventModel);
             }
             return x;
         }
+
     }
 }

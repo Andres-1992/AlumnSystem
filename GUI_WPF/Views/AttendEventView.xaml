@@ -29,14 +29,14 @@
             
                 <Label FontSize="20">Tillgängliga events</Label>
 
-            <DataGrid ItemsSource="{Binding AvailableEvents}" SelectedItem="{Binding SelectedEvent}" x:Name="dataGridNewEvents" >
+            <DataGrid  IsReadOnly="True" ItemsSource="{Binding AvailableEvents}" SelectedItem="{Binding SelectedEvent}" x:Name="dataGridNewEvents" >
 
                 </DataGrid>
                 <Button x:Name="Attend" MinWidth="80" HorizontalAlignment="Right">Delta</Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" >
             <Label  FontSize="20" Content="Anmälda events"/>
-            <DataGrid ItemsSource="{Binding AttendedEvents}" SelectedItem="{Binding SelectedToRemove}">
+            <DataGrid  IsReadOnly="True" ItemsSource="{Binding AttendedEvents}" SelectedItem="{Binding SelectedToRemove}">
             
             </DataGrid>
             <Button x:Name="Delete" HorizontalAlignment="Left" MinWidth="80">Ta bort</Button>

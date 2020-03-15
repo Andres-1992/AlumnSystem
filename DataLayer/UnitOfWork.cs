@@ -2,7 +2,7 @@
 
 namespace DataLayer
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
 
         private AppDbContext _context;

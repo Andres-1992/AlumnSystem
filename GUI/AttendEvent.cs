@@ -1,7 +1,7 @@
 ﻿using BusinessEntities;
+using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
-using DataLayer.Contexts.Junction;
 using System;
 using System.Data;
 using System.Linq;
@@ -28,10 +28,10 @@ namespace GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 Event obj = (Event)dataGridView1.CurrentRow.DataBoundItem; ;
-                if (!Services.AlumnServices.GetAttendedEvent(Alumn).Contains(obj))
+                if (!Services.GetCollectionServices.GetAttendedEvents(Alumn).Contains(obj))
                 {
                     AlumnEvent alumnEvent = new AlumnEvent() { Alumn = Alumn, Event = obj };
-                    Services.AlumnServices.AddAlumnEvent(alumnEvent);
+                    Services.AddServices.AddAlumnEvent(alumnEvent);
                     MessageBox.Show("Du har registrerat dig på eventet: " + obj.Title);
                     LoadDataGridView();
 
@@ -63,8 +63,8 @@ namespace GUI
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 Event evnt = (Event)dataGridView2.CurrentRow.DataBoundItem;
-                var result = Services.AlumnServices.GetAlumnEvent(Alumn).Where(x => x.Event.Equals(evnt) && x.Alumn.Equals(Alumn)).FirstOrDefault();
-                Services.AlumnServices.RemoveMyEvent(result);
+                var result = Services.GetCollectionServices.GetAlumnEvents(Alumn).Where(x => x.Event.Equals(evnt) && x.Alumn.Equals(Alumn)).FirstOrDefault();
+                Services.DeleteServices.RemoveMyEvent(result);
                 dataGridView2.DataSource = null;
                 LoadDataGridView();
             }
@@ -82,8 +82,8 @@ namespace GUI
 
         private void LoadDataGridView()
         {
-            dataGridView1.DataSource = Services.BusinessManager.GetEvent();
-            dataGridView2.DataSource = Services.AlumnServices.GetAttendedEvent(Alumn);
+            dataGridView1.DataSource = Services.GetCollectionServices.GetEvents();
+            dataGridView2.DataSource = Services.GetCollectionServices.GetAttendedEvents(Alumn);
             HideColumns();
         }
     }

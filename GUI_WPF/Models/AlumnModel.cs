@@ -3,14 +3,10 @@ using BusinessEntities.Enums;
 using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
-using DataLayer;
-using DataLayer.Contexts;
-using DataLayer.Contexts.Junction;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.Models
@@ -29,13 +25,11 @@ namespace GUI_WPF.Models
             mapper = config.CreateMapper();
 
         }
-
         IMapper mapper { get; set; }
         private int _alumnId;
         private Education _education;
         private bool _work;
-        #region properties
-
+        #region Properties
         public bool Work
         {
             get { return _work; }
@@ -53,22 +47,25 @@ namespace GUI_WPF.Models
             get { return _alumnId; }
             set { _alumnId = value; }
         }
+
+        public ObservableCollection<Competence> Competences { get; internal set; }
+
         #endregion
-        #region GetMetoder
+
         internal ObservableCollection<Competence> GetCompetences(Services services)
         {
-            Alumn alumn = services.AlumnServices.GetAlumn(AlumnId);
+            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
             ObservableCollection<Competence> x = new ObservableCollection<Competence>();
-            foreach (var item in services.AlumnServices.GetCompetences(alumn))
+            foreach (var item in services.GetCollectionServices.GetCompetences(alumn))
             {
                 x.Add(item);
             }
-
             return x;
         }
+
         internal AlumnModel GetLoggedInAlumn(string idInput, string password, Services services)
         {
-            Alumn a = services.LogInServices.LogInAlumn(idInput, services.BusinessManager.Encrypt(password));
+            Alumn a = services.LogInServices.LogInAlumn(idInput, services.LogInServices.Encrypt(password));
 
             if (a != null)
             {
@@ -80,47 +77,82 @@ namespace GUI_WPF.Models
 
         internal ObservableCollection<EventModel> GetAttendedEvents(Services services)
         {
-            Alumn alumn = services.AlumnServices.GetAlumn(AlumnId);
-           var result = services.AlumnServices.GetAttendedEvent(alumn);
+            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            IEnumerable<Event> attendedEvents = services.GetCollectionServices.GetAttendedEvents(alumn);
+
             ObservableCollection<EventModel> x = new ObservableCollection<EventModel>();
-            foreach (var item in result)
+            
+            foreach (var item in attendedEvents)
             {
-                 EventModel eventModel = mapper.Map<Event, EventModel>(item);
+                EventModel eventModel = mapper.Map<Event, EventModel>(item);
                 x.Add(eventModel);
             }
             
             return x;
         }
-        #endregion
+
         internal void RemoveEvent(Services services, int id)
         {
-            Alumn a = services.AlumnServices.GetAlumn(AlumnId);
-            Event e = services.EmployeeServices.GetEventById(id);
-            var result = services.AlumnServices.GetAlumnEvent(a).Where(x => x.Event.Equals(e) && x.Alumn.Equals(a)).FirstOrDefault();
-            services.AlumnServices.RemoveMyEvent(result);
+            Alumn a = services.GetServices.GetAlumn(AlumnId);
+            Event e = services.GetServices.GetEvent(id);
+            var result = services.GetCollectionServices.GetAlumnEvents(a).Where(x => x.Event.Equals(e) && x.Alumn.Equals(a)).FirstOrDefault();
+            services.DeleteServices.RemoveMyEvent(result);
         }
-
-        internal void UpdateAlumn(Services services, ObservableCollection<Competence> c)
+      
+        internal void UpdateAlumn(Services services)
         {
-            Alumn alumn = services.AlumnServices.GetAlumn(AlumnId);
+            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
             alumn.Name = Name;
             alumn.Email = Email;
             alumn.Phonenumber = Phonenumber;
             alumn.Password = Password;
-            alumn.Competences = c;
-            services.AlumnServices.UpdateAlumn(alumn);
+            alumn.Competences = Competences;
+            services.UpdateServices.UpdateAlumn(alumn);
+        }
+
+        internal ObservableCollection<AlumnModel> GetAllAlumns(Services services)
+        {
+            ObservableCollection<AlumnModel> x = new ObservableCollection<AlumnModel>();
+            foreach (var item in services.GetCollectionServices.GetAllAlumns())
+            {
+                AlumnModel alumns = mapper.Map<Alumn, AlumnModel>(item);
+                x.Add(alumns);
+            }
+            return x;
+        }
+
+        internal ObservableCollection<AlumnModel> GetByAlumnsEducation(Education selectedEducation, Services services)
+        {
+            ObservableCollection<AlumnModel> x = new ObservableCollection<AlumnModel>();
+            foreach (var item in services.GetCollectionServices.GetAlumnsByEducation(selectedEducation))
+            {
+                AlumnModel alumns = mapper.Map<Alumn, AlumnModel>(item);
+                x.Add(alumns);
+            }
+            return x;
         }
 
         internal void AttendEvent(Services services, int id)
         {
-            Alumn a = services.AlumnServices.GetAlumn(AlumnId);
-            Event e = services.EmployeeServices.GetEventById(id);
-            if (!services.AlumnServices.GetAttendedEvent(a).Contains(e))
+            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            Event @event = services.GetServices.GetEvent(id);
+            if (!services.GetCollectionServices.GetAttendedEvents(alumn).Contains(@event))
             {
-                AlumnEvent alumnEvent = new AlumnEvent() { Alumn = a, Event = e };
-                services.AlumnServices.AddAlumnEvent(alumnEvent);
-                MessageBox.Show("Du har registrerat dig på eventet: " + e.Title);
+                AlumnEvent alumnEvent = new AlumnEvent() { Alumn = alumn, Event = @event };
+                services.AddServices.AddAlumnEvent(alumnEvent);
+                MessageBox.Show("Du har registrerat dig på eventet: " + @event.Title);
             }
+        }
+
+        internal Alumn GetAlumn(Services services)
+        {
+            return services.GetServices.GetAlumn(AlumnId);
+        }
+
+        internal void SaveAlumn(Services services)
+        {
+            Alumn alumn = mapper.Map<AlumnModel, Alumn>(this);
+            services.AddServices.AddAlumn(alumn);
         }
     }
 }

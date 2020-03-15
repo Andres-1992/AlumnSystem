@@ -6,12 +6,6 @@
         xmlns:local="clr-namespace:GUI_WPF.Views"
         mc:Ignorable="d"
         Title="LogInView" Height="450" Width="800">
-    <!--<Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
-    </Window.Resources>
-    <Window.Visibility>
-        <Binding Path="isVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibilityConverter}" />
-    </Window.Visibility>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

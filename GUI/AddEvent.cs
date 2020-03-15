@@ -45,7 +45,7 @@ namespace GUI
             Services = services;
             Employee = employee;
             Observers = new List<IObserver>();
-            dataGridView1.DataSource = services.BusinessManager.GetEvent();
+            dataGridView1.DataSource = services.GetCollectionServices.GetEvents();
             HideColumns();
         }
 
@@ -65,9 +65,9 @@ namespace GUI
                 if (LastApplyingDate < StartDate && StartDate < EndDate)
                 {
                     Event events = new Event(EventTitletextBox.Text, DescriptionTextBox.Text, StartDate, EndDate, LastApplyingDate, Employee);
-                    Services.EmployeeServices.AddEvent(events);
+                    Services.AddServices.AddEvent(events);
                     MessageBox.Show("Event tillagd");
-                    dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+                    dataGridView1.DataSource = Services.GetCollectionServices.GetEvents();
                     UpdateCounter();
                 }
                 else
@@ -98,9 +98,9 @@ namespace GUI
         private void DeleteButton1_Click(object sender, EventArgs e)
         {
             Event obj = (Event)dataGridView1.CurrentRow.DataBoundItem;
-            Services.EmployeeServices.RemoveEvent(obj.EventId);
+            Services.DeleteServices.DeleteEvent(obj.EventId);
             MessageBox.Show($"Du har tagit bort {obj.Title} som skulle varit {obj.StartDate}");
-            dataGridView1.DataSource = Services.BusinessManager.GetEvent();
+            dataGridView1.DataSource = Services.GetCollectionServices.GetEvents();
             UpdateCounter();
 
         }

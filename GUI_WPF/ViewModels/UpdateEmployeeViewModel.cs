@@ -30,5 +30,10 @@ namespace GUI_WPF.ViewModels
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
+		public void Update()
+		{
+			EmployeeModel.UpdateEmployee(Services);
+		}
+
 	}
 }

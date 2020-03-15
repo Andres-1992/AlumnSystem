@@ -34,7 +34,10 @@ namespace GUI_WPF.ViewModels
         private ObservableCollection<EventModel> _eventList;
         public event PropertyChangedEventHandler PropertyChanged;
         private EmployeeModel _creator;
+        private ObservableCollection<AlumnModel> _attendedAlumns;
 
+ 
+        #region Properties
         public EmployeeModel Creator
         {
             get { return _creator; }
@@ -46,54 +49,53 @@ namespace GUI_WPF.ViewModels
         {
             get { return _selectedEvent; }
             set 
-            {
-                _selectedEvent = value;
-                Changed();
-            }
+            { _selectedEvent = value; Changed(); }
         }
 
         public EventModel EventModel
         {
             get { return _event; }
             set
-            {
-                _event = value;
-                Changed();
-            }
+            { _event = value; Changed(); }
         }
 
         public ObservableCollection<EventModel> EventList
         {
             get { return _eventList; }
             set
-            {
-                _eventList = value;
-                Changed();
-            }
+            { _eventList = value; Changed(); }
         }
+        public ObservableCollection<AlumnModel> AttendedAlumns
+        {
+            get { return _attendedAlumns; }
+            set { _attendedAlumns = value; Changed(); }
+        }
+        #endregion
 
-        #region Button/metoder
+
         public void AddEvent()
         {
-           // Employee employee = Services.EmployeeServices.GetEmployee(Creator.EmployeeId);
-            EventModel events = new EventModel()
+            EventModel newEvent = new EventModel()
             {
                 Title = EventModel.Title,
                 Description = EventModel.Description,
                 StartDate = EventModel.StartDate,
                 EndDate = EventModel.EndDate,
                 LastApplyingDate = EventModel.LastApplyingDate,
-                Creator = Creator
+                Creator = Creator.GetEmployee(Services)
               };
-            events.SaveEvent(Services);
+            newEvent.SaveEvent(Services);
             Update();
         }
 
-        public void Update()
+        public void AttendedAlumn()
         {
-           
-            EventList = EventModel.GetEvents(Services);
-            
+            AttendedAlumns = SelectedEvent.GetAttendedAlumns(Services);
+        }
+
+        public void Update()
+        {           
+            EventList = EventModel.GetEvents(Services);            
         }
         
         public void EditEvent()
@@ -111,10 +113,9 @@ namespace GUI_WPF.ViewModels
         
         public void DeleteEvent()
         {
-           this.SelectedEvent.Delete(Services);
+            SelectedEvent.Delete(Services);
             Update();
         }
-        #endregion
 
     }
 

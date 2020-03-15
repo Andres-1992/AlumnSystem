@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using BusinessLayer;
 using System;
@@ -41,7 +40,7 @@ namespace GUI
             Alumn.Email = EmailtextBox.Text;
             Alumn.Phonenumber = PhoneNumbertextBox.Text;
             Alumn.Competences = competences;
-            Services.AlumnServices.UpdateAlumn(Alumn);
+            Services.UpdateServices.UpdateAlumn(Alumn);
             MessageBox.Show("Dina uppgifter är uppdaterade");
         }
 
@@ -69,7 +68,7 @@ namespace GUI
             }
             EmailtextBox.Text = Alumn.Email;
             PhoneNumbertextBox.Text = Alumn.Phonenumber;
-            competences = Services.AlumnServices.GetCompetences(Alumn).ToList();
+            competences = Services.GetCollectionServices.GetCompetences(Alumn).ToList();
             LoadCompetences();
 
         }

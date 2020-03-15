@@ -1,7 +1,5 @@
 ﻿using BusinessEntities.Enums;
 using BusinessEntities.Junction;
-using BusinessEntities.Models;
-using DataLayer.Contexts.Junction;
 using System.Collections.Generic;
 
 namespace BusinessEntities.Models

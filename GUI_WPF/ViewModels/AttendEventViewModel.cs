@@ -34,7 +34,6 @@ namespace GUI_WPF.ViewModels
             set { _selectedToRemove = value; Changed(); }
         }
 
-
         public ObservableCollection<EventModel> AttendedEvents
         {
             get { return _attendedEvents; }

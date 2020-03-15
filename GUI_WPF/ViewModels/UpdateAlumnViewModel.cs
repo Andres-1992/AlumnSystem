@@ -56,7 +56,7 @@ namespace GUI_WPF.ViewModels
         public AlumnModel AlumnModel
         {
             get { return _alumnModel; }
-            set { _alumnModel = value;  }
+            set { _alumnModel = value; Changed(); }
         }
 
         public ObservableCollection<Competence> Competences
@@ -68,16 +68,17 @@ namespace GUI_WPF.ViewModels
 
         public void AddCompetence(string descriptionComp)
         {
-            Competences.Add(new Competence(descriptionComp, SelectedCompetenceLevel)); ;
+            Competences.Add(new Competence(descriptionComp, SelectedCompetenceLevel)); 
         }
 
         public void UpdateInfo(string currentPassword, string newPassword)
         {
-            if (Services.BusinessManager.Encrypt(currentPassword) == AlumnModel.Password)
+            if (Services.LogInServices.Encrypt(currentPassword) == AlumnModel.Password)
             {
-                AlumnModel.Password = Services.BusinessManager.Encrypt(newPassword);
+                AlumnModel.Password = Services.LogInServices.Encrypt(newPassword);
             }
-            AlumnModel.UpdateAlumn(Services, Competences);
+            AlumnModel.Competences = Competences;
+            AlumnModel.UpdateAlumn(Services);
             CurrentPassword = "";
             NewPassword = "";
             LoadCompetences();

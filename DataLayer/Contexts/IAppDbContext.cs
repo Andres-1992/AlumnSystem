@@ -1,7 +1,7 @@
-﻿using BusinessEntities;
+﻿
+
 using BusinessEntities.Junction;
 using BusinessEntities.Models;
-using DataLayer.Contexts.Junction;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Contexts

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_WPF.Views"
         mc:Ignorable="d"
-        Title="LoggedInAlumnView" Height="480" Width="auto">
+        Title="LoggedInAlumnView" Height="700" Width="auto">
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -29,16 +29,16 @@
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
                 <TextBlock  Grid.Row="1" Name="Welcome" Text="Välkommen"  FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center">
                 </TextBlock>
-                <Button x:Name="AttendEvent" Content="Delta i event" >
+            <Button x:Name="AttendEvent" Margin="5" Content="Delta i event" >
                 </Button>
-                <Button x:Name="ChangeInfo" Content="Ändra uppgifter"  >
+            <Button x:Name="ChangeInfo" Margin="5" Content="Ändra uppgifter"  >
                 </Button>
-                <Button x:Name="Logout" Content="Logga ut"  >
+                <Button x:Name="Logout" Margin="5" Content="Logga ut"  >
                 </Button>
             </StackPanel>
-            <ContentControl Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" 
+        <ContentControl Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" 
                         x:Name="ActiveItem" />
-            <Button x:Name="DeleteAccount" Grid.Column="2" Grid.Row="8" Margin="1" HorizontalAlignment="Center">
+        <Button x:Name="DeleteAccount" Grid.Column="2" Grid.Row="8" Margin="1" HorizontalAlignment="Center">
        
            Ta bort konto
         
