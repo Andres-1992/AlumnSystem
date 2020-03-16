@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
@@ -32,6 +33,7 @@ namespace GUI_WPF.ViewModels
 
 		public void Update()
 		{
+			MessageBox.Show("Du har uppdaterat din profil");
 			EmployeeModel.UpdateEmployee(Services);
 		}
 

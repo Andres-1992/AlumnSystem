@@ -48,14 +48,28 @@
         <Button x:Name="AddEvent" Grid.Row="5" Grid.Column="4" >Lägg Till Event</Button>
 
         <StackPanel Grid.Column="1" Grid.Row="7" 
-                  Grid.ColumnSpan="4">
-            <DataGrid x:Name="EventList" AlternatingRowBackground="DarkCyan" CanUserAddRows="False"
-                  ItemsSource="{Binding EventList,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedEvent ,Mode=TwoWay}"
-                  MaxHeight="500" IsReadOnly="True" >
-            </DataGrid>
+                  Grid.ColumnSpan="4">               
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding EventList}" SelectedItem="{Binding Path=SelectedEvent ,Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" MinWidth="80" Binding="{Binding Path=EventId}"/>
+                        <DataGridTextColumn Header="Title" MinWidth="80" Binding="{Binding Path=Title}"/>
+                        <DataGridTextColumn Header="Description" MinWidth="80" Binding="{Binding Path=Description}"/>
+                        <DataGridTextColumn Header="StartDate" MinWidth="80" Binding="{Binding Path=StartDate}"/>
+                        <DataGridTextColumn Header="EndDate" MinWidth="80" Binding="{Binding Path=EndDate}"/>
+                        <DataGridTextColumn Header="LastApplyingDate" MinWidth="80" Binding="{Binding Path=LastApplyingDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             <Button x:Name="DeleteEvent" >Ta Bort</Button>
                 <Button x:Name="AttendedAlumn">Visa deltagare för eventet</Button>
-                <DataGrid ItemsSource="{Binding AttendedAlumns}" IsReadOnly="True" >
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding AttendedAlumns}" IsReadOnly="True" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=AlumnId}"/>
+                    <DataGridTextColumn Header="Name" MinWidth="80" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Email" MinWidth="80" Binding="{Binding Path=Email}"/>
+                    <DataGridTextColumn Header="Phonenumber" MinWidth="80" Binding="{Binding Path=Phonenumber}"/>
+                    <DataGridTextColumn Header="Education" MinWidth="80" Binding="{Binding Path=Education}"/>
+                    <DataGridTextColumn Header="Work" MinWidth="80" Binding="{Binding Path=Work}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
 

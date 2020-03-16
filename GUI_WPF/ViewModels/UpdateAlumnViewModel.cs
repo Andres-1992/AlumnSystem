@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Linq;
+using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
@@ -81,6 +82,7 @@ namespace GUI_WPF.ViewModels
             AlumnModel.UpdateAlumn(Services);
             CurrentPassword = "";
             NewPassword = "";
+            MessageBox.Show("Du har uppdaterat din profil");
             LoadCompetences();
         }
         

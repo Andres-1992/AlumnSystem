@@ -28,7 +28,6 @@ namespace GUI_WPF.ViewModels
 
         private Services Services;
         private EmployeeModel EmployeeModel;
-        private CampaignModel CampaignModel;
         private SubscriberList _subscriberList;
 
         private AlumnModel _alumnModel = new AlumnModel();
@@ -43,13 +42,13 @@ namespace GUI_WPF.ViewModels
                 Education.Systemarkitekt,
                 Education.Systemvetare};
        
-
-        #region Properties  
-        
-        public void Changed([CallerMemberName] String propertyName = "")
+ public void Changed([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #region Properties  
+        
+       
         public AlumnModel AlumnModel
         {
             get { return _alumnModel; }
@@ -121,7 +120,7 @@ namespace GUI_WPF.ViewModels
             }
             else
             {
-                MessageBox.Show("Bror du måste välja nåt");
+                MessageBox.Show("Du måste välja nåt");
             }
 
 
@@ -142,13 +141,13 @@ namespace GUI_WPF.ViewModels
 
         public bool CanCreateCampaignButton(string message)
         {
-            if (String.IsNullOrWhiteSpace(message))  return false;
+            if (String.IsNullOrWhiteSpace(message) || SubscriberList==null)  return false;
             
             else return true;
         }
         public void CreateCampaignButton(string message)
         {
-            CampaignModel = new CampaignModel()
+            CampaignModel CampaignModel = new CampaignModel()
             {
                 Created = DateTime.Now,
                 Creator = EmployeeModel.GetEmployee(Services),
@@ -156,7 +155,8 @@ namespace GUI_WPF.ViewModels
                 Sent = true
             };
             CampaignModel.SaveCampaign(Services,SubscriberList);
-               
+            MessageBox.Show("Du har skapat ett utskick");
+
         }
     }
 }

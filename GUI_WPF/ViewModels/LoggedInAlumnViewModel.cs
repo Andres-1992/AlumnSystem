@@ -16,7 +16,6 @@ namespace GUI_WPF.ViewModels
         {
             AlumnModel = alumnModel;
             Services = services;
-            MessageBox.Show(alumnModel.Email+" Är inloggad");
         }
         public void ChangeInfo()
         {

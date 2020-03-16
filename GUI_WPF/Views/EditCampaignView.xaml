@@ -15,7 +15,15 @@
                                   ItemsSource="{Binding Campaigns}"
                                   SelectedItem="{Binding SelectedCampaign}"
                                   Height="200"
-                                  Width="550"></DataGrid>
+                                  Width="550"
+                                  AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=CampaignId}"/>
+                        <DataGridTextColumn Header="Sent" MinWidth="80" Binding="{Binding Path=Sent}"/>
+                        <DataGridTextColumn Header="Message" MinWidth="80" Binding="{Binding Path=Message}"/>
+                        <DataGridTextColumn Header="Created" MinWidth="80" Binding="{Binding Path=Created}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Button x:Name="DeleteCampaign" >Delete</Button>
                 </StackPanel>

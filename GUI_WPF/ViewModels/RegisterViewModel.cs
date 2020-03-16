@@ -81,14 +81,24 @@ namespace GUI_WPF.ViewModels
                 };
                 alumnModel.Competences = Competences;
                 alumnModel.SaveAlumn(Services);
-                Changed();
+                MessageBox.Show("Du är registrerad");
             }
-            else MessageBox.Show("Bror du gjorde fel lösenord");
+            else MessageBox.Show("Du angav fel lösenord");
         }
 
+        public bool CanAddCompetenceButton(string description)
+        {
+            if (String.IsNullOrEmpty(description))
+            {
+                return false;
+            }
+            else return true;
+        }
         public void AddCompetenceButton(string description)
         {
             Competences.Add(new Competence(description, SelectedCompetenceLevel));
+            MessageBox.Show("Du har lagt till en ny kompetens");
         }
+
     }
 }

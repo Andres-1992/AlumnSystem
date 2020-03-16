@@ -18,8 +18,6 @@ namespace GUI_WPF.Models
             {
                 cfg.CreateMap<Campaign, CampaignModel>();
                 cfg.CreateMap<CampaignModel, Campaign>();
-
-
             });
             mapper = config.CreateMapper();
         }
@@ -105,7 +103,6 @@ namespace GUI_WPF.Models
                 SubscriberList = subscriberList,
             };
             services.AddServices.AddCampaignSubscribers(campaignSubscribers);
-            MessageBox.Show("Du har skapat ett utskick");
         }
     }
 }

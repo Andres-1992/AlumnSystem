@@ -36,9 +36,17 @@
                 <DataGrid x:Name="dataGridAvailableAlumns"
                                   ItemsSource="{Binding Alumns}"
                                   SelectedItem="{Binding Path=SelectedAlumn , Mode=OneWayToSource}"
-
-                          IsReadOnly="True">
-                </DataGrid>
+                                 AutoGenerateColumns="False"
+                                 IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=AlumnId}"/>
+                            <DataGridTextColumn Header="Name" MinWidth="80" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Email" MinWidth="80" Binding="{Binding Path=Email}"/>
+                            <DataGridTextColumn Header="Phonenumber" MinWidth="80" Binding="{Binding Path=Phonenumber}"/>
+                            <DataGridTextColumn Header="Education" MinWidth="80" Binding="{Binding Path=Education}"/>
+                            <DataGridTextColumn Header="Work" MinWidth="80" Binding="{Binding Path=Work}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                 <StackPanel Orientation="Horizontal">
                     <Button  x:Name="AddButton" Margin=" 0,0,824,0" Content="Lägg till" BorderBrush="Black" >
@@ -70,9 +78,18 @@
                       SelectedItem="{Binding Path=SelectedSubscriber , Mode=OneWayToSource}"
                                   Height="200"
                                   Width="600"
-                        IsReadOnly="True"          >
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=AlumnId}"/>
+                            <DataGridTextColumn Header="Name" MinWidth="80" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Email" MinWidth="80" Binding="{Binding Path=Email}"/>
+                            <DataGridTextColumn Header="Phonenumber" MinWidth="80" Binding="{Binding Path=Phonenumber}"/>
+                            <DataGridTextColumn Header="Education" MinWidth="80" Binding="{Binding Path=Education}"/>
+                            <DataGridTextColumn Header="Work" MinWidth="80" Binding="{Binding Path=Work}"/>
+                        </DataGrid.Columns>
 
-                </DataGrid>
+                    </DataGrid>
                 <StackPanel Margin="70,0,0,0" Orientation="Vertical" HorizontalAlignment="Right">
 
                     <Label FontSize="14"  Content="Meddelande" Grid.Row="2" ></Label>

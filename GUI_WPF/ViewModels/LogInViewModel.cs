@@ -47,7 +47,6 @@ namespace GUI_WPF.ViewModels
             set { _employee = value; NotifyOfPropertyChange(() => Employee); }
         }
 
-
         public AlumnModel Alumn
         {
             get { return _alumn; }
@@ -89,7 +88,7 @@ namespace GUI_WPF.ViewModels
                     manager.ShowWindow(new LoggedInEmployeeViewModel(Services, loggedInEmployee), null, null);
                     TryClose();
                 }
-                else MessageBox.Show("sorry bror du gjorde bort dig");
+                else MessageBox.Show("Signatur eller lösenord stämmer inte");
 
             }
             else if (UserVerification == "Email")
@@ -100,12 +99,11 @@ namespace GUI_WPF.ViewModels
                     manager.ShowWindow(new LoggedInAlumnViewModel(Services, loggedInAlumn), null, null);
                     TryClose();
                 }
-                else MessageBox.Show("sorry bror du gjorde bort dig");
+                else MessageBox.Show("Email eller lösenord stämmer inte");
             }
 
-            else MessageBox.Show("sorry bror du gjorde bort dig du måste välja login funktion");
+            else MessageBox.Show("Du har inte valt alumn eller personal");
         }
-        #region Userverification/Radiobutton metoder
         public void EmployeeCheckBox(string idInput, string password)
         {
             ChangeUserVerification("Signatur");
@@ -134,6 +132,6 @@ namespace GUI_WPF.ViewModels
             }
             else return true;
         }
-        #endregion
+
     }
 }

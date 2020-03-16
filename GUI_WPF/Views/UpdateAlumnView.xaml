@@ -12,7 +12,7 @@
                 <Label Content="Uppdatera Uppgifter" FontSize="20"></Label>
                 <StackPanel Width="200" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Förnamn" MinWidth="100"></Label>
+                        <Label Content="Namn" MinWidth="100"></Label>
                         <TextBox Text="{Binding AlumnModel.Name}" MinWidth="100"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -47,7 +47,13 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="200,0,0,0">
-                <DataGrid ItemsSource="{Binding Competences,Mode=TwoWay}" IsReadOnly="True" MinHeight="200" MinWidth="200"></DataGrid>
+                <DataGrid ItemsSource="{Binding Competences,Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" MinHeight="200" MinWidth="200">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" MinWidth="80" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Description" MinWidth="80" Binding="{Binding Path=Description}"/>
+                        <DataGridTextColumn Header="CompetenceLevel" MinWidth="80" Binding="{Binding Path=CompetenceLevel}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </StackPanel>
     </Grid>

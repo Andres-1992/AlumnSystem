@@ -28,7 +28,6 @@ namespace BusinessLayer
             return AppDbContext.Campaigns.Find(campaignId);
         }
 
-
         public Employee GetEmployee(int id)
         {
             return UnitOfWork.Employees.GetById(id);

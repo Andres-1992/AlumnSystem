@@ -102,8 +102,7 @@ namespace GUI_WPF.ViewModels
         {
            SelectedEvent.UpdateEvent(Services);
            MessageBox.Show("Eventet: "+SelectedEvent.Title+" har uppdaterats");
-           Update();
-            
+           Update();            
         } 
         
         public void Changed([CallerMemberName] String propertyName = "")
@@ -116,7 +115,6 @@ namespace GUI_WPF.ViewModels
             SelectedEvent.Delete(Services);
             Update();
         }
-
     }
 
 }

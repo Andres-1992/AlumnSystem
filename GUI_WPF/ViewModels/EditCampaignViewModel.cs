@@ -6,11 +6,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
 
-    public class EditCampaignViewModel:INotifyPropertyChanged
+    public class EditCampaignViewModel : INotifyPropertyChanged
     {
 
         Services Services { get; set; }
@@ -26,6 +27,7 @@ namespace GUI_WPF.ViewModels
         private CampaignModel _selectedCampaign;
         private CampaignModel _campaignModel = new CampaignModel();
 
+        #region Properties
         public ObservableCollection<CampaignModel> Campaigns
         {
             get { return _campaigns; }
@@ -41,29 +43,41 @@ namespace GUI_WPF.ViewModels
             get { return _campaignModel; }
             set { _campaignModel = value; Changed(); }
         }
-        
+        #endregion
+
         public void Changed([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void LoadCampaigns()
-        {            
-            Campaigns = CampaignModel.GetCampaigns(Services,EmployeeModel);
+        {
+            Campaigns = CampaignModel.GetCampaigns(Services, EmployeeModel);
         }
         public void DeleteCampaign()
         {
-            SelectedCampaign.DeleteCampaign(Services);
-            LoadCampaigns();
+            if (SelectedCampaign == null) MessageBox.Show("Du måste välja en kampanj");
+
+            else
+            {
+                SelectedCampaign.DeleteCampaign(Services);
+                LoadCampaigns();
+            }
         }
-       
+
         public event PropertyChangedEventHandler PropertyChanged;
 
 
         public void Update()
         {
-            SelectedCampaign.UpdateCampaign(Services);
-            LoadCampaigns();
+            if (SelectedCampaign == null) MessageBox.Show("Du måste välja en kampanj");
+
+            else
+            {
+                SelectedCampaign.UpdateCampaign(Services);
+                LoadCampaigns();
+            }
+
         }
 
     }

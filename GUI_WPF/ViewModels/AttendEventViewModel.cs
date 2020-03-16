@@ -25,7 +25,7 @@ namespace GUI_WPF.ViewModels
         private ObservableCollection<EventModel> _availableEvents;
         private EventModel _selectedEvent;
         private ObservableCollection<EventModel> _attendedEvents;
-        #region properties
+        #region Properties
         private EventModel _selectedToRemove;
 
         public EventModel SelectedToRemove

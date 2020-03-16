@@ -29,12 +29,10 @@ namespace GUI_WPF.ViewModels
         public void Delete(string password)
         {
             if (Services.LogInServices.Encrypt(password)==AlumnModel.Password)
-            {
-                
+            {                
                 Services.DeleteServices.DeleteAlumn(AlumnModel.AlumnId);
                 IWindowManager manager = new WindowManager();
-                manager.ShowWindow(new LogInViewModel(),null,null) ;
-               
+                manager.ShowWindow(new LogInViewModel(),null,null) ;               
                 TryClose();
             }
             else
