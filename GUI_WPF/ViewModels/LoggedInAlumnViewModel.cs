@@ -1,25 +1,21 @@
 ﻿using BusinessLayer;
 using Caliburn.Micro;
 using GUI_WPF.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
-   public class LoggedInAlumnViewModel: Conductor<object>
+    public class LoggedInAlumnViewModel : Conductor<object>
     {
         AlumnModel AlumnModel { get; set; }
         Services Services { get; set; }
-        public LoggedInAlumnViewModel(Services services,AlumnModel alumnModel)
+        public LoggedInAlumnViewModel(Services services, AlumnModel alumnModel)
         {
             AlumnModel = alumnModel;
             Services = services;
         }
         public void ChangeInfo()
         {
-            ActivateItem(new UpdateAlumnViewModel(Services,AlumnModel));
+            ActivateItem(new UpdateAlumnViewModel(Services, AlumnModel));
         }
 
         public void AttendEvent()
@@ -29,7 +25,7 @@ namespace GUI_WPF.ViewModels
         }
         public void Logout()
         {
-            LogInViewModel logInViewModel= new LogInViewModel();
+            LogInViewModel logInViewModel = new LogInViewModel();
 
             IWindowManager manager = new WindowManager();
             manager.ShowWindow(logInViewModel);
@@ -38,7 +34,7 @@ namespace GUI_WPF.ViewModels
         public void DeleteAccount()
         {
             IWindowManager manager = new WindowManager();
-            manager.ShowWindow(new DeleteAccountViewModel(Services,AlumnModel));
+            manager.ShowWindow(new DeleteAccountViewModel(Services, AlumnModel));
             TryClose();
         }
     }

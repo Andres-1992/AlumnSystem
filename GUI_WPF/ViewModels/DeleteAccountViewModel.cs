@@ -1,14 +1,11 @@
 ﻿using BusinessLayer;
 using Caliburn.Micro;
 using GUI_WPF.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
-    public class DeleteAccountViewModel:Screen
+    public class DeleteAccountViewModel : Screen
     {
         Services Services { get; set; }
         AlumnModel AlumnModel { get; set; }
@@ -22,17 +19,17 @@ namespace GUI_WPF.ViewModels
         public string Password
         {
             get { return _password; }
-            set { _password = value;  }
+            set { _password = value; }
         }
 
 
-        public void Delete(string password)
+        public void Delete(IPasswordProvider passwordProvider)
         {
-            if (Services.LogInServices.Encrypt(password)==AlumnModel.Password)
-            {                
+            if (Services.LogInServices.Encrypt(passwordProvider.Password) == AlumnModel.Password)
+            {
                 Services.DeleteServices.DeleteAlumn(AlumnModel.AlumnId);
                 IWindowManager manager = new WindowManager();
-                manager.ShowWindow(new LogInViewModel(),null,null) ;               
+                manager.ShowWindow(new LogInViewModel(), null, null);
                 TryClose();
             }
             else

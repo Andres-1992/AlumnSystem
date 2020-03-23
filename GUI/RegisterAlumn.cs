@@ -13,7 +13,7 @@ namespace GUI
         Services Services { get; set; }
         public Registrering_Alumn(Services services)
         {
-            InitializeComponent(); 
+            InitializeComponent();
             Services = services;
             competences = new List<Competence>();
 
@@ -98,7 +98,7 @@ namespace GUI
         }
 
         private void AddCompetence_Click(object sender, EventArgs e)
-        {        
+        {
             Competence competence = new Competence(competenceRichTextBox.Text,
                 (CompetenceLevel)Enum.Parse(typeof(CompetenceLevel), competenceComboBox.SelectedValue.ToString()));
             competences.Add(competence);

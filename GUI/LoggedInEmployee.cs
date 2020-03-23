@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class LoggedInEmployee : Form , IObserver
+    public partial class LoggedInEmployee : Form, IObserver
     {
         Employee Employee { get; set; }
         Services Services { get; set; }
@@ -31,7 +31,7 @@ namespace GUI
         {
             AddEvent addevent = new AddEvent(Services, Employee);
             addevent.Register(this);
-           // this.Hide();
+            // this.Hide();
             addevent.ShowDialog(this);
         }
 
@@ -52,8 +52,8 @@ namespace GUI
         {
             CreateCampaign createCampaign = new CreateCampaign(Services, Employee);
             this.Hide();
-           createCampaign.ShowDialog(this);
-           
+            createCampaign.ShowDialog(this);
+
         }
     }
 }

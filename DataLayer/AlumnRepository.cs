@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using DataLayer.Contexts;
 using System.Collections.Generic;
@@ -20,6 +19,7 @@ namespace DataLayer
             return (from x in _context.Alumns
                     where x.Education == education
                     select x).ToList();
+           
         }
 
 

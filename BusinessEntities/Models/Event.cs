@@ -15,7 +15,7 @@ namespace BusinessEntities.Models
         public DateTime LastApplyingDate { get; set; }
 
         public int EmployeeId { get; set; }
-        public Employee Employee { get;  set; }
+        public Employee Employee { get; set; }
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
 
         public Event()

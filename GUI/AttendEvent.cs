@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Junction;
+﻿using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
 using System;
@@ -20,7 +19,7 @@ namespace GUI
             Alumn = alumn;
             Services = services;
             LoadDataGridView();
-           
+
         }
 
         private void Applybutton1_Click(object sender, EventArgs e)

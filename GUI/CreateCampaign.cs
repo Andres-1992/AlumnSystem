@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
@@ -53,7 +52,7 @@ namespace GUI
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
-        {           
+        {
             Alumn alumn = (Alumn)dataGridView2.CurrentRow.DataBoundItem;
             Alumns.Remove(alumn);
 
@@ -98,7 +97,7 @@ namespace GUI
         private void LoadDataGridView2()
         {
             dataGridView2.DataSource = null;
-            dataGridView2.DataSource = Alumns;          
+            dataGridView2.DataSource = Alumns;
         }
         private void HideColumns1()
         {

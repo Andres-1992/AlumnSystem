@@ -1,18 +1,17 @@
 ﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using BusinessLayer;
+using Caliburn.Micro;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
-    public class RegisterViewModel
+    public class RegisterViewModel:Screen,INotifyPropertyChanged
     {
         Services Services { get; set; }
         public RegisterViewModel(Services services)
@@ -82,6 +81,7 @@ namespace GUI_WPF.ViewModels
                 alumnModel.Competences = Competences;
                 alumnModel.SaveAlumn(Services);
                 MessageBox.Show("Du är registrerad");
+                TryClose();
             }
             else MessageBox.Show("Du angav fel lösenord");
         }

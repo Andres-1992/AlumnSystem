@@ -3,9 +3,7 @@ using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
@@ -35,7 +33,7 @@ namespace BusinessLayer
 
         public IEnumerable<Event> GetEvents()
         {
-          return UnitOfWork.Events.GetAll();            
+            return UnitOfWork.Events.GetAll();
         }
 
         public IEnumerable<Competence> GetCompetences(Alumn alumn)

@@ -3,14 +3,11 @@ using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows;
 
 namespace GUI_WPF.Models
 {
-   public class CampaignModel
+    public class CampaignModel
     {
         public CampaignModel()
         {
@@ -25,7 +22,7 @@ namespace GUI_WPF.Models
         private int _campaignId;
         private DateTime _created;
         private string _message;
-        private bool _sent;       
+        private bool _sent;
         private ObservableCollection<CampaignSubscribers> _subscribers;
         private Employee _creator;
 
@@ -61,7 +58,7 @@ namespace GUI_WPF.Models
             get { return _created; }
             set { _created = value; }
         }
-        
+
         public int CampaignId
         {
             get { return _campaignId; }
@@ -83,15 +80,20 @@ namespace GUI_WPF.Models
 
         internal void DeleteCampaign(Services services)
         {
-            Campaign campaign = services.GetServices.GetCampaign(CampaignId);
+            Campaign campaign = GetCampaign(services);
             services.DeleteServices.DeleteCampaign(campaign);
         }
 
         internal void UpdateCampaign(Services services)
         {
-            Campaign campaign = services.GetServices.GetCampaign(CampaignId);
+            Campaign campaign = GetCampaign(services);
             campaign.Message = Message;
             services.UpdateServices.UpdateCampaign(campaign);
+        }
+
+        internal Campaign GetCampaign(Services services)
+        {
+           return services.GetServices.GetCampaign(CampaignId);
         }
 
         internal void SaveCampaign(Services services, SubscriberList subscriberList)

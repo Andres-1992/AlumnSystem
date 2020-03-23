@@ -12,7 +12,7 @@ namespace BusinessEntities.Models
         public bool Sent { get; set; }
 
         public int EmployeeID { get; set; }
-        public Employee Creator { get; set; }        
+        public Employee Creator { get; set; }
         public ICollection<CampaignSubscribers> CampaignSubscribers { get; set; }
     }
 }

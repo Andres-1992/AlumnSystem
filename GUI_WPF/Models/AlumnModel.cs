@@ -54,7 +54,7 @@ namespace GUI_WPF.Models
 
         internal ObservableCollection<Competence> GetCompetences(Services services)
         {
-            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            Alumn alumn = GetAlumn(services);
             ObservableCollection<Competence> x = new ObservableCollection<Competence>();
             foreach (var item in services.GetCollectionServices.GetCompetences(alumn))
             {
@@ -77,31 +77,31 @@ namespace GUI_WPF.Models
 
         internal ObservableCollection<EventModel> GetAttendedEvents(Services services)
         {
-            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            Alumn alumn = GetAlumn(services);
             IEnumerable<Event> attendedEvents = services.GetCollectionServices.GetAttendedEvents(alumn);
 
             ObservableCollection<EventModel> x = new ObservableCollection<EventModel>();
-            
+
             foreach (var item in attendedEvents)
             {
                 EventModel eventModel = mapper.Map<Event, EventModel>(item);
                 x.Add(eventModel);
             }
-            
+
             return x;
         }
 
         internal void RemoveEvent(Services services, int id)
         {
-            Alumn a = services.GetServices.GetAlumn(AlumnId);
+            Alumn a = GetAlumn(services);
             Event e = services.GetServices.GetEvent(id);
-            var result = services.GetCollectionServices.GetAlumnEvents(a).Where(x => x.Event.Equals(e) && x.Alumn.Equals(a)).FirstOrDefault();
-            services.DeleteServices.RemoveMyEvent(result);
+            AlumnEvent alumnEvent = services.GetCollectionServices.GetAlumnEvents(a).Where(x => x.Event.Equals(e) && x.Alumn.Equals(a)).FirstOrDefault();
+            services.DeleteServices.RemoveMyEvent(alumnEvent);
         }
-      
+
         internal void UpdateAlumn(Services services)
         {
-            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            Alumn alumn = GetAlumn(services);
             alumn.Name = Name;
             alumn.Email = Email;
             alumn.Phonenumber = Phonenumber;
@@ -134,7 +134,7 @@ namespace GUI_WPF.Models
 
         internal void AttendEvent(Services services, int id)
         {
-            Alumn alumn = services.GetServices.GetAlumn(AlumnId);
+            Alumn alumn = GetAlumn(services);
             Event @event = services.GetServices.GetEvent(id);
             if (!services.GetCollectionServices.GetAttendedEvents(alumn).Contains(@event))
             {

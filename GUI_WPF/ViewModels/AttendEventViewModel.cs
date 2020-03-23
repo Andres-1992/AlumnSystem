@@ -1,16 +1,14 @@
 ﻿using BusinessLayer;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
-    public class AttendEventViewModel:INotifyPropertyChanged
+    public class AttendEventViewModel : INotifyPropertyChanged
     {
         AlumnModel AlumnModel { get; set; }
         Services Services { get; set; }
@@ -20,7 +18,7 @@ namespace GUI_WPF.ViewModels
             Services = services;
             LoadEvents();
         }
-
+        public event PropertyChangedEventHandler PropertyChanged;
         private EventModel _eventModel = new EventModel();
         private ObservableCollection<EventModel> _availableEvents;
         private EventModel _selectedEvent;
@@ -39,13 +37,13 @@ namespace GUI_WPF.ViewModels
             get { return _attendedEvents; }
             set { _attendedEvents = value; Changed(); }
         }
-        
+
         public EventModel SelectedEvent
         {
             get { return _selectedEvent; }
             set { _selectedEvent = value; Changed(); }
         }
-        
+
         public EventModel EventModel
         {
             get { return _eventModel; }
@@ -63,23 +61,37 @@ namespace GUI_WPF.ViewModels
         {
             AvailableEvents = EventModel.GetEvents(Services);
             AttendedEvents = AlumnModel.GetAttendedEvents(Services);
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-       
+        }               
+
         public void Changed([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
         public void Attend()
         {
-            AlumnModel.AttendEvent(Services,SelectedEvent.EventId);
-            LoadEvents();
-        }        
+            if (SelectedEvent != null)
+            {
+                AlumnModel.AttendEvent(Services, SelectedEvent.EventId);
+                LoadEvents();
+            }
+            else
+            {
+                MessageBox.Show("Du måste välja ett event");
+            }
+        }
+
         public void Delete()
         {
-            AlumnModel.RemoveEvent(Services,SelectedToRemove.EventId);
-            LoadEvents();
+            if (SelectedToRemove!=null)
+            {
+                AlumnModel.RemoveEvent(Services, SelectedToRemove.EventId);
+                LoadEvents();
+            }
+            else
+            {
+                MessageBox.Show("Du måste välja ett event");
+            }
         }
     }
 }

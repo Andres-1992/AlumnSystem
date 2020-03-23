@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_WPF.Views"
+        xmlns:cal="http://www.caliburnproject.org"
         mc:Ignorable="d"
         Title="DeleteAccountView" Height="100" Width="400">
     <Grid>
@@ -22,8 +23,8 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Label Content="Bekräfta lösenord"  FontSize="12" Margin="10" FontWeight="SemiBold"/>
-            <TextBox x:Name="Password"  HorizontalAlignment="Right" MinWidth="100" Margin="10" />
-            <Button x:Name="Delete" Margin="10" MaxHeight="20" MaxWidth="90" Content="Ta bort konto" FontWeight="SemiBold" Background="Red"/>
+            <PasswordBox x:Name="PwBox"  HorizontalAlignment="Right" MinWidth="100" Margin="10" />
+            <Button cal:Message.Attach="Delete($view)" Margin="10" MaxHeight="20" MaxWidth="90" Content="Ta bort konto" FontWeight="SemiBold" />
         </StackPanel>
        
     </Grid>

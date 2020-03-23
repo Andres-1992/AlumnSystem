@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
-using BusinessLayer;
-using DataLayer.Contexts;
-using DataLayer;
-using System.Threading.Channels;
-using Caliburn.Micro;
+﻿using AutoMapper;
 using BusinessEntities.Models;
-using AutoMapper;
+using BusinessLayer;
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace GUI_WPF.Models
 {
@@ -27,6 +21,7 @@ namespace GUI_WPF.Models
         }
 
         private IMapper mapper;
+
         private int _eventId;
         private string _title;
         private string _description;
@@ -88,9 +83,9 @@ namespace GUI_WPF.Models
 
         public void Delete(Services services)
         {
-         services.DeleteServices.DeleteEvent(EventId);
+            services.DeleteServices.DeleteEvent(EventId);
         }
-       
+
         public void SaveEvent(Services services)
         {
             Event newEvent = new Event(

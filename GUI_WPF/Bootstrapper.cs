@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Caliburn.Micro;
-using System.Windows;
+﻿using Caliburn.Micro;
 using GUI_WPF.ViewModels;
-using DataLayer.Contexts;
-using DataLayer;
-using BusinessLayer;
+using System.Windows;
 
 namespace GUI_WPF
 {

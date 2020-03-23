@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Junction;
+﻿using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using DataLayer.Contexts;
 using System.Collections.Generic;

@@ -1,11 +1,9 @@
 ﻿using BusinessLayer;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
@@ -22,7 +20,7 @@ namespace GUI_WPF.ViewModels
             EmployeeModel = employeeModel;
             LoadCampaigns();
         }
-
+        public event PropertyChangedEventHandler PropertyChanged;
         private ObservableCollection<CampaignModel> _campaigns;
         private CampaignModel _selectedCampaign;
         private CampaignModel _campaignModel = new CampaignModel();
@@ -65,7 +63,7 @@ namespace GUI_WPF.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
 
 
         public void Update()

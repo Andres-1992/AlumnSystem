@@ -27,7 +27,7 @@ namespace GUI
             LevelcomboBox.DataSource = Enum.GetValues(typeof(CompetenceLevel));
             this.Text = Alumn.Name;
         }
-        
+
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Owner.Show();

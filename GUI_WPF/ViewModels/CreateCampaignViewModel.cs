@@ -5,12 +5,10 @@ using BusinessLayer;
 using Caliburn.Micro;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
@@ -23,8 +21,8 @@ namespace GUI_WPF.ViewModels
         {
             Services = services;
             EmployeeModel = employeeModel;
-           
-        }   
+
+        }
 
         private Services Services;
         private EmployeeModel EmployeeModel;
@@ -33,22 +31,22 @@ namespace GUI_WPF.ViewModels
         private AlumnModel _alumnModel = new AlumnModel();
         private AlumnModel _selectedAlumn;
         private AlumnModel _selectedSubscriber;
-        private ObservableCollection<AlumnModel> _alumns;        
+        private ObservableCollection<AlumnModel> _alumns;
         private ObservableCollection<AlumnModel> _selectedAlumns = new ObservableCollection<AlumnModel>();
-               
+
         private Education _selectedEducation;
         private ObservableCollection<Education> _educations = new ObservableCollection<Education>()
         { Education.Dataekonom,
                 Education.Systemarkitekt,
                 Education.Systemvetare};
-       
- public void Changed([CallerMemberName] String propertyName = "")
+
+        public void Changed([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #region Properties  
-        
-       
+
+
         public AlumnModel AlumnModel
         {
             get { return _alumnModel; }
@@ -86,7 +84,7 @@ namespace GUI_WPF.ViewModels
             get { return _alumns; }
             set { _alumns = value; Changed(); }
         }
-        
+
         public AlumnModel SelectedAlumn
         {
             get { return _selectedAlumn; }
@@ -100,14 +98,14 @@ namespace GUI_WPF.ViewModels
 
         public void ShowAllButton()
         {
-          Alumns = AlumnModel.GetAllAlumns(Services);           
+            Alumns = AlumnModel.GetAllAlumns(Services);
         }
 
         public void DeleteButton()
         {
             SelectedAlumns.Remove(SelectedSubscriber);
         }
-      
+
         public void AddButton()
         {
             if (SelectedAlumn != null)
@@ -116,15 +114,11 @@ namespace GUI_WPF.ViewModels
                 {
                     SelectedAlumns.Add(SelectedAlumn);
                 }
-                else MessageBox.Show($"Du kan inte lägga till {SelectedAlumn.Name} fler än en gång");
+                    else MessageBox.Show($"Du kan inte lägga till {SelectedAlumn.Name} fler än en gång");
             }
-            else
-            {
-                MessageBox.Show("Du måste välja nåt");
-            }
+                    else MessageBox.Show("Du måste välja nåt");                   
+        }
 
-
-        }  
         public void CreateSubListButton()
         {
             SubscriberList = new SubscriberList() { Created = DateTime.Now };
@@ -132,7 +126,7 @@ namespace GUI_WPF.ViewModels
             SubscriberListAlumn SubscriberListAlumn = new SubscriberListAlumn();
             foreach (var item in SelectedAlumns)
             {
-                SubscriberListAlumn.Alumn  = item.GetAlumn(Services) ;
+                SubscriberListAlumn.Alumn = item.GetAlumn(Services);
                 SubscriberListAlumn.SubscriberList = SubscriberList;
                 Services.AddServices.AddSubscriberListAlumn(SubscriberListAlumn);
             }
@@ -141,10 +135,11 @@ namespace GUI_WPF.ViewModels
 
         public bool CanCreateCampaignButton(string message)
         {
-            if (String.IsNullOrWhiteSpace(message) || SubscriberList==null)  return false;
-            
+            if (String.IsNullOrWhiteSpace(message) || SubscriberList == null) return false;
+
             else return true;
         }
+
         public void CreateCampaignButton(string message)
         {
             CampaignModel CampaignModel = new CampaignModel()
@@ -154,9 +149,8 @@ namespace GUI_WPF.ViewModels
                 Message = message,
                 Sent = true
             };
-            CampaignModel.SaveCampaign(Services,SubscriberList);
+            CampaignModel.SaveCampaign(Services, SubscriberList);
             MessageBox.Show("Du har skapat ett utskick");
-
         }
     }
 }

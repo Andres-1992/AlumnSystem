@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_WPF.Views"
+        xmlns:cal="http://www.caliburnproject.org"
         mc:Ignorable="d"
         Title="LogInView" Height="450" Width="800">
     <Grid>
@@ -29,18 +30,15 @@
                 <TextBlock Margin="5,5,0,0" Text="{Binding UserVerification}" />
                 <TextBox x:Name="IdInput" Margin="5" />
                <TextBlock  Margin="5,5,0,0" Text="Lösenord"/>
-                <TextBox x:Name="Password" Margin="5"  />
-                <Button x:Name="LogInButton" MaxWidth="75"   MinHeight="20" MaxHeight="25" Margin="10" >Logga in</Button>
+                <PasswordBox x:Name="PwBox" Margin="5"  />
+                <Button  cal:Message.Attach="LogInButton($view,IdInput)" Content="Logga in" MaxWidth="75" MinHeight="20" MaxHeight="25" Margin="10"/>
                 <StackPanel HorizontalAlignment="Center" Margin="10,70,10,10">
-                   
-
-
-                    
-                </StackPanel>
+              </StackPanel>
             </StackPanel>
         </StackPanel>
         <Button Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" Margin="10" x:Name="RegisterLink" >
     Registrera dig här
   </Button>
+        
     </Grid>
 </Window>

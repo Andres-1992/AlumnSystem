@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using System.Collections.Generic;
 

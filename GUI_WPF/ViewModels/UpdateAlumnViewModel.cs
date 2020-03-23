@@ -1,15 +1,11 @@
-﻿using AutoMapper;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Models;
 using BusinessLayer;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Linq;
 using System.Windows;
 
 namespace GUI_WPF.ViewModels
@@ -69,7 +65,7 @@ namespace GUI_WPF.ViewModels
 
         public void AddCompetence(string descriptionComp)
         {
-            Competences.Add(new Competence(descriptionComp, SelectedCompetenceLevel)); 
+            Competences.Add(new Competence(descriptionComp, SelectedCompetenceLevel));
         }
 
         public void UpdateInfo(string currentPassword, string newPassword)
@@ -85,7 +81,7 @@ namespace GUI_WPF.ViewModels
             MessageBox.Show("Du har uppdaterat din profil");
             LoadCompetences();
         }
-        
+
         private void LoadCompetences()
         {
             Competences = AlumnModel.GetCompetences(Services);

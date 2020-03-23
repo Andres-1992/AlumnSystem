@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 
 namespace BusinessEntities.Junction
 {

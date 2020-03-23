@@ -5,12 +5,9 @@ using DataLayer.Contexts;
 using GUI_WPF.Models;
 using GUI_WPF.Views;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace GUI_WPF.ViewModels
 {
@@ -29,17 +26,9 @@ namespace GUI_WPF.ViewModels
         IWindowManager manager = new WindowManager();
         private string _userVerification;
         private string _idInput;
-        private string _password;
         private EmployeeModel _employee = new EmployeeModel();
         private AlumnModel _alumn = new AlumnModel();
 
-       
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void Changed([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         #region Properties
         public EmployeeModel Employee
         {
@@ -65,11 +54,6 @@ namespace GUI_WPF.ViewModels
             set { _idInput = value; NotifyOfPropertyChange(() => IdInput); }
         }
 
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; NotifyOfPropertyChange(() => Password); }
-        }
         #endregion
 
 
@@ -78,11 +62,11 @@ namespace GUI_WPF.ViewModels
             manager.ShowWindow(new RegisterViewModel(Services), null, null);
         }
 
-        public void LogInButton(string idInput, string password)
+        public void LogInButton(IPasswordProvider passwordProvider, string idInput)
         {
             if (UserVerification == "Signatur")
             {
-                EmployeeModel loggedInEmployee = Employee.GetLoggedInEmployee(idInput, password, Services);
+                EmployeeModel loggedInEmployee = Employee.GetLoggedInEmployee(idInput, passwordProvider.Password, Services);
                 if (loggedInEmployee != null)
                 {
                     manager.ShowWindow(new LoggedInEmployeeViewModel(Services, loggedInEmployee), null, null);
@@ -92,10 +76,10 @@ namespace GUI_WPF.ViewModels
 
             }
             else if (UserVerification == "Email")
-            {                
-                AlumnModel loggedInAlumn = Alumn.GetLoggedInAlumn(idInput, password, Services);
+            {
+                AlumnModel loggedInAlumn = Alumn.GetLoggedInAlumn(idInput, passwordProvider.Password, Services);
                 if (loggedInAlumn != null)
-                {                 
+                {
                     manager.ShowWindow(new LoggedInAlumnViewModel(Services, loggedInAlumn), null, null);
                     TryClose();
                 }
@@ -104,34 +88,19 @@ namespace GUI_WPF.ViewModels
 
             else MessageBox.Show("Du har inte valt alumn eller personal");
         }
-        public void EmployeeCheckBox(string idInput, string password)
+        public void EmployeeCheckBox()
         {
             ChangeUserVerification("Signatur");
-            IdInput = "";
-            Password = "";
         }
 
-        public void AlumnCheckBox(string idInput, string password)
+        public void AlumnCheckBox()
         {
             ChangeUserVerification("Email");
-            IdInput = "";
-            Password = "";
         }
 
         private void ChangeUserVerification(string s)
         {
             UserVerification = s;
         }
-
-        public bool CanLogInButton(string idInput, string password)
-        {
-            if (String.IsNullOrWhiteSpace(idInput) || String.IsNullOrWhiteSpace(password))
-            {
-
-                return false;
-            }
-            else return true;
-        }
-
     }
 }

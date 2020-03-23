@@ -1,9 +1,6 @@
 ﻿using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
@@ -20,7 +17,7 @@ namespace BusinessLayer
 
         public Alumn GetAlumn(int id)
         {
-           return UnitOfWork.Alumns.GetById(id);
+            return UnitOfWork.Alumns.GetById(id);
         }
 
         public Campaign GetCampaign(int campaignId)

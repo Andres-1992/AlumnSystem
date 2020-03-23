@@ -1,10 +1,7 @@
 ﻿using BusinessEntities.Models;
 using DataLayer.Contexts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace DataLayer
 {
@@ -29,6 +26,6 @@ namespace DataLayer
                     where x.Signature == signature && x.Password == password
                     select x).FirstOrDefault();
         }
-       
+
     }
 }

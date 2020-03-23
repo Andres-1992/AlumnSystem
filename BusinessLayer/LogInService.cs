@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
 using System;
@@ -25,8 +24,8 @@ namespace BusinessLayer
 
         public Alumn LogInAlumn(string email, string password)
         {
-          return UnitOfWork.Alumns.LogIn(email, password);
-           
+            return UnitOfWork.Alumns.LogIn(email, password);
+
         }
 
         public string Encrypt(string value)

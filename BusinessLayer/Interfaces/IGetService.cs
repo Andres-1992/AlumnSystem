@@ -1,11 +1,8 @@
 ﻿using BusinessEntities.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
-   public interface IGetService
+    public interface IGetService
     {
         Alumn GetAlumn(int id);
         Event GetEvent(int id);
