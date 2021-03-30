@@ -23,7 +23,7 @@ namespace GUI_WPF.Views
         public CreateCampaignView()
         {
             InitializeComponent();
-            ComboBox.ItemsSource = Enum.GetValues(typeof(Education));
+           // ComboBox.ItemsSource = Enum.GetValues(typeof(Education));
             
         }
 

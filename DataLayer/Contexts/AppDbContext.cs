@@ -11,7 +11,7 @@ namespace DataLayer.Contexts
         {
             optionsBuilder
                 //.UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false;");
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=oosu2Integrated Security=True;");
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=oosu2; Integrated Security=true;");
             optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
 

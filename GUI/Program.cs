@@ -15,6 +15,8 @@ namespace GUI
         static void Main()
         {
             AppDbContext AppDbContext = new AppDbContext();
+            AppDbContext.Database.EnsureDeleted();
+            AppDbContext.Database.EnsureCreated();
             UnitOfWork UnitOfWork = new UnitOfWork(AppDbContext);
             Services Services = new Services(AppDbContext, UnitOfWork);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
