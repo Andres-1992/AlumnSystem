@@ -36,7 +36,7 @@ namespace GUI
             }
             else if (ValidateTextBoxes() && personalRadioButton.Checked)
             {
-                Employee Employee = Services.LogInServices.LogInEmployee(userNameTextBox.Text, passwordTextBox.Text);
+                Employee Employee = Services.LogInServices.LogInEmployee(userNameTextBox.Text, encryptedPassword);
                 if (Employee != null)
                 {
                     LoggedInEmployee loggedIn = new LoggedInEmployee(Services, Employee);
