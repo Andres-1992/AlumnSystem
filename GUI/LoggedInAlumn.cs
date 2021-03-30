@@ -1,4 +1,4 @@
-﻿using BusinessEntities;
+﻿using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Windows.Forms;
@@ -47,7 +47,7 @@ namespace GUI
             DeleteAccount deleteAccount = new DeleteAccount(Services, Alumn);
             this.Hide();
             deleteAccount.ShowDialog(this);
-            if (deleteAccount.DialogResult == DialogResult.Yes)  Owner.Show();
+            if (deleteAccount.DialogResult == DialogResult.Yes) Owner.Show();
         }
     }
 }

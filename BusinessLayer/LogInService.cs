@@ -1,7 +1,9 @@
-﻿using BusinessEntities;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 using DataLayer;
 using DataLayer.Contexts;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BusinessLayer
 {
@@ -22,14 +24,16 @@ namespace BusinessLayer
 
         public Alumn LogInAlumn(string email, string password)
         {
-            var result = UnitOfWork.Alumns.LogIn(email, password);
-            return result;
+            return UnitOfWork.Alumns.LogIn(email, password);
+
         }
 
-        public void AddAlumn(Alumn alumn)
+        public string Encrypt(string value)
         {
-            UnitOfWork.Alumns.Insert(alumn);
-            UnitOfWork.Alumns.Save();
+            using MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding utf8 = new UTF8Encoding();
+            byte[] data = md5.ComputeHash(utf8.GetBytes(value));
+            return Convert.ToBase64String(data);
         }
     }
 }

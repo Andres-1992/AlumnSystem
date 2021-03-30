@@ -1,82 +1,124 @@
-﻿
+﻿using BusinessLayer;
 using GUI_WPF.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
+using System.Windows;
 
 namespace GUI_WPF.ViewModels
 {
-  public class AddEventViewModel :INotifyPropertyChanged
+    public class AddEventViewModel : INotifyPropertyChanged
     {
-        public AddEventViewModel()
+
+        Services Services { get; set; }
+
+
+        public AddEventViewModel(Services services, EmployeeModel employeeModel)
         {
+            Services = services;
+            Creator = employeeModel;
             Update();
         }
 
-        private Event _selectedEvent;
-        private Event events = new Event();
-        private ObservableCollection<Event> _eventslist;
-
+        private EventModel _selectedEvent;
+        private EventModel _event = new EventModel();
+        private ObservableCollection<EventModel> _eventList;
         public event PropertyChangedEventHandler PropertyChanged;
+        private EmployeeModel _creator;
+        private ObservableCollection<AlumnModel> _attendedAlumns;
+
+        #region Properties
+        public EmployeeModel Creator
+        {
+            get { return _creator; }
+            set { _creator = value; Changed(); }
+        }
+
+
+        public EventModel SelectedEvent
+        {
+            get { return _selectedEvent; }
+            set
+            { _selectedEvent = value; Changed(); }
+        }
+
+        public EventModel EventModel
+        {
+            get { return _event; }
+            set
+            { _event = value; Changed(); }
+        }
+
+        public ObservableCollection<EventModel> EventList
+        {
+            get { return _eventList; }
+            set
+            { _eventList = value; Changed(); }
+        }
+        public ObservableCollection<AlumnModel> AttendedAlumns
+        {
+            get { return _attendedAlumns; }
+            set { _attendedAlumns = value; Changed(); }
+        }
+        #endregion
+
+
+        public void AddEvent()
+        {
+            EventModel newEvent = new EventModel()
+            {
+                Title = EventModel.Title,
+                Description = EventModel.Description,
+                StartDate = EventModel.StartDate,
+                EndDate = EventModel.EndDate,
+                LastApplyingDate = EventModel.LastApplyingDate,
+                Creator = Creator.GetEmployee(Services)
+            };
+            newEvent.SaveEvent(Services);
+            Update();
+        }
+
+        public void AttendedAlumn()
+        {
+            if (SelectedEvent != null)
+            {
+                AttendedAlumns = SelectedEvent.GetAttendedAlumns(Services);
+            }
+            else MessageBox.Show("Du måste välja ett event");
+        }
+
+        public void Update()
+        {
+            EventList = EventModel.GetEvents(Services);
+        }
+
+        public void EditEvent()
+        {
+            if (SelectedEvent != null)
+            {
+                SelectedEvent.UpdateEvent(Services);
+                MessageBox.Show("Eventet: " + SelectedEvent.Title + " har uppdaterats");
+                Update();
+            }
+            else MessageBox.Show("Du måste välja ett event");
+
+        }
+
         public void Changed([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void AddEvent()
-        {
-            Event events = new Event()
-            {
-                Title = Event.Title,
-                Description = Event.Description,
-                StartDate = Event.StartDate,
-                EndDate = Event.EndDate,
-                LastApplyingDate = Event.LastApplyingDate,
-                EmployeeId = 1
-            };
-            events.SaveEvent();
-            Update();
-        }
-
-        public Event SelectedEvent
-        {
-            get { return _selectedEvent; }
-            set { _selectedEvent = value; Changed(); }
-        }
-
         public void DeleteEvent()
         {
-            ((Event)this.SelectedEvent).Delete();
+            if (SelectedEvent != null)
+            {
+                SelectedEvent.Delete(Services);
+            }
+            else MessageBox.Show("Du måste välja ett event");
             Update();
         }
-
-        public Event Event
-        {
-            get { return events; }
-            set
-            {
-                events = value;
-                Changed();
-            }
-        }
-
-        public ObservableCollection<Event> Eventslist
-        {
-            get { return _eventslist; }
-            set
-            {
-                _eventslist = value;
-                Changed();
-            }
-        }
-
-        public void Update()
-        {
-            Eventslist = events.GetEvents();
-        }        
     }
 
 }

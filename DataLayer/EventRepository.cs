@@ -1,7 +1,6 @@
-﻿using BusinessEntities;
+﻿using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using DataLayer.Contexts;
-using DataLayer.Contexts.Junction;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +19,6 @@ namespace DataLayer
             return (from x in _context.AlumnEvent
                     where x.Alumn.AlumnId.Equals(alumn.AlumnId)
                     select x.Event).ToList();
-
         }
         public IEnumerable<AlumnEvent> GetAlumnEvent(Alumn alumn)
         {
@@ -30,5 +28,11 @@ namespace DataLayer
             return result;
         }
 
+        public IEnumerable<Alumn> GetAttendedAlumn(Event @event)
+        {
+            return (from x in _context.AlumnEvent
+                    where x.Event.EventId.Equals(@event.EventId)
+                    select x.Alumn).ToList();
+        }
     }
 }

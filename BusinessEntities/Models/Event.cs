@@ -1,7 +1,6 @@
-﻿using DataLayer.Contexts.Junction;
+﻿using BusinessEntities.Junction;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace BusinessEntities.Models
 {
@@ -16,7 +15,7 @@ namespace BusinessEntities.Models
         public DateTime LastApplyingDate { get; set; }
 
         public int EmployeeId { get; set; }
-        public Employee Employee { get; private set; }
+        public Employee Employee { get; set; }
         public ICollection<AlumnEvent> AlumnEvents { get; private set; }
 
         public Event()
@@ -33,6 +32,5 @@ namespace BusinessEntities.Models
             LastApplyingDate = lastapplyingdate;
             Employee = employee;
         }
-
     }
 }

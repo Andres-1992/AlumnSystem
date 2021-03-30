@@ -16,5 +16,6 @@ namespace BusinessEntities.Models
             Description = description;
             CompetenceLevel = competenceLevel;
         }
+
     }
 }

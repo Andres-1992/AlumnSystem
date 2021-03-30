@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Models;
+﻿using BusinessEntities.Models;
 using BusinessLayer;
 using System;
 using System.Windows.Forms;
@@ -18,7 +17,7 @@ namespace GUI
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            string encryptedPassword = Services.BusinessManager.Encrypt(passwordTextBox.Text);
+            string encryptedPassword = Services.LogInServices.Encrypt(passwordTextBox.Text);
 
             if (ValidateTextBoxes() && alumnRadioButton.Checked)
             {

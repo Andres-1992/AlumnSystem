@@ -1,7 +1,5 @@
-﻿using BusinessEntities;
-using BusinessEntities.Junction;
+﻿using BusinessEntities.Junction;
 using BusinessEntities.Models;
-using DataLayer.Contexts.Junction;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Contexts
@@ -12,7 +10,8 @@ namespace DataLayer.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false;");
+                //.UseSqlServer(@"Server=sqlutb2.hb.se,56077;database=osu2003;User id=osu2003;password=wb2538;Integrated Security=false;");
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=oosu2Integrated Security=True;");
             optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
 
@@ -36,7 +35,7 @@ namespace DataLayer.Contexts
             //Ny modell
 
             modelBuilder.Entity<CampaignSubscribers>()
-           .HasKey(a => new { a.CampaignId, a.SubscriberListId});
+           .HasKey(a => new { a.CampaignId, a.SubscriberListId });
 
             modelBuilder.Entity<CampaignSubscribers>()
                 .HasOne(ae => ae.SubscriberList)
@@ -70,7 +69,7 @@ namespace DataLayer.Contexts
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Competence> Competence { get; set; }
-        public DbSet<Campaign> Campaigns  { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<SubscriberList> SubscriberLists { get; set; }
         public DbSet<CampaignSubscribers> CampaignSubscribers { get; set; }
         public DbSet<SubscriberListAlumn> SubscriberListAlumns { get; set; }

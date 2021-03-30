@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessEntities.ObserverPattern
+﻿namespace BusinessEntities.ObserverPattern
 {
-   public interface IObserver
+    public interface IObserver
     {
         void Update(ISubject subject);
     }

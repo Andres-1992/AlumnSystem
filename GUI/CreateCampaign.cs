@@ -1,5 +1,4 @@
-﻿using BusinessEntities;
-using BusinessEntities.Enums;
+﻿using BusinessEntities.Enums;
 using BusinessEntities.Junction;
 using BusinessEntities.Models;
 using BusinessLayer;
@@ -29,13 +28,13 @@ namespace GUI
 
         private void showAllBt_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Services.EmployeeServices.GetAll();
+            dataGridView1.DataSource = Services.GetCollectionServices.GetAllAlumns();
             HideColumns1();
         }
 
         private void Showbutton1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Services.EmployeeServices.GetAlumnsByEducation((Education)Enum.Parse(typeof(Education), EducationcomboBox.SelectedValue.ToString()));
+            dataGridView1.DataSource = Services.GetCollectionServices.GetAlumnsByEducation((Education)Enum.Parse(typeof(Education), EducationcomboBox.SelectedValue.ToString()));
             HideColumns1();
         }
 
@@ -53,7 +52,7 @@ namespace GUI
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
-        {           
+        {
             Alumn alumn = (Alumn)dataGridView2.CurrentRow.DataBoundItem;
             Alumns.Remove(alumn);
 
@@ -74,9 +73,9 @@ namespace GUI
                 Message = richTextBox1.Text,
                 Sent = false
             };
-            Services.EmployeeServices.AddCampaign(Campaign);
+            Services.AddServices.AddCampaign(Campaign);
             CampaignSubscribers campaignSubscribers = new CampaignSubscribers() { Campaign = Campaign, SubscriberList = SubscriberList };
-            Services.EmployeeServices.AddCampaignSubscribers(campaignSubscribers);
+            Services.AddServices.AddCampaignSubscribers(campaignSubscribers);
 
             MessageBox.Show("Du har skapat ett utskick");
             Owner.Show();
@@ -85,20 +84,20 @@ namespace GUI
         private void Createbutton_Click(object sender, EventArgs e)
         {
             SubscriberList = new SubscriberList() { Created = DateTime.Now };
-            Services.EmployeeServices.AddSubscriberList(SubscriberList);
+            Services.AddServices.AddSubscriberList(SubscriberList);
             SubscriberListAlumn SubscriberListAlumn = new SubscriberListAlumn();
             foreach (var item in Alumns)
             {
                 SubscriberListAlumn.Alumn = item;
                 SubscriberListAlumn.SubscriberList = SubscriberList;
-                Services.EmployeeServices.AddSubscriberListAlumn(SubscriberListAlumn);
+                Services.AddServices.AddSubscriberListAlumn(SubscriberListAlumn);
             }
             MessageBox.Show("Du har skapat en ny Subscriber lista");
         }
         private void LoadDataGridView2()
         {
             dataGridView2.DataSource = null;
-            dataGridView2.DataSource = Alumns;          
+            dataGridView2.DataSource = Alumns;
         }
         private void HideColumns1()
         {

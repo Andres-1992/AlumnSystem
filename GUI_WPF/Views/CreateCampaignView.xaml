@@ -5,80 +5,106 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI_WPF.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1000" Background="White">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
 
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
 
 
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" >
-            <StackPanel Orientation="Vertical" >
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Center" Orientation="Vertical" >
+            <StackPanel  Orientation="Vertical" >
                 <Label FontSize="20">Tillgängliga alumner</Label>
 
                 <DataGrid x:Name="dataGridAvailableAlumns"
                                   ItemsSource="{Binding Alumns}"
                                   SelectedItem="{Binding Path=SelectedAlumn , Mode=OneWayToSource}"
-                                  Height="200"
-                                  Width="750"
-                          IsReadOnly="True"
-                               
-                    >
-                    
+                                 AutoGenerateColumns="False"
+                                 IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=AlumnId}"/>
+                            <DataGridTextColumn Header="Name" MinWidth="80" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Email" MinWidth="80" Binding="{Binding Path=Email}"/>
+                            <DataGridTextColumn Header="Phonenumber" MinWidth="80" Binding="{Binding Path=Phonenumber}"/>
+                            <DataGridTextColumn Header="Education" MinWidth="80" Binding="{Binding Path=Education}"/>
+                            <DataGridTextColumn Header="Work" MinWidth="80" Binding="{Binding Path=Work}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-                </DataGrid>
-                <StackPanel Orientation="Vertical" Grid.Row="1" Height="70" Margin="0,20,0,0">
-                    <Button x:Name="AddButton" Content="Lägg till" Width="60" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="40,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Button  x:Name="AddButton" Margin=" 0,0,824,0" Content="Lägg till" BorderBrush="Black" >
                     </Button>
-                    <Button x:Name="EditButton" Content="Redigera utskick" Width="100" HorizontalAlignment="Left" BorderBrush="Black" Margin="20,5,0,0"></Button>
-                    <Button x:Name="ShowAllButton" Content="Visa alla" Width="60" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="800,-20,0,-10">
-                    </Button>
-                    <Button x:Name="ShowButton" Content="Visa" Width="60" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="700,-20,0,0">
-                    </Button>
-                    <ComboBox x:Name="ComboBox" Width="300" Height="30" HorizontalAlignment="Center" Margin="450,-100,0,0" SelectedItem="{Binding Path=SelectedEducation ,Mode=OneWayToSource}">
 
+
+                    <ComboBox HorizontalAlignment="Right" Margin="5"  MinWidth="100" ItemsSource="{Binding Educations}" SelectedItem="{Binding Path=SelectedEducation ,Mode=OneWayToSource}">
                     </ComboBox>
+
+
                 </StackPanel>
+
+                <StackPanel HorizontalAlignment="Right">
+                <Button x:Name="ShowAllButton" Margin="2" Content="Visa alla" BorderBrush="Black" >
+                </Button>
+                    <Button x:Name="ShowButton" Margin="2" MinWidth="95"  Content="Visa"  BorderBrush="Black" >
+                </Button>
+</StackPanel>
+
             </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="2"  >
+            </StackPanel>
+
+            <StackPanel Grid.ColumnSpan="2" Margin="0,20,0,0" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2" Grid.Column="1" >
+            <StackPanel  Orientation="Horizontal"  >
 
 
-            <DataGrid x:Name="dataGridPickedAlumns" Margin="0,0,350,0"
+                <DataGrid  x:Name="dataGridPickedAlumns" 
                      ItemsSource="{Binding SelectedAlumns}"
                       SelectedItem="{Binding Path=SelectedSubscriber , Mode=OneWayToSource}"
                                   Height="200"
                                   Width="600"
-                        IsReadOnly="True"          >
-               
-                            </DataGrid>
-            <StackPanel Orientation="Horizontal" Margin="50" Height="20">
-                <Button x:Name="DeleteButton" Content="Ta bort"  Margin="0,0,400,0" MinWidth="80" BorderBrush="Black" />
-                <Button x:Name="CreateListButton" Content="Skapa lista" HorizontalAlignment="Center"  Margin="0,0,60,0" Width="80" BorderBrush="Black" >
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" MinWidth="80" Binding="{Binding Path=AlumnId}"/>
+                            <DataGridTextColumn Header="Name" MinWidth="80" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Email" MinWidth="80" Binding="{Binding Path=Email}"/>
+                            <DataGridTextColumn Header="Phonenumber" MinWidth="80" Binding="{Binding Path=Phonenumber}"/>
+                            <DataGridTextColumn Header="Education" MinWidth="80" Binding="{Binding Path=Education}"/>
+                            <DataGridTextColumn Header="Work" MinWidth="80" Binding="{Binding Path=Work}"/>
+                        </DataGrid.Columns>
 
-                </Button>
-                <Button x:Name="CancelButton" Content="Avbryt" HorizontalAlignment="Right" MinWidth="80" Margin="0,0,120,0" BorderBrush="Black" >
+                    </DataGrid>
+                <StackPanel Margin="70,0,0,0" Orientation="Vertical" HorizontalAlignment="Right">
 
-                </Button>
-                <Button x:Name="CreateButton" Content="Skicka" HorizontalAlignment="Right" MinWidth="80" BorderBrush="Black">
+                    <Label FontSize="14"  Content="Meddelande" Grid.Row="2" ></Label>
+                    <TextBox x:Name="Message" Height="160" Width="300" BorderBrush="Black" BorderThickness="1" />
 
-                </Button>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Row="2" Height="Auto" Width="300" Margin="0,0,30,0">
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1"  >
+                <Button x:Name="DeleteButton" HorizontalAlignment="Right" Margin="0,0,440,0" Content="Ta bort"   MinWidth="80" BorderBrush="Black" />
+                <Button x:Name="CreateSubListButton" Content="Skapa lista"  Width="80" BorderBrush="Black"/>
+                <Button x:Name="CreateCampaignButton" Content="Skicka" Margin="290,0,0,0"  MinWidth="80" BorderBrush="Black"/>
+            </StackPanel>
 
-            <Label FontSize="14"  Content="Meddelande" Grid.Row="2" ></Label>
-            <RichTextBox Height="160" Width="300" BorderBrush="Black" BorderThickness="1" />
 
-        </StackPanel>
-    </Grid>
-
+        </Grid>
+    </ScrollViewer>
 </UserControl>

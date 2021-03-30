@@ -35,7 +35,7 @@ namespace GUI
                 Evnts.StartDate = startTimePicker1.Value.Date;
                 Evnts.EndDate = endTimePicker1.Value.Date;
                 Evnts.LastApplyingDate = lastTimePicker1.Value.Date;
-                Services.EmployeeServices.UpdateEvent(Evnts);
+                Services.UpdateServices.UpdateEvent(Evnts);
                 MessageBox.Show("Eventet har uppdaterats");
             }
             else MessageBox.Show("Kolla datumen");
